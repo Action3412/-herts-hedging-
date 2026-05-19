@@ -27,7 +27,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<link rel="preload" as="image" href="/img/gal12.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/img/gal12.jpg" imagesrcset="/.netlify/images?url=/img/gal12.jpg&amp;w=900 900w, /.netlify/images?url=/img/gal12.jpg&amp;w=1600 1600w, /img/gal12.jpg 2400w" imagesizes="100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -144,8 +144,12 @@
 html{overflow-x:hidden;scroll-behavior:smooth}
 
 /* Skip-to-content link — visible only when focused via keyboard */
-.skip{position:absolute;top:-50px;left:18px;background:var(--forest-deep);color:var(--cream);padding:10px 18px;border-radius:0 0 8px 8px;font-size:.78rem;font-weight:600;letter-spacing:.5px;z-index:200;transition:top .25s var(--ease)}
+.skip{position:absolute;top:-50px;left:18px;background:var(--forest-deep);color:var(--cream);padding:10px 18px;border-radius:0 0 8px 8px;font-size:.78rem;font-weight:600;letter-spacing:.5px;z-index:201;transition:top .25s var(--ease)}
 .skip:focus-visible{top:0;outline:2px solid var(--gold);outline-offset:2px}
+
+/* Scroll progress bar */
+.progress-bar{position:fixed;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold-light) 100%);transform:scaleX(0);transform-origin:left;z-index:200;transition:transform .08s linear;pointer-events:none;will-change:transform}
+@media (prefers-reduced-motion: reduce){.progress-bar{display:none}}
 
 /* Respect users who prefer less motion */
 @media (prefers-reduced-motion: reduce){
@@ -707,6 +711,7 @@ body.on-contact .float-call{opacity:0!important;transform:translateY(20px)!impor
 </head>
 <body>
 <a href="#page-home" class="skip" onclick="goTo('home');return false">Skip to content</a>
+<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
 <header id="hdr"><div class="nav-glass">
   <a href="#" class="logo" onclick="goTo('home');return false">
@@ -1617,6 +1622,18 @@ body.on-contact .float-call{opacity:0!important;transform:translateY(20px)!impor
 </footer>
 
 <script>
+// Netlify Image CDN — responsive variants for /img/* assets
+var nimgProfiles={
+  bento:{ws:[400,800,1200],sz:'(max-width:600px) 100vw, (max-width:1200px) 50vw, 33vw'},
+  hero:{ws:[900,1600,2400],sz:'100vw'},
+  lb:{ws:[1200,2000],sz:'100vw'}
+};
+function nimg(src,profile){
+  var p=nimgProfiles[profile];if(!p||!src)return{srcset:'',sizes:''};
+  var ss=p.ws.map(function(w){return '/.netlify/images?url='+src+'&w='+w+' '+w+'w'}).join(', ');
+  return{srcset:ss,sizes:p.sz};
+}
+
 var photos=[];for(var i=1;i<=18;i++)photos.push('/img/gal'+i+'.jpg');
 // Gallery captions per image (1-indexed)
 var galMeta=[
@@ -1648,16 +1665,33 @@ var galSize={0:'g-feat',5:'g-tall',7:'g-tall',10:'g-wide',11:'g-feat',15:'g-wide
     var d=document.createElement('div');
     d.className='gi rv'+(i%3===1?' rv-d1':i%3===2?' rv-d2':'')+(galSize[i]?' '+galSize[i]:'');
     var meta=galMeta[i]||{t:'',n:''};
-    d.innerHTML='<img src="'+s+'" alt="'+meta.n+'" loading="lazy"><div class="gi-cap"><div class="gi-cap-t">'+meta.t+'</div><div class="gi-cap-n">'+meta.n+'</div></div>';
+    var n=nimg(s,'bento');
+    d.innerHTML='<img src="'+s+'" srcset="'+n.srcset+'" sizes="'+n.sizes+'" alt="'+meta.n+'" loading="lazy" decoding="async"><div class="gi-cap"><div class="gi-cap-t">'+meta.t+'</div><div class="gi-cap-n">'+meta.n+'</div></div>';
     d.onclick=function(){openLB(i)};
     g.appendChild(d);
   });
 })();
 
+// Upgrade static bento + hero images with srcset variants
+(function(){
+  document.querySelectorAll('.bento-cell img').forEach(function(img){
+    var s=img.getAttribute('src');if(!s||s.indexOf('/img/')!==0)return;
+    var n=nimg(s,'bento');img.setAttribute('srcset',n.srcset);img.setAttribute('sizes',n.sizes);img.setAttribute('decoding','async');
+  });
+  document.querySelectorAll('.h-hero-bg img, .inner-hero-bg img, .px-break-bg img').forEach(function(img){
+    var s=img.getAttribute('src');if(!s||s.indexOf('/img/')!==0)return;
+    var n=nimg(s,'hero');img.setAttribute('srcset',n.srcset);img.setAttribute('sizes',n.sizes);img.setAttribute('decoding','async');
+  });
+})();
+
 var lbIdx=0;
-function openLB(i){lbIdx=i;document.getElementById('lbImg').src=photos[i];document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden'}
+function setLbImg(i){
+  var src=photos[i];var n=nimg(src,'lb');var img=document.getElementById('lbImg');
+  img.src=src;img.srcset=n.srcset;img.sizes=n.sizes;
+}
+function openLB(i){lbIdx=i;setLbImg(i);document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden'}
 function closeLB(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
-function lbNav(d){lbIdx=(lbIdx+d+photos.length)%photos.length;document.getElementById('lbImg').src=photos[lbIdx]}
+function lbNav(d){lbIdx=(lbIdx+d+photos.length)%photos.length;setLbImg(lbIdx)}
 document.addEventListener('keydown',function(e){if(!document.getElementById('lb').classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1)});
 
 var pageMeta={
@@ -1683,8 +1717,11 @@ function toggleMob(){document.getElementById('mobT').classList.toggle('open');do
 
 var scrollTicking=false;
 function onScroll(){
-  document.getElementById('hdr').classList.toggle('scrolled',window.scrollY>50);
-  var fc=document.getElementById('floatCall');if(fc)fc.classList.toggle('show',window.scrollY>520);
+  var y=window.scrollY;
+  document.getElementById('hdr').classList.toggle('scrolled',y>50);
+  var fc=document.getElementById('floatCall');if(fc)fc.classList.toggle('show',y>520);
+  var pb=document.getElementById('progressBar');
+  if(pb){var dh=document.documentElement.scrollHeight-window.innerHeight;pb.style.transform='scaleX('+(dh>0?Math.min(y/dh,1):0)+')'}
   document.querySelectorAll('.h-hero-bg,.px-break-bg,.inner-hero-bg').forEach(function(el){
     var r=el.closest('.h-hero,.px-break,.inner-hero');if(!r)return;
     var t=r.getBoundingClientRect().top;var h=r.offsetHeight;
