@@ -504,6 +504,69 @@ header:not(.scrolled) .nav-glass{--ntx:#fff;--ntx2:rgba(255,255,255,.7)}
 .fs:hover{background:var(--forest-deep);transform:translateY(-1px);box-shadow:var(--sh-l)}
 .fs svg{width:14px;height:14px}
 
+/* ═══════════════ GLASSY IMAGE DEVICE ═══════════════ */
+/* Featured image containers: layered shadow + top glass-gleam + inner ring */
+.spec-img,
+.process-img,
+.sd-img-wrap,
+.about-feat-img{
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 0 0 0 1px rgba(255,255,255,.10),
+    0 4px 12px rgba(15,36,24,.06),
+    0 28px 56px rgba(15,36,24,.14);
+}
+
+/* Card images: lighter inner gleam only (host card already carries the lift) */
+.svc-img,
+.sp-img,
+.bento-cell,
+.gi{
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.4),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+/* Diagonal gloss sweep — applied via the spare pseudo on each container */
+.spec-img::after,
+.process-img::after,
+.sd-img-wrap::after,
+.svc-img::before,
+.sp-img::before,
+.bento-cell::before,
+.gi::before,
+.about-feat-img::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,
+    rgba(255,255,255,.22) 0%,
+    rgba(255,255,255,0) 32%,
+    rgba(255,255,255,0) 68%,
+    rgba(255,255,255,.13) 100%);
+  pointer-events:none;
+  z-index:1;
+  border-radius:inherit;
+}
+
+/* Push existing dark gradient veils above the gloss */
+.svc-img::after,
+.sp-img::after,
+.bento-cell::after,
+.gi::after,
+.about-feat-img::after{z-index:2}
+
+/* Push labels above veils + gloss */
+.spec-num,
+.spec-ruler,
+.svc-num,
+.sp-tag,
+.bento-cap,
+.gi-cap,
+.process-img-label,
+.sd-img-label,
+.about-feat-badge{z-index:3}
+
 /* ═══════════════ FOOTER ═══════════════ */
 footer{background:var(--forest-night);padding:80px 0 0;color:rgba(237,227,200,.5);position:relative;overflow:hidden}
 .ftg{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06);position:relative;z-index:1}
