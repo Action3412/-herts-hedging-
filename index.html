@@ -433,6 +433,21 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 .equip-spec span{font-size:.6rem;padding:4px 10px;border:1px solid rgba(237,227,200,.18);border-radius:30px;color:rgba(237,227,200,.7);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
 
 /* ═══════════════ STATS — animated counters ═══════════════ */
+/* Kit-in-the-field section */
+.kit-sec{background:var(--cream-warm);position:relative;overflow:hidden}
+.kit-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:48px}
+@media(max-width:768px){.kit-grid{grid-template-columns:1fr;gap:14px}}
+.kit-tile{position:relative;border-radius:var(--rl);overflow:hidden;background:var(--cream-dark);aspect-ratio:4/3;cursor:pointer;transition:all .55s var(--ease)}
+.kit-tile:hover{transform:translateY(-4px);box-shadow:var(--sh-l)}
+.kit-tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.kit-tile:hover img{transform:scale(1.05)}
+.kit-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,36,24,.78) 0%,rgba(15,36,24,.15) 40%,transparent 70%);transition:opacity .4s}
+.kit-cap{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;color:#fff;transform:translateY(8px);opacity:.95;transition:all .4s var(--ease)}
+.kit-tile:hover .kit-cap{transform:translateY(0);opacity:1}
+.kit-cap-type{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--gold-light);margin-bottom:6px}
+.kit-cap-name{font-family:var(--serif);font-size:1.2rem;font-weight:500;line-height:1.2;letter-spacing:-.01em}
+@media(max-width:768px){.kit-tile{aspect-ratio:4/3}.kit-cap-name{font-size:1.05rem}}
+
 .stats-sec{background:var(--forest-night);color:#fff;position:relative;overflow:hidden}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1240px;margin:0 auto;padding:0 44px}
 @media(max-width:768px){.stats-grid{grid-template-columns:1fr 1fr;padding:0 24px}}
@@ -1285,6 +1300,33 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
     </div>
   </section>
 
+  <!-- KIT IN THE FIELD -->
+  <section class="kit-sec sec">
+    <div class="container">
+      <div class="sh">
+        <div class="tag rv">In the field</div>
+        <h2 class="st rv rv-d1">The kit, at <em>work</em></h2>
+        <p class="sd rv rv-d2">Professional equipment, professionally used. From aerial platforms for tall hedge work to long-reach trimmers for precision detail — the right tool for each job.</p>
+      </div>
+      <div class="kit-grid">
+        <div class="kit-tile rv" onclick="openLB(18)">
+          <img src="/img/gal19.jpg" alt="Manitou aerial platform trimming a tall hedge" loading="lazy" decoding="async">
+          <div class="kit-cap">
+            <div class="kit-cap-type">Aerial Platform</div>
+            <div class="kit-cap-name">Manitou cherry picker — for working at height on mature hedges and topiary</div>
+          </div>
+        </div>
+        <div class="kit-tile rv rv-d1" onclick="openLB(19)">
+          <img src="/img/gal20.jpg" alt="Cherry picker beside Hertfordshire Hedging van on a driveway" loading="lazy" decoding="async">
+          <div class="kit-cap">
+            <div class="kit-cap-type">On-Site</div>
+            <div class="kit-cap-name">Mobilised and ready — a Hertfordshire estate visit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- STATS -->
   <section class="stats-sec sec" style="padding:80px 0">
     <div class="grain"></div>
@@ -1370,8 +1412,8 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
         <div class="bento-cell b-feat rv" onclick="openLB(11)"><img src="/img/gal12.jpg" alt="Residential garden project" loading="lazy"><div class="bento-cap"><div class="bento-cap-type">Domestic · Featured</div><div class="bento-cap-loc">Family residence, Hertfordshire</div></div></div>
         <div class="bento-cell rv rv-d1" onclick="openLB(6)"><img src="/img/gal7.jpg" alt="Mature Portuguese Laurel boundary" loading="lazy"><div class="bento-cap"><div class="bento-cap-type">Portuguese Laurel</div><div class="bento-cap-loc">Boundary, Harpenden</div></div></div>
         <div class="bento-cell rv rv-d2" onclick="openLB(8)"><img src="/img/gal9.jpg" alt="Driveway hedge installation" loading="lazy"><div class="bento-cap"><div class="bento-cap-type">Portuguese Laurel</div><div class="bento-cap-loc">Driveway, St Albans</div></div></div>
-        <div class="bento-cell rv rv-d1" onclick="openLB(14)"><img src="/img/gal15.jpg" alt="Mature autumn hedge" loading="lazy"><div class="bento-cap"><div class="bento-cap-type">Established</div><div class="bento-cap-loc">Mature hedge in autumn</div></div></div>
-        <div class="bento-cell rv rv-d2" onclick="openLB(15)"><img src="/img/gal16.jpg" alt="Residential street boundary" loading="lazy"><div class="bento-cap"><div class="bento-cap-type">Portuguese Laurel</div><div class="bento-cap-loc">Front boundary, Welwyn</div></div></div>
+        <div class="bento-cell rv rv-d1" onclick="openLB(20)"><img src="/img/gal21.jpg" alt="Curved mature hedge from above" loading="lazy"><div class="bento-cap"><div class="bento-cap-type">Mature</div><div class="bento-cap-loc">Curved boundary at full establishment</div></div></div>
+        <div class="bento-cell rv rv-d2" onclick="openLB(21)"><img src="/img/gal22.jpg" alt="Hornbeam lollipops formal garden" loading="lazy"><div class="bento-cap"><div class="bento-cap-type">Topiary</div><div class="bento-cap-loc">Hornbeam lollipops · formal garden</div></div></div>
         <div class="bento-cell b-wide rv" onclick="openLB(5)"><img src="/img/gal6.jpg" alt="New installation" loading="lazy"><div class="bento-cap"><div class="bento-cap-type">Project in progress</div><div class="bento-cap-loc">New boundary install</div></div></div>
         <div class="bento-cell b-wide rv rv-d1" onclick="openLB(3)"><img src="/img/gal4.jpg" alt="Field-grown hedging" loading="lazy"><div class="bento-cap"><div class="bento-cap-type">Nursery</div><div class="bento-cap-loc">Portuguese Laurel — field grown</div></div></div>
       </div>
@@ -1794,7 +1836,7 @@ function nimg(src,profile){
   return{srcset:ss,sizes:p.sz};
 }
 
-var photos=[];for(var i=1;i<=18;i++)photos.push('/img/gal'+i+'.jpg');
+var photos=[];for(var i=1;i<=30;i++)photos.push('/img/gal'+i+'.jpg');
 // Gallery captions per image (1-indexed)
 var galMeta=[
   {t:'Conifer',n:'Thuja nursery row'},
@@ -1814,10 +1856,22 @@ var galMeta=[
   {t:'Established',n:'Mature hedge in autumn'},
   {t:'Residence',n:'Front boundary'},
   {t:'Specimen',n:'Cherry Laurel'},
-  {t:'Specimen',n:'Portuguese Laurel — narrow form'}
+  {t:'Specimen',n:'Portuguese Laurel — narrow form'},
+  {t:'Equipment',n:'Manitou aerial platform — trimming a tall hedge'},
+  {t:'On-site',n:'Cherry picker on a Hertfordshire driveway'},
+  {t:'Mature',n:'Curved boundary at full establishment'},
+  {t:'Topiary',n:'Hornbeam lollipops — formal garden'},
+  {t:'Maintenance',n:'Trimming an established Portuguese Laurel'},
+  {t:'Specimen',n:'Photinia standards — pleached form'},
+  {t:'Domestic',n:'Mature laurel woven around a tree'},
+  {t:'Equipment',n:'Long-reach trimmer at the scaffold'},
+  {t:'Install',n:'English Yew — winter installation'},
+  {t:'Supply',n:'Mature Portuguese Laurel — root-balled and ready'},
+  {t:'Install',n:'Boundary install — countryside setting'},
+  {t:'Nursery',n:'English Yew — container-grown'}
 ];
 // Bento-style layout sizes for the gallery grid (by photo index)
-var galSize={0:'g-feat',5:'g-tall',7:'g-tall',10:'g-wide',11:'g-feat',15:'g-wide'};
+var galSize={0:'g-feat',5:'g-tall',7:'g-tall',10:'g-wide',11:'g-feat',15:'g-wide',18:'g-feat',20:'g-wide',21:'g-tall',24:'g-wide',26:'g-tall'};
 
 (function(){
   var g=document.getElementById('galGrid');if(!g)return;
