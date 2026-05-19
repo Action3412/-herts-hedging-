@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@300;400;500;600;700&family=Lato:wght@400;700;900&family=Open+Sans:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -74,6 +74,20 @@ a:hover{color:var(--moss)}
 .notes li{font-size:.88rem;color:var(--text-mid);font-weight:300;line-height:1.6;padding-left:16px;position:relative}
 .notes li::before{content:'·';position:absolute;left:6px;color:var(--gold)}
 
+/* The Wordmark — the actual logo recreation */
+.wm{display:flex;flex-direction:column;align-items:flex-start;line-height:.92;letter-spacing:-.02em}
+.wm-lato{font-family:'Lato',sans-serif;font-weight:900}
+.wm-opensans{font-family:'Open Sans',sans-serif;font-weight:800}
+.wm-montserrat{font-family:'Montserrat',sans-serif;font-weight:800}
+.wm-l1,.wm-l2{font-size:2.6rem;line-height:.95}
+.wm-l2{margin-top:.04em}
+.wm-tag{font-size:.72rem;font-weight:400;letter-spacing:0;line-height:1.2;margin-top:.7em;font-family:'Lato',sans-serif}
+.wm-opensans .wm-tag{font-family:'Open Sans',sans-serif;font-weight:400}
+.wm-montserrat .wm-tag{font-family:'Montserrat',sans-serif;font-weight:500}
+.wm-supply{font-size:.78rem;font-weight:700;letter-spacing:.01em;line-height:1.2;margin-top:.35em;font-family:'Lato',sans-serif}
+.wm-sm .wm-l1,.wm-sm .wm-l2{font-size:1.7rem}
+.wm-sm .wm-tag{font-size:.55rem;margin-top:.6em}
+
 .footer{margin-top:80px;padding-top:36px;border-top:1px solid rgba(15,36,24,.08);font-size:.85rem;color:var(--text-mid);font-weight:300;line-height:1.7}
 .footer h3{font-family:var(--serif);font-size:1.3rem;color:var(--forest-deep);font-weight:500;margin-bottom:14px}
 .footer ol{padding-left:18px;display:flex;flex-direction:column;gap:8px}
@@ -88,6 +102,114 @@ a:hover{color:var(--moss)}
     <p>Four HH-monogram directions designed to complement the editorial, specimen-led tone of the redesigned site. Each shown at hero, nav and favicon scale, on light and dark surfaces, with its wordmark lockup.</p>
     <div class="hd-note">This page is only on the <code>logo-redesign</code> branch and isn't linked from anywhere — the live site is unaffected. We iterate here, then merge the winning concept into <code>main</code>.</div>
   </div>
+
+  <!-- ─────────────────── CONCEPT 06 — THE ACTUAL WORDMARK ─────────────────── -->
+  <article class="concept" style="border-color:var(--moss);border-width:2px;margin-bottom:96px">
+    <div class="concept-hd" style="background:var(--sage-pale)">
+      <div>
+        <div class="concept-num" style="color:var(--moss)">Concept 06 · the logo</div>
+        <h2 class="concept-name">The Wordmark</h2>
+        <p class="concept-desc">Faithful recreation of the existing logo from the van livery and sign-written materials — "Hertfordshire" stacked above "Hedging" with both H's sharing the same left spine. Three candidate fonts shown below since the original isn't tagged — Lato Black, Open Sans 800, and Montserrat 800.</p>
+      </div>
+    </div>
+
+    <!-- Light + dark side-by-side, Lato Black (closest match) -->
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08)">
+      <div class="panel panel-light" style="padding:64px 48px">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:16px">Lato Black — closest match</div>
+        <div class="wm wm-lato" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature &amp; mature hedging</div>
+          <div class="wm-supply">Supply &middot; Plant &middot; Maintain</div>
+        </div>
+        <div class="panel-label" style="margin-top:32px">Light surface — cream</div>
+      </div>
+      <div class="panel panel-dark" style="padding:64px 48px;background:#6B6B62">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:16px">Lato Black — as on the van</div>
+        <div class="wm wm-lato" style="color:#fff">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature &amp; mature hedging</div>
+          <div class="wm-supply">Supply &middot; Plant &middot; Maintain</div>
+        </div>
+        <div class="panel-label" style="margin-top:32px;color:rgba(255,255,255,.5)">Grey surface — matches livery</div>
+      </div>
+    </div>
+
+    <!-- Side-by-side font comparison row -->
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08);grid-template-columns:1fr 1fr 1fr">
+      <div class="panel panel-light" style="padding:48px 32px;border-right:1px solid rgba(15,36,24,.06)">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px">Lato Black</div>
+        <div class="wm wm-lato wm-sm" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature &amp; mature hedging</div>
+        </div>
+      </div>
+      <div class="panel panel-light" style="padding:48px 32px;border-right:1px solid rgba(15,36,24,.06)">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px">Open Sans 800</div>
+        <div class="wm wm-opensans wm-sm" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature &amp; mature hedging</div>
+        </div>
+      </div>
+      <div class="panel panel-light" style="padding:48px 32px">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px">Montserrat 800</div>
+        <div class="wm wm-montserrat wm-sm" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature &amp; mature hedging</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scale tests with Lato Black -->
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08)">
+      <div class="panel panel-light" style="padding:48px 32px;align-items:flex-start;gap:36px">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep)">Scale tests · Lato Black</div>
+        <div class="wm wm-lato" style="color:#0F2418">
+          <div class="wm-l1" style="font-size:3.4rem">Hertfordshire</div>
+          <div class="wm-l2" style="font-size:3.4rem">Hedging</div>
+        </div>
+        <div class="wm wm-lato" style="color:#0F2418">
+          <div class="wm-l1" style="font-size:1.6rem">Hertfordshire</div>
+          <div class="wm-l2" style="font-size:1.6rem">Hedging</div>
+        </div>
+        <div class="wm wm-lato" style="color:#0F2418">
+          <div class="wm-l1" style="font-size:.85rem">Hertfordshire</div>
+          <div class="wm-l2" style="font-size:.85rem">Hedging</div>
+        </div>
+        <div class="panel-label">Hero · Nav · Footer scales</div>
+      </div>
+      <div class="panel panel-dark" style="padding:48px 32px;align-items:flex-start;gap:36px">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6)">In the nav (forest-deep bg)</div>
+        <div class="wm wm-lato" style="color:#fff">
+          <div class="wm-l1" style="font-size:1.05rem">Hertfordshire</div>
+          <div class="wm-l2" style="font-size:1.05rem">Hedging</div>
+        </div>
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:18px">With gold accent (testing)</div>
+        <div class="wm wm-lato" style="color:#fff">
+          <div class="wm-l1" style="font-size:2rem"><span style="color:#C4A14F">H</span>ertfordshire</div>
+          <div class="wm-l2" style="font-size:2rem"><span style="color:#C4A14F">H</span>edging</div>
+        </div>
+        <div class="panel-label">Variant — gold H's only</div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div class="notes-h">Notes</div>
+      <ul>
+        <li>Both H's left-aligned at the same x-position — that's the "shared spine" you described. Try blurring your eyes when you look at the wordmark — you'll see the two H's stack into a single tall column on the left, with the words cascading right.</li>
+        <li><strong>Recommend: Lato Black.</strong> Matches the warmth and humanist character of the van lettering best. Open Sans 800 is a touch more geometric. Montserrat 800 is more squared-off and feels less like the original.</li>
+        <li>If you can ask Mike whether his sign-writer has the original font on file, I can match it exactly — common candidates beyond the three shown: Avenir Black, Proxima Nova Black, Brandon Grotesque Black (all commercial).</li>
+        <li>For the live site, the wordmark would replace the SVG mark currently in the nav and footer — we keep the gold/forest palette behind it, but the mark itself is type-only.</li>
+        <li>Optional accent: gold H's (see dark panel above) gives a tiny bit of "logo mark" feel without abandoning the pure wordmark approach.</li>
+      </ul>
+    </div>
+  </article>
+
 
   <!-- CURRENT LOGO -->
   <div class="cur">
