@@ -319,28 +319,46 @@ header:not(.scrolled) .nav-glass{--ntx:#fff;--ntx2:rgba(255,255,255,.7)}
 .sp-latin{font-family:var(--serif);font-style:italic;font-size:.78rem;color:var(--text-mid);font-weight:300;margin-bottom:12px;display:block}
 .sp-body p{font-size:.82rem;color:var(--text-mid);font-weight:300;line-height:1.7}
 
-/* ═══════════════ STICKY SCROLL SERVICES ═══════════════ */
-.sticky-sec{background:var(--cream-warm);position:relative}
-.sticky-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:flex-start;max-width:1240px;margin:0 auto;padding:0 44px}
-@media(max-width:1024px){.sticky-wrap{grid-template-columns:1fr;gap:40px}}
-@media(max-width:768px){.sticky-wrap{padding:0 24px}}
-.sticky-img-wrap{position:sticky;top:120px;height:calc(100vh - 160px);max-height:680px;border-radius:var(--rxl);overflow:hidden;box-shadow:var(--sh-xl)}
-@media(max-width:1024px){.sticky-img-wrap{position:relative;top:0;height:60vh}}
-.sticky-img{position:absolute;inset:0;opacity:0;transition:opacity 1s var(--ease)}
-.sticky-img.on{opacity:1}
-.sticky-img img{width:100%;height:100%;object-fit:cover}
-.sticky-img-label{position:absolute;bottom:24px;left:24px;background:rgba(15,36,24,.6);backdrop-filter:blur(10px);padding:10px 18px;border-radius:30px;color:#fff;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
-.sticky-panels{display:flex;flex-direction:column;gap:80px;padding:40px 0}
-.sticky-panel{min-height:60vh;display:flex;flex-direction:column;justify-content:center}
-.sticky-panel-num{font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--gold-deep);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.sticky-panel-num::after{content:'';width:36px;height:1px;background:var(--gold-deep);opacity:.5}
-.sticky-panel h3{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--forest-deep);font-weight:400;line-height:1.1;margin-bottom:18px;letter-spacing:-.015em}
-.sticky-panel h3 em{font-style:italic;color:var(--moss)}
-.sticky-panel p{color:var(--text-mid);font-weight:300;line-height:1.85;margin-bottom:22px;font-size:.95rem;max-width:520px}
-.sticky-points{list-style:none;display:flex;flex-direction:column;gap:14px}
-.sticky-points li{display:flex;align-items:flex-start;gap:14px;font-size:.88rem;color:var(--text);line-height:1.5}
-.sticky-points .ck{flex-shrink:0;width:22px;height:22px;margin-top:1px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep)}
-.sticky-points .ck svg{width:11px;height:11px}
+/* ═══════════════ PROCESS — alternating rows ═══════════════ */
+.process-sec{background:var(--cream-warm);position:relative}
+.process-rows{display:flex;flex-direction:column;gap:120px;margin-top:64px}
+@media(max-width:900px){.process-rows{gap:80px}}
+.process-row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:900px){.process-row{grid-template-columns:1fr;gap:40px}}
+.process-row.flip .process-text{order:2}
+.process-row.flip .process-img{order:1}
+@media(max-width:900px){.process-row.flip .process-text{order:0}.process-row.flip .process-img{order:0}}
+.process-img{aspect-ratio:5/6;border-radius:var(--rxl);overflow:hidden;position:relative;box-shadow:var(--sh-xl)}
+.process-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.process-img:hover img{transform:scale(1.04)}
+.process-img-label{position:absolute;top:22px;left:22px;background:rgba(253,251,247,.95);backdrop-filter:blur(8px);padding:7px 16px;border-radius:30px;font-size:.6rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--forest-deep);z-index:2}
+.process-text{padding:20px 0}
+.process-num{font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--gold-deep);margin-bottom:16px;display:flex;align-items:center;gap:12px;letter-spacing:.5px}
+.process-num::after{content:'';width:40px;height:1px;background:var(--gold-deep);opacity:.5}
+.process-text h3{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--forest-deep);font-weight:400;line-height:1.1;margin-bottom:20px;letter-spacing:-.015em}
+.process-text h3 em{font-style:italic;color:var(--moss)}
+.process-text>p{color:var(--text-mid);font-weight:300;line-height:1.9;margin-bottom:26px;font-size:.98rem}
+.process-points{list-style:none;display:flex;flex-direction:column;gap:14px}
+.process-points li{display:flex;align-items:flex-start;gap:14px;font-size:.9rem;color:var(--text);line-height:1.5}
+.process-points .ck{flex-shrink:0;width:22px;height:22px;margin-top:1px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep)}
+.process-points .ck svg{width:11px;height:11px}
+
+/* ═══════════════ EQUIPMENT — dark editorial ═══════════════ */
+.equip-sec{background:var(--forest-deep);color:var(--cream);position:relative;overflow:hidden}
+.equip-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 50%,rgba(196,161,79,.10),transparent 70%);pointer-events:none}
+.equip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:64px;position:relative;z-index:1}
+@media(max-width:900px){.equip-grid{grid-template-columns:1fr}}
+.equip-card{position:relative;padding:44px 36px 40px;border:1px solid rgba(237,227,200,.12);border-radius:var(--rl);background:rgba(255,255,255,.02);backdrop-filter:blur(6px);transition:all .55s var(--ease);overflow:hidden}
+.equip-card::after{content:'';position:absolute;top:0;left:0;width:0;height:1px;background:var(--gold);transition:width .8s var(--ease)}
+.equip-card:hover{border-color:rgba(196,161,79,.4);background:rgba(255,255,255,.04);transform:translateY(-6px)}
+.equip-card:hover::after{width:100%}
+.equip-illus{height:130px;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;justify-content:center;opacity:.95}
+.equip-illus svg{width:100%;height:100%}
+.equip-meta{font-family:var(--serif);font-style:italic;font-size:.75rem;color:var(--gold-light);margin-bottom:6px;letter-spacing:.5px}
+.equip-card h4{font-family:var(--serif);font-size:1.35rem;color:#fff;font-weight:400;margin-bottom:12px;letter-spacing:-.01em}
+.equip-card p{font-size:.85rem;color:rgba(237,227,200,.62);font-weight:300;line-height:1.75}
+.equip-spec{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+.equip-spec span{font-size:.6rem;padding:4px 10px;border:1px solid rgba(237,227,200,.18);border-radius:30px;color:rgba(237,227,200,.7);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
 
 /* ═══════════════ STATS — animated counters ═══════════════ */
 .stats-sec{background:var(--forest-night);color:#fff;position:relative;overflow:hidden}
@@ -520,7 +538,13 @@ footer{background:var(--forest-night);padding:80px 0 0;color:rgba(237,227,200,.5
 
 <header id="hdr"><div class="nav-glass">
   <a href="#" class="logo" onclick="goTo('home');return false">
-    <div class="logo-m"><svg viewBox="0 0 36 36" fill="none"><path d="M18 3C18 3 30 11 30 20C30 29 18 35 18 35C18 35 6 29 6 20C6 11 18 3 18 3Z" fill="var(--gold)" opacity=".55"/><path d="M18 10C18 10 25 15 25 20.5C25 26 18 30 18 30C18 30 11 26 11 20.5C11 15 18 10 18 10Z" fill="var(--moss)" opacity=".6"/><circle cx="18" cy="19" r="1.8" fill="var(--ntx)" opacity=".5"/></svg></div>
+    <div class="logo-m"><svg viewBox="0 0 40 40" fill="none">
+      <path d="M3 30 Q3 18 12 18 Q21 18 21 30 Z" fill="var(--gold)" opacity=".45"/>
+      <path d="M19 30 Q19 18 28 18 Q37 18 37 30 Z" fill="var(--gold)" opacity=".45"/>
+      <path d="M11 30 Q11 7 20 7 Q29 7 29 30 Z" fill="var(--moss)" opacity=".85"/>
+      <circle cx="20" cy="5.5" r="1.7" fill="var(--gold)"/>
+      <line x1="2" y1="32" x2="38" y2="32" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+    </svg></div>
     <div class="logo-w"><span class="logo-t">Hertfordshire</span><span class="logo-b">Hedging</span></div>
   </a>
   <nav class="nl" id="navLinks">
@@ -763,49 +787,164 @@ footer{background:var(--forest-night);padding:80px 0 0;color:rgba(237,227,200,.5
     </div>
   </section>
 
-  <!-- STICKY SCROLL DEVICE -->
-  <section class="sticky-sec sec">
-    <div class="sh">
-      <div class="tag rv">Our Process</div>
-      <h2 class="st rv rv-d1">From nursery to <em>fully established</em></h2>
-    </div>
-    <div class="sticky-wrap">
-      <div class="sticky-img-wrap">
-        <div class="sticky-img on" data-step="0"><img src="/img/gal5.jpg" alt=""><div class="sticky-img-label">01 · Supply</div></div>
-        <div class="sticky-img" data-step="1"><img src="/img/gal6.jpg" alt=""><div class="sticky-img-label">02 · Plant</div></div>
-        <div class="sticky-img" data-step="2"><img src="/img/gal15.jpg" alt=""><div class="sticky-img-label">03 · Maintain</div></div>
+  <!-- PROCESS — alternating rows -->
+  <section class="process-sec sec">
+    <div class="container">
+      <div class="sh">
+        <div class="tag rv">Our Process</div>
+        <h2 class="st rv rv-d1">From nursery to <em>fully established</em></h2>
       </div>
-      <div class="sticky-panels">
-        <div class="sticky-panel" data-step="0">
-          <div class="sticky-panel-num">Step 01</div>
-          <h3>The right plant, <em>year-round</em></h3>
-          <p>Most root-ball hedging is supplied between September and March. Our Airpot nursery extends that to all twelve months — so you plant when you're ready, not when the season dictates.</p>
-          <ul class="sticky-points">
-            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bare-root, root-ball and containerised forms</li>
-            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Year-round availability via Airpot</li>
-            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Specimens hand-selected for form and density</li>
-          </ul>
-        </div>
-        <div class="sticky-panel" data-step="1">
-          <div class="sticky-panel-num">Step 02</div>
-          <h3>Installation, <em>done right</em></h3>
-          <p>Mature hedging is a long-term investment. There are golden rules — soil prep, root orientation, depth, spacing, water management — that quietly decide whether it thrives or struggles. We follow them.</p>
-          <ul class="sticky-points">
-            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Site assessment and soil preparation</li>
-            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Correct depth, spacing and orientation</li>
-            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Stakes, ties and irrigation guidance</li>
-          </ul>
-        </div>
-        <div class="sticky-panel" data-step="2">
-          <div class="sticky-panel-num">Step 03</div>
-          <h3>Maintenance, <em>species-specific</em></h3>
-          <p>Over-management or cutting at the wrong time can be as damaging as neglect. Each species has its own schedule, technique and tolerance — and we work to it, not to a generic calendar.</p>
-          <ul class="sticky-points">
-            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Seasonal trimming and feeding programmes</li>
-            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Restoration of overgrown hedges</li>
-            <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Renovation cuts when reduction is needed</li>
-          </ul>
-        </div>
+      <div class="process-rows">
+        <article class="process-row">
+          <div class="process-text rv">
+            <div class="process-num">Step 01</div>
+            <h3>The right plant, <em>year-round</em></h3>
+            <p>Most root-ball hedging is supplied between September and March. Our Airpot nursery extends that to all twelve months — so you plant when you're ready, not when the season dictates.</p>
+            <ul class="process-points">
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bare-root, root-ball and containerised forms</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Year-round availability via Airpot</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Specimens hand-selected for form and density</li>
+            </ul>
+          </div>
+          <div class="process-img rv rv-d2">
+            <img src="/img/gal5.jpg" alt="Nursery specimens with height marker" loading="lazy">
+            <span class="process-img-label">01 · Supply</span>
+          </div>
+        </article>
+        <article class="process-row flip">
+          <div class="process-text rv">
+            <div class="process-num">Step 02</div>
+            <h3>Installation, <em>done right</em></h3>
+            <p>Mature hedging is a long-term investment. There are golden rules — soil prep, root orientation, depth, spacing, water management — that quietly decide whether it thrives or struggles. We follow them.</p>
+            <ul class="process-points">
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Site assessment and soil preparation</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Correct depth, spacing and orientation</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Stakes, ties and irrigation guidance</li>
+            </ul>
+          </div>
+          <div class="process-img rv">
+            <img src="/img/gal6.jpg" alt="Hedge installation in progress" loading="lazy">
+            <span class="process-img-label">02 · Plant</span>
+          </div>
+        </article>
+        <article class="process-row">
+          <div class="process-text rv">
+            <div class="process-num">Step 03</div>
+            <h3>Maintenance, <em>species-specific</em></h3>
+            <p>Over-management or cutting at the wrong time can be as damaging as neglect. Each species has its own schedule, technique and tolerance — and we work to it, not to a generic calendar.</p>
+            <ul class="process-points">
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Seasonal trimming and feeding programmes</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Restoration of overgrown hedges</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Renovation cuts when reduction is needed</li>
+            </ul>
+          </div>
+          <div class="process-img rv rv-d2">
+            <img src="/img/gal15.jpg" alt="Established hedge in autumn" loading="lazy">
+            <span class="process-img-label">03 · Maintain</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIALIST EQUIPMENT -->
+  <section class="equip-sec sec">
+    <div class="grain"></div>
+    <div class="container">
+      <div class="sh">
+        <div class="tag tag-w rv">Specialist Equipment</div>
+        <h2 class="st rv rv-d1" style="color:#fff">The right kit for<br><em style="color:var(--gold-light)">every scale</em></h2>
+        <p class="sd rv rv-d2" style="color:rgba(237,227,200,.55);margin:0 auto">From estate-scale boundary runs to single-specimen shaping. We bring the equipment the job demands — nothing more, nothing less.</p>
+      </div>
+      <div class="equip-grid">
+        <article class="equip-card rv">
+          <div class="equip-illus">
+            <svg viewBox="0 0 240 160" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="55" y="68" width="55" height="38" rx="3"/>
+              <path d="M62 68 L70 44 L98 44 L106 68"/>
+              <line x1="84" y1="44" x2="84" y2="68"/>
+              <line x1="73" y1="44" x2="73" y2="32"/>
+              <circle cx="73" cy="30" r="2"/>
+              <circle cx="60" cy="80" r="1.2" fill="currentColor"/>
+              <circle cx="62" cy="120" r="16"/>
+              <circle cx="62" cy="120" r="7"/>
+              <circle cx="112" cy="120" r="22"/>
+              <circle cx="112" cy="120" r="9"/>
+              <path d="M110 86 L138 86 L154 96 L172 96"/>
+              <line x1="138" y1="86" x2="138" y2="102"/>
+              <rect x="172" y="78" width="48" height="32" rx="3"/>
+              <line x1="178" y1="86" x2="214" y2="86"/>
+              <line x1="178" y1="94" x2="214" y2="94"/>
+              <line x1="178" y1="102" x2="214" y2="102"/>
+              <line x1="18" y1="142" x2="222" y2="142" stroke-dasharray="2 4" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="equip-meta">No. 01</div>
+          <h4>Tractor-mounted flail</h4>
+          <p>For long boundary runs and estate-scale work — fast, efficient, and capable of handling thick growth that hand tools simply can't.</p>
+          <div class="equip-spec"><span>Boundary scale</span><span>Estate work</span></div>
+        </article>
+        <article class="equip-card rv rv-d1">
+          <div class="equip-illus">
+            <svg viewBox="0 0 240 160" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="40" y="100" width="100" height="26" rx="3"/>
+              <path d="M40 100 L40 80 L62 75 L80 80 L80 100"/>
+              <line x1="60" y1="80" x2="60" y2="100"/>
+              <circle cx="56" cy="132" r="9"/>
+              <circle cx="56" cy="132" r="4"/>
+              <circle cx="122" cy="132" r="9"/>
+              <circle cx="122" cy="132" r="4"/>
+              <rect x="92" y="88" width="28" height="14" rx="2"/>
+              <line x1="106" y1="100" x2="106" y2="88"/>
+              <path d="M116 96 L156 62"/>
+              <path d="M116 100 L154 70"/>
+              <circle cx="156" cy="64" r="2"/>
+              <path d="M156 64 L198 36"/>
+              <path d="M156 68 L196 42"/>
+              <rect x="190" y="28" width="26" height="22" rx="2"/>
+              <line x1="190" y1="40" x2="216" y2="40"/>
+              <line x1="203" y1="28" x2="203" y2="50"/>
+              <line x1="18" y1="142" x2="222" y2="142" stroke-dasharray="2 4" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="equip-meta">No. 02</div>
+          <h4>MEWP &amp; Cherry Picker</h4>
+          <p>Mobile elevated platforms for hedging over four metres — safe, controlled access for top-cutting and shaping mature specimens at height.</p>
+          <div class="equip-spec"><span>4m+ height</span><span>Top-cutting</span></div>
+        </article>
+        <article class="equip-card rv rv-d2">
+          <div class="equip-illus">
+            <svg viewBox="0 0 240 160" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="40" y="58" width="125" height="14" rx="2"/>
+              <line x1="50" y1="58" x2="50" y2="51"/>
+              <line x1="58" y1="58" x2="58" y2="51"/>
+              <line x1="66" y1="58" x2="66" y2="51"/>
+              <line x1="74" y1="58" x2="74" y2="51"/>
+              <line x1="82" y1="58" x2="82" y2="51"/>
+              <line x1="90" y1="58" x2="90" y2="51"/>
+              <line x1="98" y1="58" x2="98" y2="51"/>
+              <line x1="106" y1="58" x2="106" y2="51"/>
+              <line x1="114" y1="58" x2="114" y2="51"/>
+              <line x1="122" y1="58" x2="122" y2="51"/>
+              <line x1="130" y1="58" x2="130" y2="51"/>
+              <line x1="138" y1="58" x2="138" y2="51"/>
+              <line x1="146" y1="58" x2="146" y2="51"/>
+              <line x1="154" y1="58" x2="154" y2="51"/>
+              <rect x="162" y="52" width="42" height="28" rx="3"/>
+              <line x1="170" y1="60" x2="200" y2="60" opacity=".7"/>
+              <line x1="170" y1="66" x2="200" y2="66" opacity=".7"/>
+              <line x1="170" y1="72" x2="200" y2="72" opacity=".7"/>
+              <path d="M170 80 L162 108 L150 113 L144 100 Z"/>
+              <line x1="174" y1="80" x2="172" y2="88"/>
+              <path d="M196 80 L210 102 L222 96 L218 86 Z"/>
+              <line x1="18" y1="142" x2="222" y2="142" stroke-dasharray="2 4" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="equip-meta">No. 03</div>
+          <h4>Professional Trimmer</h4>
+          <p>Long-blade petrol trimmers for finishing work — the precise hand-held finish on shaped hedges, formal lines and topiary detail.</p>
+          <div class="equip-spec"><span>Hand-finishing</span><span>Detail work</span></div>
+        </article>
       </div>
     </div>
   </section>
@@ -1126,7 +1265,13 @@ footer{background:var(--forest-night);padding:80px 0 0;color:rgba(237,227,200,.5
     <div class="ftg">
       <div class="ftb">
         <div class="logo" style="--ntx:#fff">
-          <div class="logo-m"><svg viewBox="0 0 36 36" fill="none"><path d="M18 3C18 3 30 11 30 20C30 29 18 35 18 35C18 35 6 29 6 20C6 11 18 3 18 3Z" fill="var(--gold)" opacity=".55"/><path d="M18 10C18 10 25 15 25 20.5C25 26 18 30 18 30C18 30 11 26 11 20.5C11 15 18 10 18 10Z" fill="var(--moss)" opacity=".55"/><circle cx="18" cy="19" r="1.8" fill="#fff" opacity=".5"/></svg></div>
+          <div class="logo-m"><svg viewBox="0 0 40 40" fill="none">
+            <path d="M3 30 Q3 18 12 18 Q21 18 21 30 Z" fill="var(--gold)" opacity=".45"/>
+            <path d="M19 30 Q19 18 28 18 Q37 18 37 30 Z" fill="var(--gold)" opacity=".45"/>
+            <path d="M11 30 Q11 7 20 7 Q29 7 29 30 Z" fill="var(--sage)" opacity=".8"/>
+            <circle cx="20" cy="5.5" r="1.7" fill="var(--gold)"/>
+            <line x1="2" y1="32" x2="38" y2="32" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg></div>
           <div class="logo-w"><span class="logo-t" style="color:#fff">Hertfordshire</span><span class="logo-b">Hedging</span></div>
         </div>
         <p>Suppliers and growers of the finest quality hedging. Specialists across Hertfordshire and the Home Counties since 2013.</p>
@@ -1213,7 +1358,7 @@ function goTo(p){
   document.querySelectorAll('.nl a[data-page]').forEach(function(a){a.classList.toggle('active',a.dataset.page===p)});
   window.scrollTo({top:0,behavior:'instant'});
   document.getElementById('navLinks').classList.remove('open');document.getElementById('mobT').classList.remove('open');
-  setTimeout(function(){initRv();initCounters();initStickyScroll()},80);
+  setTimeout(function(){initRv();initCounters()},80);
 }
 function toggleMob(){document.getElementById('mobT').classList.toggle('open');document.getElementById('navLinks').classList.toggle('open')}
 
@@ -1260,22 +1405,6 @@ function initCounters(){
   });
 }
 initCounters();
-
-// Sticky scroll: as a panel intersects centre, show the matching image
-function initStickyScroll(){
-  var panels=document.querySelectorAll('.sticky-panel');if(!panels.length)return;
-  var imgs=document.querySelectorAll('.sticky-img');
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        var step=e.target.dataset.step;
-        imgs.forEach(function(img){img.classList.toggle('on',img.dataset.step===step)});
-      }
-    });
-  },{rootMargin:'-45% 0px -45% 0px'});
-  panels.forEach(function(p){obs.observe(p)});
-}
-initStickyScroll();
 
 function submitForm(){
   if(!document.getElementById('cf-fn').value||!document.getElementById('cf-em').value||!document.getElementById('cf-msg').value){
