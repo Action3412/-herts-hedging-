@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@300;400;500;600;700&family=Lato:wght@400;700;900&family=Open+Sans:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@300;400;500;600;700&family=Lato:wght@400;700;900&family=Open+Sans:wght@600;700;800&family=Montserrat:wght@600;700;800&family=Outfit:wght@400;700;800;900&family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -74,20 +74,21 @@ a:hover{color:var(--moss)}
 .notes li{font-size:.88rem;color:var(--text-mid);font-weight:300;line-height:1.6;padding-left:16px;position:relative}
 .notes li::before{content:'·';position:absolute;left:6px;color:var(--gold)}
 
-/* The Wordmark — the actual logo recreation */
-/* --hh-shift is the horizontal offset for "Hedging" so the LEFT pillar of its H
-   sits at the same x as the RIGHT pillar of the H in "Hertfordshire" — the
-   shared vertical column. Value is calibrated per font (capital H glyph width). */
-.wm{display:flex;flex-direction:column;align-items:flex-start;text-align:left;line-height:.86;letter-spacing:-.025em;--hh-shift:.63em}
-.wm-lato{font-family:'Lato',sans-serif;font-weight:900;--hh-shift:.63em}
-.wm-opensans{font-family:'Open Sans',sans-serif;font-weight:800;--hh-shift:.65em}
-.wm-montserrat{font-family:'Montserrat',sans-serif;font-weight:800;--hh-shift:.62em}
-.wm-l1,.wm-l2{font-size:3.6rem;line-height:.88}
+/* The Wordmark — the actual logo recreation.
+   Real font: ITC Avant Garde Gothic Bold (commercial; H glyph 0.758em wide, cap-height 0.74em).
+   --hh-shift positions "Hedging" so the LEFT pillar of its H sits at the same x as
+   the RIGHT pillar of "Hertfordshire"-H. Calibrated per font since H widths differ. */
+.wm{display:flex;flex-direction:column;align-items:flex-start;text-align:left;letter-spacing:-.02em;--hh-shift:.68em}
+.wm-outfit{font-family:'Outfit',sans-serif;font-weight:800;--hh-shift:.72em;--cap-h:.74}
+.wm-lato{font-family:'Lato',sans-serif;font-weight:900;--hh-shift:.66em;--cap-h:.72}
+.wm-opensans{font-family:'Open Sans',sans-serif;font-weight:800;--hh-shift:.68em;--cap-h:.72}
+.wm-montserrat{font-family:'Montserrat',sans-serif;font-weight:800;--hh-shift:.64em;--cap-h:.74}
+.wm-josefin{font-family:'Josefin Sans',sans-serif;font-weight:700;--hh-shift:.7em;--cap-h:.7}
+/* Tight line-height = cap-height ratio → H₁ baseline meets H₂ cap-top */
+.wm-l1,.wm-l2{font-size:3.6rem;line-height:var(--cap-h, .74)}
 .wm-l2{padding-left:var(--hh-shift)}
-.wm-tag{font-size:.85rem;font-weight:400;letter-spacing:0;line-height:1.2;margin-top:.55em;font-family:'Lato',sans-serif;padding-left:var(--hh-shift)}
-.wm-opensans .wm-tag{font-family:'Open Sans',sans-serif;font-weight:400}
-.wm-montserrat .wm-tag{font-family:'Montserrat',sans-serif;font-weight:500}
-.wm-supply{font-size:.95rem;font-weight:700;letter-spacing:.01em;line-height:1.2;margin-top:.3em;font-family:'Lato',sans-serif;padding-left:var(--hh-shift)}
+.wm-tag{font-size:.85rem;font-weight:400;letter-spacing:0;line-height:1.2;margin-top:.45em;font-family:inherit}
+.wm-supply{font-size:.95rem;font-weight:700;letter-spacing:.01em;line-height:1.2;margin-top:.3em;font-family:inherit}
 .wm-sm .wm-l1,.wm-sm .wm-l2{font-size:2rem}
 .wm-sm .wm-tag{font-size:.6rem;margin-top:.5em}
 
@@ -112,58 +113,72 @@ a:hover{color:var(--moss)}
       <div>
         <div class="concept-num" style="color:var(--moss)">Concept 06 · the logo</div>
         <h2 class="concept-name">The Wordmark</h2>
-        <p class="concept-desc">Faithful recreation of the existing logo. The key trick: "Hedging" is shifted right so the <strong>left pillar of its H sits at the same x-position as the right pillar of the H in "Hertfordshire"</strong> — a single shared vertical column running through both H's. Three candidate fonts below, each with its own calibrated shift since the H-glyph width differs per font.</p>
+        <p class="concept-desc">Faithful recreation of the existing logo. <strong>The original font is ITC Avant Garde Gothic Bold</strong> (1970, Herb Lubalin) — confirmed from the embedded font metadata in your business-card PDF. Avant Garde is a commercial typeface, so I've shown a free Google Font alternative (Outfit 800) as the closest match, plus Lato Black for comparison. The interlock trick: "Hedging" is shifted right by exactly one H-width so the right pillar of "Hertfordshire"-H and the left pillar of "Hedging"-H share a single vertical column. Line-height is set to match the cap-height ratio so the H's meet end-to-end.</p>
       </div>
     </div>
 
-    <!-- Light + dark side-by-side, Lato Black (closest match) -->
+    <!-- HERO: Outfit 800 on grey (matches business-card setting) -->
     <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08)">
       <div class="panel panel-light" style="padding:64px 48px">
-        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:16px">Lato Black — closest match</div>
-        <div class="wm wm-lato" style="color:#0F2418">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:16px">Outfit 800 — closest free match to Avant Garde Bold</div>
+        <div class="wm wm-outfit" style="color:#0F2418">
           <div class="wm-l1">Hertfordshire</div>
           <div class="wm-l2">Hedging</div>
           <div class="wm-tag">Semi mature &amp; mature hedging</div>
-          <div class="wm-supply">Supply &middot; Plant &middot; Maintain</div>
         </div>
-        <div class="panel-label" style="margin-top:32px">Light surface — cream</div>
+        <div class="panel-label" style="margin-top:32px">Cream</div>
       </div>
       <div class="panel panel-dark" style="padding:64px 48px;background:#6B6B62">
-        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:16px">Lato Black — as on the van</div>
-        <div class="wm wm-lato" style="color:#fff">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:16px">Outfit 800 — as on the business card</div>
+        <div class="wm wm-outfit" style="color:#fff">
           <div class="wm-l1">Hertfordshire</div>
           <div class="wm-l2">Hedging</div>
           <div class="wm-tag">Semi mature &amp; mature hedging</div>
-          <div class="wm-supply">Supply &middot; Plant &middot; Maintain</div>
         </div>
-        <div class="panel-label" style="margin-top:32px;color:rgba(255,255,255,.5)">Grey surface — matches livery</div>
+        <div class="panel-label" style="margin-top:32px;color:rgba(255,255,255,.5)">Grey — matches card</div>
       </div>
     </div>
 
-    <!-- Side-by-side font comparison row -->
-    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08);grid-template-columns:1fr 1fr 1fr">
-      <div class="panel panel-light" style="padding:48px 32px;border-right:1px solid rgba(15,36,24,.06)">
-        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px">Lato Black</div>
+    <!-- 5-way font comparison -->
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08);grid-template-columns:repeat(5,1fr)">
+      <div class="panel panel-light" style="padding:36px 18px;border-right:1px solid rgba(15,36,24,.06);min-height:280px">
+        <div style="font-size:.5rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--moss);margin-bottom:14px">Outfit 800 ★</div>
+        <div class="wm wm-outfit wm-sm" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature</div>
+        </div>
+      </div>
+      <div class="panel panel-light" style="padding:36px 18px;border-right:1px solid rgba(15,36,24,.06);min-height:280px">
+        <div style="font-size:.5rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px">Josefin Sans 700</div>
+        <div class="wm wm-josefin wm-sm" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature</div>
+        </div>
+      </div>
+      <div class="panel panel-light" style="padding:36px 18px;border-right:1px solid rgba(15,36,24,.06);min-height:280px">
+        <div style="font-size:.5rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px">Lato 900</div>
         <div class="wm wm-lato wm-sm" style="color:#0F2418">
           <div class="wm-l1">Hertfordshire</div>
           <div class="wm-l2">Hedging</div>
-          <div class="wm-tag">Semi mature &amp; mature hedging</div>
+          <div class="wm-tag">Semi mature</div>
         </div>
       </div>
-      <div class="panel panel-light" style="padding:48px 32px;border-right:1px solid rgba(15,36,24,.06)">
-        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px">Open Sans 800</div>
+      <div class="panel panel-light" style="padding:36px 18px;border-right:1px solid rgba(15,36,24,.06);min-height:280px">
+        <div style="font-size:.5rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px">Open Sans 800</div>
         <div class="wm wm-opensans wm-sm" style="color:#0F2418">
           <div class="wm-l1">Hertfordshire</div>
           <div class="wm-l2">Hedging</div>
-          <div class="wm-tag">Semi mature &amp; mature hedging</div>
+          <div class="wm-tag">Semi mature</div>
         </div>
       </div>
-      <div class="panel panel-light" style="padding:48px 32px">
-        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px">Montserrat 800</div>
+      <div class="panel panel-light" style="padding:36px 18px;min-height:280px">
+        <div style="font-size:.5rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px">Montserrat 800</div>
         <div class="wm wm-montserrat wm-sm" style="color:#0F2418">
           <div class="wm-l1">Hertfordshire</div>
           <div class="wm-l2">Hedging</div>
-          <div class="wm-tag">Semi mature &amp; mature hedging</div>
+          <div class="wm-tag">Semi mature</div>
         </div>
       </div>
     </div>
