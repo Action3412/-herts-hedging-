@@ -75,16 +75,19 @@ a:hover{color:var(--moss)}
 .notes li::before{content:'·';position:absolute;left:6px;color:var(--gold)}
 
 /* The Wordmark — the actual logo recreation */
-.wm{display:flex;flex-direction:column;align-items:center;text-align:center;line-height:.92;letter-spacing:-.025em}
-.wm-lato{font-family:'Lato',sans-serif;font-weight:900}
-.wm-opensans{font-family:'Open Sans',sans-serif;font-weight:800}
-.wm-montserrat{font-family:'Montserrat',sans-serif;font-weight:800}
-.wm-l1,.wm-l2{font-size:3.4rem;line-height:.95}
-.wm-l2{margin-top:.02em}
-.wm-tag{font-size:.85rem;font-weight:400;letter-spacing:0;line-height:1.2;margin-top:.6em;font-family:'Lato',sans-serif}
+/* --hh-shift is the horizontal offset for "Hedging" so the LEFT pillar of its H
+   sits at the same x as the RIGHT pillar of the H in "Hertfordshire" — the
+   shared vertical column. Value is calibrated per font (capital H glyph width). */
+.wm{display:flex;flex-direction:column;align-items:flex-start;text-align:left;line-height:.86;letter-spacing:-.025em;--hh-shift:.63em}
+.wm-lato{font-family:'Lato',sans-serif;font-weight:900;--hh-shift:.63em}
+.wm-opensans{font-family:'Open Sans',sans-serif;font-weight:800;--hh-shift:.65em}
+.wm-montserrat{font-family:'Montserrat',sans-serif;font-weight:800;--hh-shift:.62em}
+.wm-l1,.wm-l2{font-size:3.6rem;line-height:.88}
+.wm-l2{padding-left:var(--hh-shift)}
+.wm-tag{font-size:.85rem;font-weight:400;letter-spacing:0;line-height:1.2;margin-top:.55em;font-family:'Lato',sans-serif;padding-left:var(--hh-shift)}
 .wm-opensans .wm-tag{font-family:'Open Sans',sans-serif;font-weight:400}
 .wm-montserrat .wm-tag{font-family:'Montserrat',sans-serif;font-weight:500}
-.wm-supply{font-size:.95rem;font-weight:700;letter-spacing:.01em;line-height:1.2;margin-top:.3em;font-family:'Lato',sans-serif}
+.wm-supply{font-size:.95rem;font-weight:700;letter-spacing:.01em;line-height:1.2;margin-top:.3em;font-family:'Lato',sans-serif;padding-left:var(--hh-shift)}
 .wm-sm .wm-l1,.wm-sm .wm-l2{font-size:2rem}
 .wm-sm .wm-tag{font-size:.6rem;margin-top:.5em}
 
@@ -109,7 +112,7 @@ a:hover{color:var(--moss)}
       <div>
         <div class="concept-num" style="color:var(--moss)">Concept 06 · the logo</div>
         <h2 class="concept-name">The Wordmark</h2>
-        <p class="concept-desc">Faithful recreation of the existing logo — "Hertfordshire" stacked above "Hedging", both lines centre-aligned (so the words share a centre axis rather than a left spine). Heavy humanist sans, very tight line-height. Three candidate fonts shown below — Lato Black, Open Sans 800, and Montserrat 800.</p>
+        <p class="concept-desc">Faithful recreation of the existing logo. The key trick: "Hedging" is shifted right so the <strong>left pillar of its H sits at the same x-position as the right pillar of the H in "Hertfordshire"</strong> — a single shared vertical column running through both H's. Three candidate fonts below, each with its own calibrated shift since the H-glyph width differs per font.</p>
       </div>
     </div>
 
@@ -201,7 +204,9 @@ a:hover{color:var(--moss)}
     <div class="notes">
       <div class="notes-h">Notes</div>
       <ul>
-        <li>Both lines centre-aligned, so the two words share a centre axis. The H of "Hedging" sits roughly under the "t"/"f" of "Hertfordshire", and the "g" of "Hedging" ends roughly under the "h"/"i" of "Hertfordshire" — exactly as in the photo you sent.</li>
+        <li><strong>The interlocking trick:</strong> "Hedging" is offset right by exactly one H-width, so the right pillar of "Hertfordshire"'s H and the left pillar of "Hedging"'s H occupy the same vertical column. Two glyphs, one stroke visually — that's the design hook.</li>
+        <li>The offset is set via a CSS custom property (<code>--hh-shift</code>) so it can be calibrated per font. Lato 900 needs 0.63em, Open Sans 800 needs 0.65em, Montserrat 800 needs 0.62em.</li>
+        <li>Line-height is tightened to .86 so the H's almost touch vertically — pulls the eye down the shared column.</li>
         <li><strong>Recommend: Lato Black.</strong> Matches the warmth and humanist character of the van lettering best. Open Sans 800 is a touch more geometric. Montserrat 800 is more squared-off and feels less like the original.</li>
         <li>If you can ask Mike whether his sign-writer has the original font on file, I can match it exactly — common candidates beyond the three shown: Avenir Black, Proxima Nova Black, Brandon Grotesque Black (all commercial).</li>
         <li>For the live site, the wordmark would replace the SVG mark currently in the nav and footer — we keep the gold/forest palette behind it, but the mark itself is type-only.</li>
