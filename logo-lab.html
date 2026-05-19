@@ -108,6 +108,49 @@ a:hover{color:var(--moss)}
     <div class="hd-note">This page is only on the <code>logo-redesign</code> branch and isn't linked from anywhere — the live site is unaffected. We iterate here, then merge the winning concept into <code>main</code>.</div>
   </div>
 
+  <!-- ─────────────────── CHOSEN: extracted logo PNG ─────────────────── -->
+  <article class="concept" style="border-color:var(--moss);border-width:3px;margin-bottom:96px;background:var(--sage-pale)">
+    <div class="concept-hd" style="background:var(--moss);color:#fff">
+      <div>
+        <div class="concept-num" style="color:var(--gold-light)">✓ Chosen solution</div>
+        <h2 class="concept-name" style="color:#fff">Use the existing logo directly</h2>
+        <p class="concept-desc" style="color:rgba(255,255,255,.85)">Extracted from the embedded image inside your business-card PDF — the actual logo asset, pixel-perfect with your existing brand. Two transparent variants: white for dark surfaces, dark for light surfaces. <strong>The nav and footer of the site (on this branch) are now using this logo</strong> — open the live preview to see it in context.</p>
+      </div>
+    </div>
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08)">
+      <div class="panel panel-light" style="padding:56px 44px;background:var(--cream)">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px">Dark variant (on light surfaces)</div>
+        <img src="/img/logo-dark.png" alt="Hertfordshire Hedging" style="max-width:340px;width:100%;height:auto;display:block">
+        <div style="display:flex;gap:32px;margin-top:32px;align-items:center">
+          <img src="/img/logo-dark.png" alt="" style="height:80px;width:auto">
+          <img src="/img/logo-dark.png" alt="" style="height:42px;width:auto">
+          <img src="/img/logo-dark.png" alt="" style="height:24px;width:auto">
+        </div>
+        <div class="panel-label" style="margin-top:24px">Hero · Nav · Footer scales</div>
+      </div>
+      <div class="panel panel-dark" style="padding:56px 44px;background:var(--forest-deep)">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px">White variant (on dark surfaces)</div>
+        <img src="/img/logo-white.png" alt="Hertfordshire Hedging" style="max-width:340px;width:100%;height:auto;display:block">
+        <div style="display:flex;gap:32px;margin-top:32px;align-items:center">
+          <img src="/img/logo-white.png" alt="" style="height:80px;width:auto">
+          <img src="/img/logo-white.png" alt="" style="height:42px;width:auto">
+          <img src="/img/logo-white.png" alt="" style="height:24px;width:auto">
+        </div>
+        <div class="panel-label" style="margin-top:24px;color:rgba(255,255,255,.4)">As it appears in the nav</div>
+      </div>
+    </div>
+    <div class="notes">
+      <div class="notes-h">How this works</div>
+      <ul>
+        <li><strong>Source:</strong> The wordmark image was embedded as a 640×238 PNG inside your business card PDF. I extracted it, removed the grey background to leave just the letters on transparent, then made two variants — white for dark surfaces (nav when scrolled, footer, dark hero overlays) and dark for light surfaces (nav when scrolled to a light section). 109 KB each.</li>
+        <li><strong>Pixel-perfect:</strong> No font dependency, no rendering quirks — what you see is exactly what's in your existing brand assets.</li>
+        <li><strong>Trade-off:</strong> PNG isn't infinitely scalable like SVG. At ~586px wide source, it's sharp at any size up to that (which covers nav, footer, hero usage on 4K retina displays).</li>
+        <li><strong>Future:</strong> if/when you want true vector, a freelance designer can trace this to SVG in 30 minutes for ~£20-40. Then it's bulletproof at any size and weighs ~2 KB instead of 109 KB. Not urgent.</li>
+        <li><strong>The site:</strong> On this <code>logo-redesign</code> branch, the leaf-mark SVG has been replaced in the nav and footer with this new wordmark. Open the home page on the branch preview to see it live. Live site (<code>main</code>) is still showing the old leaf logo.</li>
+      </ul>
+    </div>
+  </article>
+
   <!-- ─────────────────── CONCEPT 06 — THE ACTUAL WORDMARK ─────────────────── -->
   <article class="concept" style="border-color:var(--moss);border-width:2px;margin-bottom:96px">
     <div class="concept-hd" style="background:var(--sage-pale)">
