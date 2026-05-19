@@ -23,8 +23,11 @@
 <meta name="twitter:image" content="https://herts-hedging.netlify.app/img/gal12.jpg">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
+<link rel="preload" as="image" href="/img/gal12.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -602,6 +605,18 @@ footer{background:var(--forest-night);padding:80px 0 0;color:rgba(237,227,200,.5
 .about-story p{font-size:1.05rem;color:var(--text);font-weight:300;line-height:2;margin-bottom:24px}
 .about-story p:first-of-type::first-letter{font-family:var(--serif);font-size:4.5rem;float:left;line-height:.9;margin:6px 14px -4px 0;color:var(--moss);font-weight:400}
 
+/* Testimonials grid */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr;gap:20px}}
+.testi{position:relative;background:var(--cream-warm);border:1px solid rgba(15,36,24,.06);border-radius:var(--rxl);padding:54px 34px 34px;display:flex;flex-direction:column;transition:all .55s var(--ease)}
+.testi:hover{transform:translateY(-4px);box-shadow:var(--sh-l);border-color:var(--sage-pale)}
+.testi-mark{position:absolute;top:16px;left:30px;font-family:var(--serif);font-size:4.2rem;color:var(--gold);line-height:1;font-weight:500;opacity:.65}
+.testi blockquote{font-family:var(--serif);font-size:1.08rem;line-height:1.65;color:var(--forest-deep);font-weight:400;margin:0 0 28px;flex:1}
+.testi figcaption{display:flex;flex-direction:column;gap:3px;border-top:1px solid rgba(15,36,24,.08);padding-top:18px}
+.testi-name{font-weight:600;color:var(--forest-deep);font-size:.9rem}
+.testi-loc{font-size:.78rem;color:var(--text-mid);font-weight:300}
+.testi-svc{font-size:.62rem;color:var(--gold-deep);text-transform:uppercase;letter-spacing:2.5px;font-weight:600;margin-top:6px}
+
 </style>
 </head>
 <body>
@@ -1102,7 +1117,7 @@ footer{background:var(--forest-night);padding:80px 0 0;color:rgba(237,227,200,.5
     </div>
   </section>
 
-  <!-- TESTIMONIAL -->
+  <!-- TESTIMONIAL — dramatic pull-quote (PLACEHOLDER: replace with real client quote before launch) -->
   <div class="px-break">
     <div class="px-break-bg"><img src="/img/gal9.jpg" alt=""></div>
     <div class="px-break-veil"></div>
@@ -1115,6 +1130,46 @@ footer{background:var(--forest-night);padding:80px 0 0;color:rgba(237,227,200,.5
       </div>
     </div>
   </div>
+
+  <!-- TESTIMONIALS GRID — PLACEHOLDER COPY: replace all three quotes, names and locations with real client testimonials from Mike before launch -->
+  <section class="sec" style="background:var(--cream)">
+    <div class="container">
+      <div class="sh">
+        <div class="tag rv">In their words</div>
+        <h2 class="st rv rv-d1">What our <em>clients</em> say</h2>
+        <p class="sd rv rv-d2">From private gardens to estate boundaries — the trust our clients place in us speaks for itself.</p>
+      </div>
+      <div class="testi-grid">
+        <figure class="testi rv">
+          <div class="testi-mark">"</div>
+          <blockquote>Exceptional quality of stock and a level of care from initial consultation through to final aftercare that's genuinely rare. We'd not hesitate to recommend.</blockquote>
+          <figcaption>
+            <span class="testi-name">Estate Manager</span>
+            <span class="testi-loc">Berkhamsted, Hertfordshire</span>
+            <span class="testi-svc">Full Service</span>
+          </figcaption>
+        </figure>
+        <figure class="testi rv rv-d1">
+          <div class="testi-mark">"</div>
+          <blockquote>Mature, well-graded specimens delivered on time and patient guidance on positioning. The hedge looks like it's been there for years already.</blockquote>
+          <figcaption>
+            <span class="testi-name">Private Client</span>
+            <span class="testi-loc">St Albans, Hertfordshire</span>
+            <span class="testi-svc">Supply &amp; Planting</span>
+          </figcaption>
+        </figure>
+        <figure class="testi rv rv-d2">
+          <div class="testi-mark">"</div>
+          <blockquote>The transformation is remarkable. From a tired boundary to a magnificent mature hedge in a single day — and the aftercare has been faultless.</blockquote>
+          <figcaption>
+            <span class="testi-name">Private Client</span>
+            <span class="testi-loc">Welwyn, Hertfordshire</span>
+            <span class="testi-svc">Planting</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
   <!-- CTA -->
   <section class="cta-sec sec">
@@ -1303,15 +1358,17 @@ footer{background:var(--forest-night);padding:80px 0 0;color:rgba(237,227,200,.5
             <div class="cc-t"><h4>Company</h4><p>Registered in England<br>Co. Reg: 08374089<br>VAT: 155259890</p></div>
           </div>
         </div>
-        <div class="cf rv rv-d1">
+        <form class="cf rv rv-d1" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return submitForm(event)">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="position:absolute;left:-9999px" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <h3>Send us a message</h3>
           <p>We'll arrange your free consultation promptly.</p>
-          <div class="fr"><div class="fg"><label>First name *</label><input type="text" id="cf-fn" placeholder="First name"></div><div class="fg"><label>Last name *</label><input type="text" id="cf-ln" placeholder="Last name"></div></div>
-          <div class="fr"><div class="fg"><label>Email *</label><input type="email" id="cf-em" placeholder="you@example.com"></div><div class="fg"><label>Phone</label><input type="tel" id="cf-ph" placeholder="07xxx xxx xxx"></div></div>
-          <div class="fg"><label>Service of interest</label><select id="cf-svc"><option value="">Select…</option><option>Supply</option><option>Planting</option><option>Maintenance</option><option>Supply &amp; Planting</option><option>Full Service</option><option>General enquiry</option></select></div>
-          <div class="fg"><label>Your project *</label><textarea id="cf-msg" placeholder="Describe your site, species you have in mind, ideal timing…"></textarea></div>
-          <button class="fs" id="cfSubmit" onclick="submitForm()">Send Enquiry <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        </div>
+          <div class="fr"><div class="fg"><label for="cf-fn">First name *</label><input type="text" id="cf-fn" name="first-name" placeholder="First name" required></div><div class="fg"><label for="cf-ln">Last name *</label><input type="text" id="cf-ln" name="last-name" placeholder="Last name" required></div></div>
+          <div class="fr"><div class="fg"><label for="cf-em">Email *</label><input type="email" id="cf-em" name="email" placeholder="you@example.com" required></div><div class="fg"><label for="cf-ph">Phone</label><input type="tel" id="cf-ph" name="phone" placeholder="07xxx xxx xxx"></div></div>
+          <div class="fg"><label for="cf-svc">Service of interest</label><select id="cf-svc" name="service"><option value="">Select…</option><option>Supply</option><option>Planting</option><option>Maintenance</option><option>Supply &amp; Planting</option><option>Full Service</option><option>General enquiry</option></select></div>
+          <div class="fg"><label for="cf-msg">Your project *</label><textarea id="cf-msg" name="message" placeholder="Describe your site, species you have in mind, ideal timing…" required></textarea></div>
+          <button class="fs" id="cfSubmit" type="submit">Send Enquiry <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
       </div>
     </div>
   </section>
@@ -1463,13 +1520,26 @@ function initCounters(){
 }
 initCounters();
 
-function submitForm(){
-  if(!document.getElementById('cf-fn').value||!document.getElementById('cf-em').value||!document.getElementById('cf-msg').value){
-    alert('Please complete the required fields.');return;
-  }
+function submitForm(e){
+  e.preventDefault();
+  var f=e.target;
   var b=document.getElementById('cfSubmit');
-  b.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><\/svg> Sent — thank you';
-  b.style.background='var(--moss)';b.disabled=true;
+  var data=new URLSearchParams(new FormData(f));
+  b.disabled=true;
+  b.innerHTML='Sending…';
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()})
+    .then(function(r){
+      if(!r.ok)throw new Error('Network response was not ok');
+      b.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><\/svg> Sent — thank you';
+      b.style.background='var(--moss)';
+      f.reset();
+    })
+    .catch(function(){
+      b.disabled=false;
+      b.innerHTML='Send Enquiry <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><\/svg>';
+      alert('Sorry — something went wrong sending your enquiry. Please call or email us instead.');
+    });
+  return false;
 }
 </script>
 </body>

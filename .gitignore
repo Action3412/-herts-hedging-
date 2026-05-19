@@ -45,3 +45,6 @@ out/
 
 # Netlify
 .netlify/
+
+# Local-only backups of pre-compression images (git history has the originals)
+img/originals/
