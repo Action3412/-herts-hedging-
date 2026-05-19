@@ -186,6 +186,12 @@ header:not(.scrolled) .nav-glass{--ntx:#fff;--ntx2:rgba(255,255,255,.7)}
 .logo-w{display:flex;flex-direction:column;line-height:1.05}
 .logo-t{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--ntx);letter-spacing:.2px;transition:color .4s;}
 .logo-b{font-size:.52rem;font-weight:600;text-transform:uppercase;letter-spacing:4px;color:var(--gold);margin-top:2px}
+.logo-img{display:block;height:38px;width:auto}
+.logo-img-dark{display:none}
+header.scrolled .logo-img-light{display:none}
+header.scrolled .logo-img-dark{display:block}
+.logo-img-footer{display:block;height:54px;width:auto}
+@media(max-width:768px){.logo-img{height:32px}.logo-img-footer{height:46px}}
 .nl{display:flex;align-items:center;gap:2px}
 .nl a{font-size:.78rem;font-weight:500;color:var(--ntx2);padding:8px 14px;border-radius:8px;transition:color .3s;letter-spacing:.2px;position:relative}
 .nl a:hover,.nl a.active{color:var(--ntx)}
@@ -717,15 +723,9 @@ body.on-contact .float-call{opacity:0!important;transform:translateY(20px)!impor
 <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
 <header id="hdr"><div class="nav-glass">
-  <a href="#" class="logo" onclick="goTo('home');return false">
-    <div class="logo-m"><svg viewBox="0 0 40 40" fill="none">
-      <path d="M3 30 Q3 18 12 18 Q21 18 21 30 Z" fill="var(--gold)" opacity=".45"/>
-      <path d="M19 30 Q19 18 28 18 Q37 18 37 30 Z" fill="var(--gold)" opacity=".45"/>
-      <path d="M11 30 Q11 7 20 7 Q29 7 29 30 Z" fill="var(--moss)" opacity=".85"/>
-      <circle cx="20" cy="5.5" r="1.7" fill="var(--gold)"/>
-      <line x1="2" y1="32" x2="38" y2="32" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
-    </svg></div>
-    <div class="logo-w"><span class="logo-t">Hertfordshire</span><span class="logo-b">Hedging</span></div>
+  <a href="#" class="logo" onclick="goTo('home');return false" aria-label="Hertfordshire Hedging — home">
+    <img src="/img/logo-white.png" class="logo-img logo-img-light" alt="Hertfordshire Hedging">
+    <img src="/img/logo-dark.png" class="logo-img logo-img-dark" alt="">
   </a>
   <nav class="nl" id="navLinks">
     <a href="#" data-page="home" class="active" onclick="goTo('home');return false">Home</a>
@@ -1584,15 +1584,8 @@ body.on-contact .float-call{opacity:0!important;transform:translateY(20px)!impor
   <div class="container">
     <div class="ftg">
       <div class="ftb">
-        <div class="logo" style="--ntx:#fff">
-          <div class="logo-m"><svg viewBox="0 0 40 40" fill="none">
-            <path d="M3 30 Q3 18 12 18 Q21 18 21 30 Z" fill="var(--gold)" opacity=".45"/>
-            <path d="M19 30 Q19 18 28 18 Q37 18 37 30 Z" fill="var(--gold)" opacity=".45"/>
-            <path d="M11 30 Q11 7 20 7 Q29 7 29 30 Z" fill="var(--sage)" opacity=".8"/>
-            <circle cx="20" cy="5.5" r="1.7" fill="var(--gold)"/>
-            <line x1="2" y1="32" x2="38" y2="32" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
-          </svg></div>
-          <div class="logo-w"><span class="logo-t" style="color:#fff">Hertfordshire</span><span class="logo-b">Hedging</span></div>
+        <div class="logo">
+          <img src="/img/logo-white.png" class="logo-img-footer" alt="Hertfordshire Hedging">
         </div>
         <p>Suppliers and growers of the finest quality hedging. Specialists across Hertfordshire and the Home Counties since 2013.</p>
       </div>

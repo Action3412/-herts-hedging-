@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Lab — Hertfordshire Hedging</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:wght@300;400;500;600;700&family=Lato:wght@400;700;900&family=Open+Sans:wght@600;700;800&family=Montserrat:wght@600;700;800&family=Outfit:wght@400;700;800;900&family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --forest:#1B3A2D; --forest-deep:#0F2418; --forest-night:#08160E;
+  --moss:#2D6B45; --sage:#6B9E78; --sage-light:#97BEA0; --sage-pale:#C5DACA;
+  --gold:#C4A14F; --gold-light:#D4B76A; --gold-deep:#A88838; --gold-pale:#EDE3C8;
+  --cream:#F6F3EC; --cream-warm:#FDFBF7; --cream-dark:#E8E2D5;
+  --text:#2A2A28; --text-mid:#6B6B62;
+  --serif:'Funnel Display','Helvetica Neue',sans-serif;
+  --sans:'Inter',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+body{font-family:var(--sans);color:var(--text);background:var(--cream);font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-deep);text-decoration:none;border-bottom:1px solid currentColor}
+a:hover{color:var(--moss)}
+
+.wrap{max-width:1240px;margin:0 auto;padding:60px 44px 120px}
+@media(max-width:768px){.wrap{padding:40px 22px 80px}}
+
+.hd{margin-bottom:56px;padding-bottom:36px;border-bottom:1px solid rgba(15,36,24,.08)}
+.hd-tag{font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:4px;color:var(--gold-deep);margin-bottom:14px;display:inline-flex;gap:12px;align-items:center}
+.hd-tag::before{content:'';width:24px;height:1px;background:currentColor;opacity:.6}
+.hd h1{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.4rem);color:var(--forest-deep);font-weight:500;letter-spacing:-.015em;line-height:1.05;margin-bottom:14px}
+.hd p{font-size:1.02rem;color:var(--text-mid);font-weight:300;line-height:1.7;max-width:680px}
+.hd-note{margin-top:18px;font-size:.82rem;color:var(--text-mid);background:rgba(196,161,79,.1);border-left:2px solid var(--gold);padding:10px 16px;border-radius:0 6px 6px 0;max-width:680px}
+
+.cur{display:flex;align-items:center;gap:24px;margin-bottom:64px;padding:24px 28px;background:var(--cream-warm);border:1px solid rgba(15,36,24,.06);border-radius:12px}
+.cur-lab{font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep)}
+.cur-mark{width:54px;height:54px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cur-info{font-size:.88rem;color:var(--text-mid);font-weight:300}
+
+.concept{margin-bottom:80px;border:1px solid rgba(15,36,24,.08);border-radius:18px;overflow:hidden;background:var(--cream-warm)}
+.concept-hd{padding:28px 32px 22px;border-bottom:1px solid rgba(15,36,24,.08);display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.concept-num{font-family:var(--serif);font-size:.78rem;color:var(--gold-deep);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.concept-name{font-family:var(--serif);font-size:1.85rem;color:var(--forest-deep);font-weight:500;letter-spacing:-.015em;line-height:1.1;margin-bottom:6px}
+.concept-desc{font-size:.92rem;color:var(--text-mid);font-weight:300;line-height:1.6;max-width:560px}
+.concept-row{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+@media(max-width:768px){.concept-row{grid-template-columns:1fr}}
+.panel{padding:56px 44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;min-height:360px}
+.panel-light{background:var(--cream-warm)}
+.panel-dark{background:var(--forest-deep)}
+.panel-dark .panel-label{color:rgba(255,255,255,.4)}
+.panel-dark .lockup-text{color:#fff}
+.panel-dark .lockup-sub{color:rgba(255,255,255,.55)}
+.panel-label{font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--text-mid)}
+.mark-l{width:180px;height:180px}
+.mark-s{width:48px;height:48px}
+.mark-xs{width:20px;height:20px;image-rendering:auto}
+.scales{display:flex;align-items:center;gap:28px}
+.scales-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.scales-cap{font-size:.55rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid)}
+.panel-dark .scales-cap{color:rgba(255,255,255,.4)}
+
+.lockup{display:flex;align-items:center;gap:14px;margin-top:8px}
+.lockup-mark{width:42px;height:42px;flex-shrink:0}
+.lockup-w{display:flex;flex-direction:column;line-height:1.05}
+.lockup-text{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--forest-deep);letter-spacing:.2px}
+.lockup-sub{font-size:.52rem;font-weight:600;text-transform:uppercase;letter-spacing:4px;color:var(--gold);margin-top:2px}
+
+.notes{padding:28px 32px;background:rgba(15,36,24,.02);border-top:1px solid rgba(15,36,24,.06)}
+.notes-h{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px}
+.notes ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.notes li{font-size:.88rem;color:var(--text-mid);font-weight:300;line-height:1.6;padding-left:16px;position:relative}
+.notes li::before{content:'·';position:absolute;left:6px;color:var(--gold)}
+
+/* The Wordmark — the actual logo recreation.
+   Real font: ITC Avant Garde Gothic Bold (commercial; H glyph 0.758em wide, cap-height 0.74em).
+   --hh-shift positions "Hedging" so the LEFT pillar of its H sits at the same x as
+   the RIGHT pillar of "Hertfordshire"-H. Calibrated per font since H widths differ. */
+.wm{display:flex;flex-direction:column;align-items:flex-start;text-align:left;letter-spacing:-.035em;--hh-shift:.38em}
+/* --hh-shift positions H₂'s LEFT pillar exactly on H₁'s RIGHT pillar — tuned per font. */
+.wm-outfit{font-family:'Outfit',sans-serif;font-weight:800;--hh-shift:.40em;--cap-h:.74}
+.wm-lato{font-family:'Lato',sans-serif;font-weight:900;--hh-shift:.36em;--cap-h:.72}
+.wm-opensans{font-family:'Open Sans',sans-serif;font-weight:800;--hh-shift:.38em;--cap-h:.72}
+.wm-montserrat{font-family:'Montserrat',sans-serif;font-weight:800;--hh-shift:.36em;--cap-h:.74}
+.wm-josefin{font-family:'Josefin Sans',sans-serif;font-weight:700;--hh-shift:.44em;--cap-h:.7}
+/* Tight line-height = cap-height ratio → H₁ baseline meets H₂ cap-top */
+.wm-l1,.wm-l2{font-size:3.6rem;line-height:var(--cap-h, .74)}
+.wm-l2{padding-left:var(--hh-shift)}
+.wm-tag{font-size:.85rem;font-weight:400;letter-spacing:0;line-height:1.2;margin-top:.45em;font-family:inherit}
+.wm-supply{font-size:.95rem;font-weight:700;letter-spacing:.01em;line-height:1.2;margin-top:.3em;font-family:inherit}
+.wm-sm .wm-l1,.wm-sm .wm-l2{font-size:2rem}
+.wm-sm .wm-tag{font-size:.6rem;margin-top:.5em}
+
+.footer{margin-top:80px;padding-top:36px;border-top:1px solid rgba(15,36,24,.08);font-size:.85rem;color:var(--text-mid);font-weight:300;line-height:1.7}
+.footer h3{font-family:var(--serif);font-size:1.3rem;color:var(--forest-deep);font-weight:500;margin-bottom:14px}
+.footer ol{padding-left:18px;display:flex;flex-direction:column;gap:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hd">
+    <div class="hd-tag">Side project · branch preview</div>
+    <h1>Logo concepts</h1>
+    <p>Four HH-monogram directions designed to complement the editorial, specimen-led tone of the redesigned site. Each shown at hero, nav and favicon scale, on light and dark surfaces, with its wordmark lockup.</p>
+    <div class="hd-note">This page is only on the <code>logo-redesign</code> branch and isn't linked from anywhere — the live site is unaffected. We iterate here, then merge the winning concept into <code>main</code>.</div>
+  </div>
+
+  <!-- ─────────────────── CHOSEN: extracted logo PNG ─────────────────── -->
+  <article class="concept" style="border-color:var(--moss);border-width:3px;margin-bottom:96px;background:var(--sage-pale)">
+    <div class="concept-hd" style="background:var(--moss);color:#fff">
+      <div>
+        <div class="concept-num" style="color:var(--gold-light)">✓ Chosen solution</div>
+        <h2 class="concept-name" style="color:#fff">Use the existing logo directly</h2>
+        <p class="concept-desc" style="color:rgba(255,255,255,.85)">Extracted from the embedded image inside your business-card PDF — the actual logo asset, pixel-perfect with your existing brand. Two transparent variants: white for dark surfaces, dark for light surfaces. <strong>The nav and footer of the site (on this branch) are now using this logo</strong> — open the live preview to see it in context.</p>
+      </div>
+    </div>
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08)">
+      <div class="panel panel-light" style="padding:56px 44px;background:var(--cream)">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px">Dark variant (on light surfaces)</div>
+        <img src="/img/logo-dark.png" alt="Hertfordshire Hedging" style="max-width:340px;width:100%;height:auto;display:block">
+        <div style="display:flex;gap:32px;margin-top:32px;align-items:center">
+          <img src="/img/logo-dark.png" alt="" style="height:80px;width:auto">
+          <img src="/img/logo-dark.png" alt="" style="height:42px;width:auto">
+          <img src="/img/logo-dark.png" alt="" style="height:24px;width:auto">
+        </div>
+        <div class="panel-label" style="margin-top:24px">Hero · Nav · Footer scales</div>
+      </div>
+      <div class="panel panel-dark" style="padding:56px 44px;background:var(--forest-deep)">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px">White variant (on dark surfaces)</div>
+        <img src="/img/logo-white.png" alt="Hertfordshire Hedging" style="max-width:340px;width:100%;height:auto;display:block">
+        <div style="display:flex;gap:32px;margin-top:32px;align-items:center">
+          <img src="/img/logo-white.png" alt="" style="height:80px;width:auto">
+          <img src="/img/logo-white.png" alt="" style="height:42px;width:auto">
+          <img src="/img/logo-white.png" alt="" style="height:24px;width:auto">
+        </div>
+        <div class="panel-label" style="margin-top:24px;color:rgba(255,255,255,.4)">As it appears in the nav</div>
+      </div>
+    </div>
+    <div class="notes">
+      <div class="notes-h">How this works</div>
+      <ul>
+        <li><strong>Source:</strong> The wordmark image was embedded as a 640×238 PNG inside your business card PDF. I extracted it, removed the grey background to leave just the letters on transparent, then made two variants — white for dark surfaces (nav when scrolled, footer, dark hero overlays) and dark for light surfaces (nav when scrolled to a light section). 109 KB each.</li>
+        <li><strong>Pixel-perfect:</strong> No font dependency, no rendering quirks — what you see is exactly what's in your existing brand assets.</li>
+        <li><strong>Trade-off:</strong> PNG isn't infinitely scalable like SVG. At ~586px wide source, it's sharp at any size up to that (which covers nav, footer, hero usage on 4K retina displays).</li>
+        <li><strong>Future:</strong> if/when you want true vector, a freelance designer can trace this to SVG in 30 minutes for ~£20-40. Then it's bulletproof at any size and weighs ~2 KB instead of 109 KB. Not urgent.</li>
+        <li><strong>The site:</strong> On this <code>logo-redesign</code> branch, the leaf-mark SVG has been replaced in the nav and footer with this new wordmark. Open the home page on the branch preview to see it live. Live site (<code>main</code>) is still showing the old leaf logo.</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ─────────────────── CONCEPT 06 — THE ACTUAL WORDMARK ─────────────────── -->
+  <article class="concept" style="border-color:var(--moss);border-width:2px;margin-bottom:96px">
+    <div class="concept-hd" style="background:var(--sage-pale)">
+      <div>
+        <div class="concept-num" style="color:var(--moss)">Concept 06 · the logo</div>
+        <h2 class="concept-name">The Wordmark</h2>
+        <p class="concept-desc">Faithful recreation of the existing logo. <strong>The original font is ITC Avant Garde Gothic Bold</strong> (1970, Herb Lubalin) — confirmed from the embedded font metadata in your business-card PDF. Avant Garde is a commercial typeface, so I've shown a free Google Font alternative (Outfit 800) as the closest match, plus Lato Black for comparison. The interlock trick: "Hedging" is shifted right by exactly one H-width so the right pillar of "Hertfordshire"-H and the left pillar of "Hedging"-H share a single vertical column. Line-height is set to match the cap-height ratio so the H's meet end-to-end.</p>
+      </div>
+    </div>
+
+    <!-- HERO: Outfit 800 on grey (matches business-card setting) -->
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08)">
+      <div class="panel panel-light" style="padding:64px 48px">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:16px">Outfit 800 — closest free match to Avant Garde Bold</div>
+        <div class="wm wm-outfit" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature &amp; mature hedging</div>
+        </div>
+        <div class="panel-label" style="margin-top:32px">Cream</div>
+      </div>
+      <div class="panel panel-dark" style="padding:64px 48px;background:#6B6B62">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:16px">Outfit 800 — as on the business card</div>
+        <div class="wm wm-outfit" style="color:#fff">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature &amp; mature hedging</div>
+        </div>
+        <div class="panel-label" style="margin-top:32px;color:rgba(255,255,255,.5)">Grey — matches card</div>
+      </div>
+    </div>
+
+    <!-- 5-way font comparison -->
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08);grid-template-columns:repeat(5,1fr)">
+      <div class="panel panel-light" style="padding:36px 18px;border-right:1px solid rgba(15,36,24,.06);min-height:280px">
+        <div style="font-size:.5rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--moss);margin-bottom:14px">Outfit 800 ★</div>
+        <div class="wm wm-outfit wm-sm" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature</div>
+        </div>
+      </div>
+      <div class="panel panel-light" style="padding:36px 18px;border-right:1px solid rgba(15,36,24,.06);min-height:280px">
+        <div style="font-size:.5rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px">Josefin Sans 700</div>
+        <div class="wm wm-josefin wm-sm" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature</div>
+        </div>
+      </div>
+      <div class="panel panel-light" style="padding:36px 18px;border-right:1px solid rgba(15,36,24,.06);min-height:280px">
+        <div style="font-size:.5rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px">Lato 900</div>
+        <div class="wm wm-outfit wm-sm" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature</div>
+        </div>
+      </div>
+      <div class="panel panel-light" style="padding:36px 18px;border-right:1px solid rgba(15,36,24,.06);min-height:280px">
+        <div style="font-size:.5rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px">Open Sans 800</div>
+        <div class="wm wm-opensans wm-sm" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature</div>
+        </div>
+      </div>
+      <div class="panel panel-light" style="padding:36px 18px;min-height:280px">
+        <div style="font-size:.5rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px">Montserrat 800</div>
+        <div class="wm wm-montserrat wm-sm" style="color:#0F2418">
+          <div class="wm-l1">Hertfordshire</div>
+          <div class="wm-l2">Hedging</div>
+          <div class="wm-tag">Semi mature</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scale tests with Lato Black -->
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08)">
+      <div class="panel panel-light" style="padding:48px 32px;align-items:flex-start;gap:36px">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep)">Scale tests · Outfit 800</div>
+        <div class="wm wm-outfit" style="color:#0F2418">
+          <div class="wm-l1" style="font-size:3.4rem">Hertfordshire</div>
+          <div class="wm-l2" style="font-size:3.4rem">Hedging</div>
+        </div>
+        <div class="wm wm-outfit" style="color:#0F2418">
+          <div class="wm-l1" style="font-size:1.6rem">Hertfordshire</div>
+          <div class="wm-l2" style="font-size:1.6rem">Hedging</div>
+        </div>
+        <div class="wm wm-outfit" style="color:#0F2418">
+          <div class="wm-l1" style="font-size:.85rem">Hertfordshire</div>
+          <div class="wm-l2" style="font-size:.85rem">Hedging</div>
+        </div>
+        <div class="panel-label">Hero · Nav · Footer scales</div>
+      </div>
+      <div class="panel panel-dark" style="padding:48px 32px;align-items:flex-start;gap:36px">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6)">In the nav (forest-deep bg)</div>
+        <div class="wm wm-outfit" style="color:#fff">
+          <div class="wm-l1" style="font-size:1.05rem">Hertfordshire</div>
+          <div class="wm-l2" style="font-size:1.05rem">Hedging</div>
+        </div>
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:18px">With gold accent</div>
+        <div class="wm wm-outfit" style="color:#fff">
+          <div class="wm-l1" style="font-size:2rem"><span style="color:#C4A14F">H</span>ertfordshire</div>
+          <div class="wm-l2" style="font-size:2rem"><span style="color:#C4A14F">H</span>edging</div>
+        </div>
+        <div class="panel-label">Variant — gold H's only</div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div class="notes-h">Notes</div>
+      <ul>
+        <li><strong>Original font: ITC Avant Garde Gothic Bold</strong> (1970, Herb Lubalin) — confirmed via the embedded font metadata in your business-card PDF. The same font runs through the whole brand identity (van, card, sign).</li>
+        <li><strong>Avant Garde is commercial.</strong> Web licensing costs roughly £50-200 (Adobe Fonts, Linotype, Monotype). Three options: (a) license it for a pixel-perfect match, (b) use the closest free Google Font alternative — Outfit 800 (recommended), or (c) commission a designer to convert the existing logo to SVG paths so we never depend on the font file at all.</li>
+        <li><strong>Outfit 800 is the closest free match</strong> — modern geometric grotesque from Indian Type Foundry. Matches Avant Garde's cap-height ratio (0.74), geometric construction, and stroke weight more closely than Lato or Open Sans.</li>
+        <li><strong>The interlocking trick:</strong> "Hedging" is offset right by exactly one H-width via the CSS custom property <code>--hh-shift</code>, so the right pillar of H₁ and the left pillar of H₂ share a vertical column. Line-height is set to each font's cap-height ratio (<code>--cap-h</code>) so H₁'s baseline meets H₂'s cap-top exactly — one unbroken stroke through both H's.</li>
+        <li>For the live site, the wordmark would replace the SVG leaf-mark currently in the nav and footer — type-only. Optional: keep the leaf mark as a small accent or as the favicon only.</li>
+      </ul>
+    </div>
+  </article>
+
+
+  <!-- CURRENT LOGO -->
+  <div class="cur">
+    <div class="cur-mark">
+      <svg viewBox="0 0 40 40" width="54" height="54">
+        <rect width="40" height="40" rx="8" fill="#0F2418"/>
+        <path d="M3 30 Q3 18 12 18 Q21 18 21 30 Z" fill="#C4A14F" opacity=".55"/>
+        <path d="M19 30 Q19 18 28 18 Q37 18 37 30 Z" fill="#C4A14F" opacity=".55"/>
+        <path d="M11 30 Q11 7 20 7 Q29 7 29 30 Z" fill="#6B9E78" opacity=".95"/>
+        <circle cx="20" cy="5.5" r="1.7" fill="#D4B76A"/>
+        <line x1="3" y1="32" x2="37" y2="32" stroke="#C4A14F" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="cur-lab">Currently live</div>
+      <div class="cur-info">Three-hedge silhouette with sun motif. Forest-deep rounded square, gold accents, sage hedge.</div>
+    </div>
+  </div>
+
+
+  <!-- ─────────────────── CONCEPT 01 — SEAL ─────────────────── -->
+  <article class="concept">
+    <div class="concept-hd">
+      <div>
+        <div class="concept-num">Concept 01</div>
+        <h2 class="concept-name">The Seal</h2>
+        <p class="concept-desc">A botanical-society stamp. HH monogram inside a fine engraved ring, with two leaf flourishes and tiered text. Stately, traditional, considered.</p>
+      </div>
+    </div>
+    <div class="concept-row">
+      <div class="panel panel-light">
+        <div class="scales-item">
+          <svg class="mark-l" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36" fill="none" stroke="#C4A14F" stroke-width="0.5"/>
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#C4A14F" stroke-width="0.3" opacity=".5"/>
+            <text x="40" y="48" font-family="Funnel Display, serif" font-size="22" font-weight="500" text-anchor="middle" fill="#0F2418" letter-spacing="-1">HH</text>
+            <text x="40" y="14" font-family="Inter, sans-serif" font-size="3.2" font-weight="700" text-anchor="middle" fill="#A88838" letter-spacing="2.5">HERTFORDSHIRE</text>
+            <text x="40" y="71" font-family="Inter, sans-serif" font-size="2.8" font-weight="600" text-anchor="middle" fill="#A88838" letter-spacing="3">EST · 2013 · HARPENDEN</text>
+            <path d="M9 40 Q12 36 16 38 Q14 41 10 41 Z" fill="#6B9E78" opacity=".7"/>
+            <path d="M71 40 Q68 36 64 38 Q66 41 70 41 Z" fill="#6B9E78" opacity=".7"/>
+            <circle cx="40" cy="22" r=".7" fill="#C4A14F"/>
+            <circle cx="40" cy="58" r=".7" fill="#C4A14F"/>
+          </svg>
+          <div class="scales-cap">Hero · 180px</div>
+        </div>
+        <div class="scales">
+          <div class="scales-item">
+            <svg class="mark-s" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="36" fill="none" stroke="#C4A14F" stroke-width="0.5"/>
+              <text x="40" y="48" font-family="Funnel Display, serif" font-size="22" font-weight="500" text-anchor="middle" fill="#0F2418" letter-spacing="-1">HH</text>
+              <path d="M9 40 Q12 36 16 38 Q14 41 10 41 Z" fill="#6B9E78" opacity=".7"/>
+              <path d="M71 40 Q68 36 64 38 Q66 41 70 41 Z" fill="#6B9E78" opacity=".7"/>
+            </svg>
+            <div class="scales-cap">Nav · 48px</div>
+          </div>
+          <div class="scales-item">
+            <svg class="mark-xs" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="36" fill="none" stroke="#C4A14F" stroke-width="2"/>
+              <text x="40" y="50" font-family="Funnel Display, serif" font-size="26" font-weight="700" text-anchor="middle" fill="#0F2418">HH</text>
+            </svg>
+            <div class="scales-cap">Fav · 20px</div>
+          </div>
+        </div>
+        <div class="lockup">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36" fill="none" stroke="#C4A14F" stroke-width="1"/>
+            <text x="40" y="50" font-family="Funnel Display, serif" font-size="26" font-weight="500" text-anchor="middle" fill="#0F2418" letter-spacing="-1">HH</text>
+          </svg>
+          <div class="lockup-w">
+            <span class="lockup-text">Hertfordshire</span>
+            <span class="lockup-sub">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Light surface</div>
+      </div>
+      <div class="panel panel-dark">
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="36" fill="none" stroke="#C4A14F" stroke-width="0.5"/>
+          <circle cx="40" cy="40" r="32" fill="none" stroke="#C4A14F" stroke-width="0.3" opacity=".5"/>
+          <text x="40" y="48" font-family="Funnel Display, serif" font-size="22" font-weight="500" text-anchor="middle" fill="#EDE3C8" letter-spacing="-1">HH</text>
+          <text x="40" y="14" font-family="Inter, sans-serif" font-size="3.2" font-weight="700" text-anchor="middle" fill="#C4A14F" letter-spacing="2.5">HERTFORDSHIRE</text>
+          <text x="40" y="71" font-family="Inter, sans-serif" font-size="2.8" font-weight="600" text-anchor="middle" fill="#C4A14F" letter-spacing="3">EST · 2013 · HARPENDEN</text>
+          <path d="M9 40 Q12 36 16 38 Q14 41 10 41 Z" fill="#6B9E78" opacity=".9"/>
+          <path d="M71 40 Q68 36 64 38 Q66 41 70 41 Z" fill="#6B9E78" opacity=".9"/>
+          <circle cx="40" cy="22" r=".7" fill="#C4A14F"/>
+          <circle cx="40" cy="58" r=".7" fill="#C4A14F"/>
+        </svg>
+        <div class="lockup">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36" fill="none" stroke="#C4A14F" stroke-width="1"/>
+            <text x="40" y="50" font-family="Funnel Display, serif" font-size="26" font-weight="500" text-anchor="middle" fill="#EDE3C8" letter-spacing="-1">HH</text>
+          </svg>
+          <div class="lockup-w">
+            <span class="lockup-text">Hertfordshire</span>
+            <span class="lockup-sub">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Dark surface</div>
+      </div>
+    </div>
+    <div class="notes">
+      <div class="notes-h">Notes</div>
+      <ul>
+        <li>Most traditional / "established" of the four — feels like a country-estate stamp.</li>
+        <li>Detail (curved text, fine ring) may struggle below 32px without simplification.</li>
+        <li>Works well as a wax-seal moment in marketing materials, business cards, vehicle livery.</li>
+      </ul>
+    </div>
+  </article>
+
+
+  <!-- ─────────────────── CONCEPT 02 — SCHEMATIC ─────────────────── -->
+  <article class="concept">
+    <div class="concept-hd">
+      <div>
+        <div class="concept-num">Concept 02</div>
+        <h2 class="concept-name">The Schematic</h2>
+        <p class="concept-desc">Drawn in the same precision-line language as the equipment section. Two H's framed by a hedge canopy curve and a dashed ground line — technical drawing meets monogram.</p>
+      </div>
+    </div>
+    <div class="concept-row">
+      <div class="panel panel-light">
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <g stroke="#A88838" stroke-width="0.9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="14" y1="22" x2="14" y2="58"/>
+            <line x1="32" y1="22" x2="32" y2="58"/>
+            <line x1="14" y1="40" x2="32" y2="40"/>
+            <line x1="48" y1="22" x2="48" y2="58"/>
+            <line x1="66" y1="22" x2="66" y2="58"/>
+            <line x1="48" y1="40" x2="66" y2="40"/>
+            <path d="M14 22 Q23 14 32 18 Q40 22 48 18 Q57 14 66 22" stroke="#6B9E78" stroke-width="1.2"/>
+            <line x1="8" y1="64" x2="72" y2="64" stroke-dasharray="2 4" opacity=".5"/>
+            <line x1="12" y1="40" x2="10" y2="40" opacity=".55"/>
+            <line x1="68" y1="40" x2="70" y2="40" opacity=".55"/>
+            <line x1="12" y1="22" x2="10" y2="22" opacity=".4"/>
+            <line x1="12" y1="58" x2="10" y2="58" opacity=".4"/>
+          </g>
+          <circle cx="40" cy="16" r=".9" fill="#C4A14F"/>
+        </svg>
+        <div class="scales">
+          <div class="scales-item">
+            <svg class="mark-s" viewBox="0 0 80 80">
+              <g stroke="#A88838" stroke-width="1.5" fill="none" stroke-linecap="round">
+                <line x1="14" y1="22" x2="14" y2="58"/>
+                <line x1="32" y1="22" x2="32" y2="58"/>
+                <line x1="14" y1="40" x2="32" y2="40"/>
+                <line x1="48" y1="22" x2="48" y2="58"/>
+                <line x1="66" y1="22" x2="66" y2="58"/>
+                <line x1="48" y1="40" x2="66" y2="40"/>
+                <path d="M14 22 Q23 14 32 18 Q40 22 48 18 Q57 14 66 22" stroke="#6B9E78" stroke-width="1.8"/>
+              </g>
+            </svg>
+            <div class="scales-cap">Nav · 48px</div>
+          </div>
+          <div class="scales-item">
+            <svg class="mark-xs" viewBox="0 0 80 80">
+              <g stroke="#A88838" stroke-width="4" fill="none" stroke-linecap="round">
+                <line x1="14" y1="22" x2="14" y2="58"/>
+                <line x1="32" y1="22" x2="32" y2="58"/>
+                <line x1="14" y1="40" x2="32" y2="40"/>
+                <line x1="48" y1="22" x2="48" y2="58"/>
+                <line x1="66" y1="22" x2="66" y2="58"/>
+                <line x1="48" y1="40" x2="66" y2="40"/>
+              </g>
+            </svg>
+            <div class="scales-cap">Fav · 20px</div>
+          </div>
+        </div>
+        <div class="lockup">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <g stroke="#A88838" stroke-width="2" fill="none" stroke-linecap="round">
+              <line x1="14" y1="22" x2="14" y2="58"/>
+              <line x1="32" y1="22" x2="32" y2="58"/>
+              <line x1="14" y1="40" x2="32" y2="40"/>
+              <line x1="48" y1="22" x2="48" y2="58"/>
+              <line x1="66" y1="22" x2="66" y2="58"/>
+              <line x1="48" y1="40" x2="66" y2="40"/>
+              <path d="M14 22 Q23 14 32 18 Q40 22 48 18 Q57 14 66 22" stroke="#6B9E78" stroke-width="2.4"/>
+            </g>
+          </svg>
+          <div class="lockup-w">
+            <span class="lockup-text">Hertfordshire</span>
+            <span class="lockup-sub">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Light surface</div>
+      </div>
+      <div class="panel panel-dark">
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <g stroke="#D4B76A" stroke-width="0.9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="14" y1="22" x2="14" y2="58"/>
+            <line x1="32" y1="22" x2="32" y2="58"/>
+            <line x1="14" y1="40" x2="32" y2="40"/>
+            <line x1="48" y1="22" x2="48" y2="58"/>
+            <line x1="66" y1="22" x2="66" y2="58"/>
+            <line x1="48" y1="40" x2="66" y2="40"/>
+            <path d="M14 22 Q23 14 32 18 Q40 22 48 18 Q57 14 66 22" stroke="#97BEA0" stroke-width="1.2"/>
+            <line x1="8" y1="64" x2="72" y2="64" stroke-dasharray="2 4" opacity=".5"/>
+            <line x1="12" y1="40" x2="10" y2="40" opacity=".55"/>
+            <line x1="68" y1="40" x2="70" y2="40" opacity=".55"/>
+          </g>
+          <circle cx="40" cy="16" r=".9" fill="#D4B76A"/>
+        </svg>
+        <div class="lockup">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <g stroke="#D4B76A" stroke-width="2" fill="none" stroke-linecap="round">
+              <line x1="14" y1="22" x2="14" y2="58"/>
+              <line x1="32" y1="22" x2="32" y2="58"/>
+              <line x1="14" y1="40" x2="32" y2="40"/>
+              <line x1="48" y1="22" x2="48" y2="58"/>
+              <line x1="66" y1="22" x2="66" y2="58"/>
+              <line x1="48" y1="40" x2="66" y2="40"/>
+              <path d="M14 22 Q23 14 32 18 Q40 22 48 18 Q57 14 66 22" stroke="#97BEA0" stroke-width="2.4"/>
+            </g>
+          </svg>
+          <div class="lockup-w">
+            <span class="lockup-text">Hertfordshire</span>
+            <span class="lockup-sub">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Dark surface</div>
+      </div>
+    </div>
+    <div class="notes">
+      <div class="notes-h">Notes</div>
+      <ul>
+        <li>The most "of-a-piece" with the current site's technical-illustration language (equipment section, line drawings).</li>
+        <li>Reads instantly as two H's under a hedge canopy — concept clear at first glance.</li>
+        <li>Scales beautifully — fine at favicon size if we drop the canopy line, since the H's alone still work.</li>
+      </ul>
+    </div>
+  </article>
+
+
+  <!-- ─────────────────── CONCEPT 03 — CREST ─────────────────── -->
+  <article class="concept">
+    <div class="concept-hd">
+      <div>
+        <div class="concept-num">Concept 03</div>
+        <h2 class="concept-name">The Crest</h2>
+        <p class="concept-desc">Heraldic oval with HH centre, laurel sprigs flanking, "Est. 2013" banner below. Country-house authority — for clients who want a maker with provenance.</p>
+      </div>
+    </div>
+    <div class="concept-row">
+      <div class="panel panel-light">
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <ellipse cx="40" cy="40" rx="26" ry="32" fill="none" stroke="#C4A14F" stroke-width="0.9"/>
+          <ellipse cx="40" cy="40" rx="22" ry="28" fill="#FDFBF7" stroke="#C4A14F" stroke-width="0.3" opacity=".5"/>
+          <text x="40" y="46" font-family="Funnel Display, serif" font-size="20" font-weight="500" text-anchor="middle" fill="#0F2418" letter-spacing="-1">HH</text>
+          <g stroke="#6B9E78" stroke-width="0.7" fill="none" stroke-linecap="round">
+            <path d="M20 32 Q22 38 24 42 Q22 48 20 52"/>
+            <path d="M21 35 Q23 34 25.5 36"/>
+            <path d="M22 40 Q24 39 26.5 41"/>
+            <path d="M22 45 Q24 44 26.5 46"/>
+            <path d="M21 50 Q23 49 25.5 51"/>
+            <path d="M60 32 Q58 38 56 42 Q58 48 60 52"/>
+            <path d="M59 35 Q57 34 54.5 36"/>
+            <path d="M58 40 Q56 39 53.5 41"/>
+            <path d="M58 45 Q56 44 53.5 46"/>
+            <path d="M59 50 Q57 49 54.5 51"/>
+          </g>
+          <path d="M20 60 L60 60 L57 66 L23 66 Z" fill="#0F2418"/>
+          <text x="40" y="64.3" font-family="Inter, sans-serif" font-size="2.8" font-weight="700" text-anchor="middle" fill="#C4A14F" letter-spacing="2">EST · 2013</text>
+        </svg>
+        <div class="scales">
+          <div class="scales-item">
+            <svg class="mark-s" viewBox="0 0 80 80">
+              <ellipse cx="40" cy="40" rx="26" ry="32" fill="none" stroke="#C4A14F" stroke-width="1.8"/>
+              <text x="40" y="46" font-family="Funnel Display, serif" font-size="20" font-weight="500" text-anchor="middle" fill="#0F2418" letter-spacing="-1">HH</text>
+              <path d="M20 60 L60 60 L57 66 L23 66 Z" fill="#0F2418"/>
+            </svg>
+            <div class="scales-cap">Nav · 48px</div>
+          </div>
+          <div class="scales-item">
+            <svg class="mark-xs" viewBox="0 0 80 80">
+              <ellipse cx="40" cy="40" rx="26" ry="32" fill="none" stroke="#C4A14F" stroke-width="4"/>
+              <text x="40" y="48" font-family="Funnel Display, serif" font-size="22" font-weight="700" text-anchor="middle" fill="#0F2418">HH</text>
+            </svg>
+            <div class="scales-cap">Fav · 20px</div>
+          </div>
+        </div>
+        <div class="lockup">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <ellipse cx="40" cy="40" rx="26" ry="32" fill="none" stroke="#C4A14F" stroke-width="1.6"/>
+            <text x="40" y="46" font-family="Funnel Display, serif" font-size="22" font-weight="500" text-anchor="middle" fill="#0F2418" letter-spacing="-1">HH</text>
+          </svg>
+          <div class="lockup-w">
+            <span class="lockup-text">Hertfordshire</span>
+            <span class="lockup-sub">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Light surface</div>
+      </div>
+      <div class="panel panel-dark">
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <ellipse cx="40" cy="40" rx="26" ry="32" fill="none" stroke="#C4A14F" stroke-width="0.9"/>
+          <ellipse cx="40" cy="40" rx="22" ry="28" fill="none" stroke="#C4A14F" stroke-width="0.3" opacity=".4"/>
+          <text x="40" y="46" font-family="Funnel Display, serif" font-size="20" font-weight="500" text-anchor="middle" fill="#EDE3C8" letter-spacing="-1">HH</text>
+          <g stroke="#97BEA0" stroke-width="0.7" fill="none" stroke-linecap="round">
+            <path d="M20 32 Q22 38 24 42 Q22 48 20 52"/>
+            <path d="M21 35 Q23 34 25.5 36"/>
+            <path d="M22 40 Q24 39 26.5 41"/>
+            <path d="M22 45 Q24 44 26.5 46"/>
+            <path d="M21 50 Q23 49 25.5 51"/>
+            <path d="M60 32 Q58 38 56 42 Q58 48 60 52"/>
+            <path d="M59 35 Q57 34 54.5 36"/>
+            <path d="M58 40 Q56 39 53.5 41"/>
+            <path d="M58 45 Q56 44 53.5 46"/>
+            <path d="M59 50 Q57 49 54.5 51"/>
+          </g>
+          <path d="M20 60 L60 60 L57 66 L23 66 Z" fill="#C4A14F"/>
+          <text x="40" y="64.3" font-family="Inter, sans-serif" font-size="2.8" font-weight="700" text-anchor="middle" fill="#0F2418" letter-spacing="2">EST · 2013</text>
+        </svg>
+        <div class="lockup">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <ellipse cx="40" cy="40" rx="26" ry="32" fill="none" stroke="#C4A14F" stroke-width="1.6"/>
+            <text x="40" y="46" font-family="Funnel Display, serif" font-size="22" font-weight="500" text-anchor="middle" fill="#EDE3C8" letter-spacing="-1">HH</text>
+          </svg>
+          <div class="lockup-w">
+            <span class="lockup-text">Hertfordshire</span>
+            <span class="lockup-sub">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Dark surface</div>
+      </div>
+    </div>
+    <div class="notes">
+      <div class="notes-h">Notes</div>
+      <ul>
+        <li>Most "heritage" — leans hard into trust signals and tradition.</li>
+        <li>Some risk of feeling generic if executed poorly (lots of trades use crests). The Funnel Display HH gives it freshness.</li>
+        <li>The banner with "Est. 2013" doubles as a credential signal at small sizes.</li>
+      </ul>
+    </div>
+  </article>
+
+
+  <!-- ─────────────────── CONCEPT 04 — LIGATURE ─────────────────── -->
+  <article class="concept">
+    <div class="concept-hd">
+      <div>
+        <div class="concept-num">Concept 04</div>
+        <h2 class="concept-name">The Ligature</h2>
+        <p class="concept-desc">Two H's where the crossbars merge into a single gold line — visual metaphor for a hedge top. Confident, modernist, almost pure typography. Most contemporary of the four.</p>
+      </div>
+    </div>
+    <div class="concept-row">
+      <div class="panel panel-light">
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <g fill="#0F2418">
+            <rect x="13" y="18" width="3.6" height="44" rx="0.4"/>
+            <rect x="28" y="18" width="3.6" height="44" rx="0.4"/>
+            <rect x="48" y="18" width="3.6" height="44" rx="0.4"/>
+            <rect x="63" y="18" width="3.6" height="44" rx="0.4"/>
+          </g>
+          <rect x="13" y="37.5" width="54.4" height="3.2" fill="#C4A14F"/>
+          <circle cx="40" cy="39" r="1.4" fill="#0F2418"/>
+          <line x1="14" y1="66" x2="66" y2="66" stroke="#C4A14F" stroke-width=".8" stroke-linecap="round" opacity=".6"/>
+        </svg>
+        <div class="scales">
+          <div class="scales-item">
+            <svg class="mark-s" viewBox="0 0 80 80">
+              <g fill="#0F2418">
+                <rect x="13" y="18" width="3.6" height="44" rx="0.4"/>
+                <rect x="28" y="18" width="3.6" height="44" rx="0.4"/>
+                <rect x="48" y="18" width="3.6" height="44" rx="0.4"/>
+                <rect x="63" y="18" width="3.6" height="44" rx="0.4"/>
+              </g>
+              <rect x="13" y="37.5" width="54.4" height="3.2" fill="#C4A14F"/>
+            </svg>
+            <div class="scales-cap">Nav · 48px</div>
+          </div>
+          <div class="scales-item">
+            <svg class="mark-xs" viewBox="0 0 80 80">
+              <g fill="#0F2418">
+                <rect x="13" y="18" width="6" height="44"/>
+                <rect x="28" y="18" width="6" height="44"/>
+                <rect x="46" y="18" width="6" height="44"/>
+                <rect x="61" y="18" width="6" height="44"/>
+              </g>
+              <rect x="13" y="36" width="54" height="6" fill="#C4A14F"/>
+            </svg>
+            <div class="scales-cap">Fav · 20px</div>
+          </div>
+        </div>
+        <div class="lockup">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <g fill="#0F2418">
+              <rect x="13" y="18" width="4" height="44"/>
+              <rect x="28" y="18" width="4" height="44"/>
+              <rect x="48" y="18" width="4" height="44"/>
+              <rect x="63" y="18" width="4" height="44"/>
+            </g>
+            <rect x="13" y="37" width="54" height="3.6" fill="#C4A14F"/>
+          </svg>
+          <div class="lockup-w">
+            <span class="lockup-text">Hertfordshire</span>
+            <span class="lockup-sub">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Light surface</div>
+      </div>
+      <div class="panel panel-dark">
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <g fill="#EDE3C8">
+            <rect x="13" y="18" width="3.6" height="44" rx="0.4"/>
+            <rect x="28" y="18" width="3.6" height="44" rx="0.4"/>
+            <rect x="48" y="18" width="3.6" height="44" rx="0.4"/>
+            <rect x="63" y="18" width="3.6" height="44" rx="0.4"/>
+          </g>
+          <rect x="13" y="37.5" width="54.4" height="3.2" fill="#C4A14F"/>
+          <circle cx="40" cy="39" r="1.4" fill="#0F2418"/>
+          <line x1="14" y1="66" x2="66" y2="66" stroke="#C4A14F" stroke-width=".8" stroke-linecap="round" opacity=".7"/>
+        </svg>
+        <div class="lockup">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <g fill="#EDE3C8">
+              <rect x="13" y="18" width="4" height="44"/>
+              <rect x="28" y="18" width="4" height="44"/>
+              <rect x="48" y="18" width="4" height="44"/>
+              <rect x="63" y="18" width="4" height="44"/>
+            </g>
+            <rect x="13" y="37" width="54" height="3.6" fill="#C4A14F"/>
+          </svg>
+          <div class="lockup-w">
+            <span class="lockup-text">Hertfordshire</span>
+            <span class="lockup-sub">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Dark surface</div>
+      </div>
+    </div>
+    <div class="notes">
+      <div class="notes-h">Notes</div>
+      <ul>
+        <li>Most modern of the four. Reads as a hedge-top line with gateway uprights beneath.</li>
+        <li>Strongest favicon performance — the geometry survives at 16px almost perfectly.</li>
+        <li>Could feel "cold" or insufficiently horticultural — depends on how warm the wordmark is set.</li>
+      </ul>
+    </div>
+  </article>
+
+
+  <!-- ─────────────────── CONCEPT 05 — VAN WORDMARK + INTERLOCKING H's ─────────────────── -->
+  <article class="concept" style="border-color:var(--gold)">
+    <div class="concept-hd" style="background:var(--cream)">
+      <div>
+        <div class="concept-num" style="color:var(--moss)">Concept 05 · new direction</div>
+        <h2 class="concept-name">Van Wordmark + Interlocking H</h2>
+        <p class="concept-desc">Faithful to the existing van livery — italic sans-serif, "Hertfordshire" stacked above "Hedging" — paired with a new interlocking-H monogram. Three sub-variants below show different ways the H's can lock together.</p>
+      </div>
+    </div>
+
+    <!-- VARIANT A — Shared centre vertical (ligature) -->
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08)">
+      <div class="panel panel-light">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px">Variant A · Shared spine</div>
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <g fill="#0F2418">
+            <rect x="14" y="18" width="3.2" height="44"/>
+            <rect x="38.4" y="18" width="3.2" height="44"/>
+            <rect x="62.8" y="18" width="3.2" height="44"/>
+          </g>
+          <g fill="#C4A14F">
+            <rect x="17.2" y="32" width="21.2" height="3"/>
+            <rect x="41.6" y="46" width="21.2" height="3"/>
+          </g>
+        </svg>
+        <div class="scales">
+          <div class="scales-item">
+            <svg class="mark-s" viewBox="0 0 80 80">
+              <g fill="#0F2418"><rect x="14" y="18" width="3.2" height="44"/><rect x="38.4" y="18" width="3.2" height="44"/><rect x="62.8" y="18" width="3.2" height="44"/></g>
+              <g fill="#C4A14F"><rect x="17.2" y="32" width="21.2" height="3"/><rect x="41.6" y="46" width="21.2" height="3"/></g>
+            </svg>
+            <div class="scales-cap">Nav</div>
+          </div>
+          <div class="scales-item">
+            <svg class="mark-xs" viewBox="0 0 80 80">
+              <g fill="#0F2418"><rect x="14" y="18" width="5" height="44"/><rect x="37.5" y="18" width="5" height="44"/><rect x="61" y="18" width="5" height="44"/></g>
+              <g fill="#C4A14F"><rect x="19" y="31" width="18.5" height="5"/><rect x="42.5" y="44" width="18.5" height="5"/></g>
+            </svg>
+            <div class="scales-cap">Fav</div>
+          </div>
+        </div>
+        <div class="lockup" style="margin-top:18px">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <g fill="#0F2418"><rect x="14" y="18" width="3.6" height="44"/><rect x="38.2" y="18" width="3.6" height="44"/><rect x="62.4" y="18" width="3.6" height="44"/></g>
+            <g fill="#C4A14F"><rect x="17.6" y="32" width="20.6" height="3.4"/><rect x="41.8" y="46" width="20.6" height="3.4"/></g>
+          </svg>
+          <div class="lockup-w" style="font-style:italic;font-family:'Inter',sans-serif;letter-spacing:-.01em">
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;color:#0F2418;line-height:1">Hertfordshire</span>
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:700;font-size:1.45rem;color:#0F2418;line-height:1;margin-top:2px">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Light surface</div>
+      </div>
+      <div class="panel panel-dark">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px">Variant A · Shared spine</div>
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <g fill="#EDE3C8"><rect x="14" y="18" width="3.2" height="44"/><rect x="38.4" y="18" width="3.2" height="44"/><rect x="62.8" y="18" width="3.2" height="44"/></g>
+          <g fill="#C4A14F"><rect x="17.2" y="32" width="21.2" height="3"/><rect x="41.6" y="46" width="21.2" height="3"/></g>
+        </svg>
+        <div class="lockup" style="margin-top:18px">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <g fill="#EDE3C8"><rect x="14" y="18" width="3.6" height="44"/><rect x="38.2" y="18" width="3.6" height="44"/><rect x="62.4" y="18" width="3.6" height="44"/></g>
+            <g fill="#C4A14F"><rect x="17.6" y="32" width="20.6" height="3.4"/><rect x="41.8" y="46" width="20.6" height="3.4"/></g>
+          </svg>
+          <div class="lockup-w" style="font-style:italic">
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;color:#fff;line-height:1">Hertfordshire</span>
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:700;font-size:1.45rem;color:#fff;line-height:1;margin-top:2px">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Dark surface</div>
+      </div>
+    </div>
+
+    <!-- VARIANT B — Interwoven crossbars -->
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08)">
+      <div class="panel panel-light">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px">Variant B · Woven bars</div>
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <g fill="#0F2418">
+            <rect x="16" y="18" width="3.6" height="44"/>
+            <rect x="34.4" y="18" width="3.6" height="44"/>
+            <rect x="42" y="18" width="3.6" height="44"/>
+            <rect x="60.4" y="18" width="3.6" height="44"/>
+          </g>
+          <rect x="16" y="32" width="29.6" height="3" fill="#C4A14F"/>
+          <rect x="34.4" y="45" width="29.6" height="3" fill="#0F2418"/>
+        </svg>
+        <div class="scales">
+          <div class="scales-item">
+            <svg class="mark-s" viewBox="0 0 80 80">
+              <g fill="#0F2418"><rect x="16" y="18" width="3.6" height="44"/><rect x="34.4" y="18" width="3.6" height="44"/><rect x="42" y="18" width="3.6" height="44"/><rect x="60.4" y="18" width="3.6" height="44"/></g>
+              <rect x="16" y="32" width="29.6" height="3" fill="#C4A14F"/>
+              <rect x="34.4" y="45" width="29.6" height="3" fill="#0F2418"/>
+            </svg>
+            <div class="scales-cap">Nav</div>
+          </div>
+          <div class="scales-item">
+            <svg class="mark-xs" viewBox="0 0 80 80">
+              <g fill="#0F2418"><rect x="16" y="18" width="5" height="44"/><rect x="33" y="18" width="5" height="44"/><rect x="42" y="18" width="5" height="44"/><rect x="59" y="18" width="5" height="44"/></g>
+              <rect x="16" y="31" width="27" height="5" fill="#C4A14F"/>
+              <rect x="33" y="44" width="31" height="5" fill="#0F2418"/>
+            </svg>
+            <div class="scales-cap">Fav</div>
+          </div>
+        </div>
+        <div class="lockup" style="margin-top:18px">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <g fill="#0F2418"><rect x="16" y="18" width="3.8" height="44"/><rect x="34.2" y="18" width="3.8" height="44"/><rect x="42" y="18" width="3.8" height="44"/><rect x="60.2" y="18" width="3.8" height="44"/></g>
+            <rect x="16" y="32" width="29.8" height="3.4" fill="#C4A14F"/>
+            <rect x="34.2" y="45" width="29.8" height="3.4" fill="#0F2418"/>
+          </svg>
+          <div class="lockup-w" style="font-style:italic">
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;color:#0F2418;line-height:1">Hertfordshire</span>
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:700;font-size:1.45rem;color:#0F2418;line-height:1;margin-top:2px">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Light surface</div>
+      </div>
+      <div class="panel panel-dark">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px">Variant B · Woven bars</div>
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <g fill="#EDE3C8"><rect x="16" y="18" width="3.6" height="44"/><rect x="34.4" y="18" width="3.6" height="44"/><rect x="42" y="18" width="3.6" height="44"/><rect x="60.4" y="18" width="3.6" height="44"/></g>
+          <rect x="16" y="32" width="29.6" height="3" fill="#C4A14F"/>
+          <rect x="34.4" y="45" width="29.6" height="3" fill="#EDE3C8"/>
+        </svg>
+        <div class="lockup" style="margin-top:18px">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <g fill="#EDE3C8"><rect x="16" y="18" width="3.8" height="44"/><rect x="34.2" y="18" width="3.8" height="44"/><rect x="42" y="18" width="3.8" height="44"/><rect x="60.2" y="18" width="3.8" height="44"/></g>
+            <rect x="16" y="32" width="29.8" height="3.4" fill="#C4A14F"/>
+            <rect x="34.2" y="45" width="29.8" height="3.4" fill="#EDE3C8"/>
+          </svg>
+          <div class="lockup-w" style="font-style:italic">
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;color:#fff;line-height:1">Hertfordshire</span>
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:700;font-size:1.45rem;color:#fff;line-height:1;margin-top:2px">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Dark surface</div>
+      </div>
+    </div>
+
+    <!-- VARIANT C — Stacked H over H (echoes wordmark) -->
+    <div class="concept-row" style="border-top:1px solid rgba(15,36,24,.08)">
+      <div class="panel panel-light">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px">Variant C · Stacked (echoes wordmark)</div>
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <g fill="#0F2418">
+            <rect x="22" y="10" width="3.2" height="30"/>
+            <rect x="40.8" y="10" width="3.2" height="30"/>
+            <rect x="22" y="40" width="3.2" height="30"/>
+            <rect x="54.8" y="40" width="3.2" height="30"/>
+          </g>
+          <rect x="22" y="22.5" width="21" height="3" fill="#C4A14F"/>
+          <rect x="22" y="52.5" width="35.8" height="3" fill="#C4A14F"/>
+        </svg>
+        <div class="scales">
+          <div class="scales-item">
+            <svg class="mark-s" viewBox="0 0 80 80">
+              <g fill="#0F2418"><rect x="22" y="10" width="3.2" height="30"/><rect x="40.8" y="10" width="3.2" height="30"/><rect x="22" y="40" width="3.2" height="30"/><rect x="54.8" y="40" width="3.2" height="30"/></g>
+              <rect x="22" y="22.5" width="21" height="3" fill="#C4A14F"/>
+              <rect x="22" y="52.5" width="35.8" height="3" fill="#C4A14F"/>
+            </svg>
+            <div class="scales-cap">Nav</div>
+          </div>
+          <div class="scales-item">
+            <svg class="mark-xs" viewBox="0 0 80 80">
+              <g fill="#0F2418"><rect x="22" y="10" width="5" height="30"/><rect x="40" y="10" width="5" height="30"/><rect x="22" y="40" width="5" height="30"/><rect x="54" y="40" width="5" height="30"/></g>
+              <rect x="22" y="22" width="23" height="5" fill="#C4A14F"/>
+              <rect x="22" y="52" width="37" height="5" fill="#C4A14F"/>
+            </svg>
+            <div class="scales-cap">Fav</div>
+          </div>
+        </div>
+        <div class="lockup" style="margin-top:18px">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <g fill="#0F2418"><rect x="22" y="10" width="3.6" height="30"/><rect x="40.4" y="10" width="3.6" height="30"/><rect x="22" y="40" width="3.6" height="30"/><rect x="54.4" y="40" width="3.6" height="30"/></g>
+            <rect x="22" y="22" width="21.4" height="3.4" fill="#C4A14F"/>
+            <rect x="22" y="52" width="35.8" height="3.4" fill="#C4A14F"/>
+          </svg>
+          <div class="lockup-w" style="font-style:italic">
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;color:#0F2418;line-height:1">Hertfordshire</span>
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:700;font-size:1.45rem;color:#0F2418;line-height:1;margin-top:2px">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Light surface</div>
+      </div>
+      <div class="panel panel-dark">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px">Variant C · Stacked</div>
+        <svg class="mark-l" viewBox="0 0 80 80">
+          <g fill="#EDE3C8"><rect x="22" y="10" width="3.2" height="30"/><rect x="40.8" y="10" width="3.2" height="30"/><rect x="22" y="40" width="3.2" height="30"/><rect x="54.8" y="40" width="3.2" height="30"/></g>
+          <rect x="22" y="22.5" width="21" height="3" fill="#C4A14F"/>
+          <rect x="22" y="52.5" width="35.8" height="3" fill="#C4A14F"/>
+        </svg>
+        <div class="lockup" style="margin-top:18px">
+          <svg class="lockup-mark" viewBox="0 0 80 80">
+            <g fill="#EDE3C8"><rect x="22" y="10" width="3.6" height="30"/><rect x="40.4" y="10" width="3.6" height="30"/><rect x="22" y="40" width="3.6" height="30"/><rect x="54.4" y="40" width="3.6" height="30"/></g>
+            <rect x="22" y="22" width="21.4" height="3.4" fill="#C4A14F"/>
+            <rect x="22" y="52" width="35.8" height="3.4" fill="#C4A14F"/>
+          </svg>
+          <div class="lockup-w" style="font-style:italic">
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;color:#fff;line-height:1">Hertfordshire</span>
+            <span class="lockup-text" style="font-family:'Inter',sans-serif;font-weight:700;font-size:1.45rem;color:#fff;line-height:1;margin-top:2px">Hedging</span>
+          </div>
+        </div>
+        <div class="panel-label">Dark surface</div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div class="notes-h">Notes</div>
+      <ul>
+        <li><strong>Variant A — Shared spine:</strong> Two H's joined at the centre, gold cross-bars stepped down. Most "monogram"-like.</li>
+        <li><strong>Variant B — Woven bars:</strong> Four upright strokes with two cross-bars at different heights — feels like the H's literally pass through each other.</li>
+        <li><strong>Variant C — Stacked:</strong> One H above another, mirroring the way "Hertfordshire / Hedging" sits on the van. Strongest brand-system tie.</li>
+        <li>All three are paired with the van's wordmark style — italic Inter, "Hertfordshire" smaller above a bigger "Hedging".</li>
+        <li>For the live site we'd swap Inter italic for a closer match to the actual van font if you can identify it (likely a humanist italic — Avenir Next Italic or similar). Let me know if you want me to source the exact typeface.</li>
+      </ul>
+    </div>
+  </article>
+
+
+  <div class="footer">
+    <h3>What happens next</h3>
+    <ol>
+      <li>Have a look through. Tell me which of the four (or which two) you'd like to take forward.</li>
+      <li>I'll refine the chosen direction — try variants, tighter proportions, alternative colour treatments, optional in-situ previews in the actual site nav and footer.</li>
+      <li>When you're happy with a winner, I swap it into the live site (<code>main</code> branch) — favicon, nav logo, footer logo, OG image, the lot. One commit, ~30 seconds of Netlify deploy, done.</li>
+    </ol>
+    <p style="margin-top:18px;color:var(--text-mid);font-size:.82rem">Live site (unchanged): <a href="https://herts-hedging.netlify.app/">herts-hedging.netlify.app</a> · This page lives only on the <code>logo-redesign</code> branch.</p>
+  </div>
+
+</div>
+</body>
+</html>
