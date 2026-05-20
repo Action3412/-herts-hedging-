@@ -182,10 +182,6 @@ header.scrolled .nav-glass{background:rgba(253,251,247,.85);border-color:rgba(0,
 header.scrolled .nav-glass{--ntx:var(--forest-deep);--ntx2:var(--text-mid)}
 header:not(.scrolled) .nav-glass{--ntx:#fff;--ntx2:rgba(255,255,255,.7)}
 .logo{display:flex;align-items:center;gap:12px}
-.logo-m{width:34px;height:34px}
-.logo-w{display:flex;flex-direction:column;line-height:1.05}
-.logo-t{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--ntx);letter-spacing:.2px;transition:color .4s;}
-.logo-b{font-size:.52rem;font-weight:600;text-transform:uppercase;letter-spacing:4px;color:var(--gold);margin-top:2px}
 .logo-svg{display:block;height:38px;width:auto;color:#fff;transition:color .4s var(--ease)}
 header.scrolled .logo-svg{color:var(--forest-deep)}
 .logo-svg-footer{height:54px;color:#fff}
@@ -225,10 +221,6 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 .rv-d4{transition-delay:.4s}
 .rv-d5{transition-delay:.5s}
 
-/* Clip reveal — image slides up out of a mask */
-.clip-rv{clip-path:inset(0 0 100% 0);transition:clip-path 1.4s var(--ease)}
-.clip-rv.vis{clip-path:inset(0 0 0 0)}
-
 /* ═══════════════ SHARED ═══════════════ */
 .container{max-width:1240px;margin:0 auto;padding:0 44px}
 @media(max-width:768px){.container{padding:0 24px}}
@@ -248,11 +240,6 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 .sh .tag{justify-content:center}
 .sh .st{margin-bottom:18px}
 .sh .sd{margin:0 auto}
-
-/* Leaf ornament divider */
-.ornament{display:flex;align-items:center;justify-content:center;gap:18px;margin:0 auto;max-width:240px;color:var(--gold)}
-.ornament::before,.ornament::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,currentColor,transparent);opacity:.55}
-.ornament svg{width:22px;height:22px;flex-shrink:0;opacity:.85}
 
 .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:50px;font-size:.83rem;font-weight:600;transition:all .4s var(--ease);letter-spacing:.5px;text-transform:uppercase}
 .btn svg{width:14px;height:14px;transition:transform .35s var(--ease)}
@@ -415,25 +402,7 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 .process-points .ck{flex-shrink:0;width:22px;height:22px;margin-top:1px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep)}
 .process-points .ck svg{width:11px;height:11px}
 
-/* ═══════════════ EQUIPMENT — dark editorial ═══════════════ */
-.equip-sec{background:var(--forest-deep);color:var(--cream);position:relative;overflow:hidden}
-.equip-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 50%,rgba(196,161,79,.10),transparent 70%);pointer-events:none}
-.equip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:64px;position:relative;z-index:1}
-@media(max-width:900px){.equip-grid{grid-template-columns:1fr}}
-.equip-card{position:relative;padding:44px 36px 40px;border:1px solid rgba(237,227,200,.12);border-radius:var(--rl);background:rgba(255,255,255,.02);backdrop-filter:blur(6px);transition:all .55s var(--ease);overflow:hidden}
-.equip-card::after{content:'';position:absolute;top:0;left:0;width:0;height:1px;background:var(--gold);transition:width .8s var(--ease)}
-.equip-card:hover{border-color:rgba(196,161,79,.4);background:rgba(255,255,255,.04);transform:translateY(-6px)}
-.equip-card:hover::after{width:100%}
-.equip-illus{height:130px;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;justify-content:center;opacity:.95}
-.equip-illus svg{width:100%;height:100%}
-.equip-meta{font-family:var(--serif);font-size:.75rem;color:var(--gold-light);margin-bottom:6px;letter-spacing:.5px}
-.equip-card h4{font-family:var(--serif);font-size:1.35rem;color:#fff;font-weight:500;margin-bottom:12px;letter-spacing:-.015em}
-.equip-card p{font-size:.85rem;color:rgba(237,227,200,.62);font-weight:300;line-height:1.75}
-.equip-spec{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
-.equip-spec span{font-size:.6rem;padding:4px 10px;border:1px solid rgba(237,227,200,.18);border-radius:30px;color:rgba(237,227,200,.7);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
-
-/* ═══════════════ STATS — animated counters ═══════════════ */
-/* The Kit — unified equipment section (replaces line drawings + old kit-tile sections) */
+/* ═══════════════ THE KIT — unified equipment section ═══════════════ */
 .kit-sec{background:var(--forest-deep);color:var(--cream);position:relative;overflow:hidden}
 .kit-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 50%,rgba(196,161,79,.10),transparent 70%);pointer-events:none}
 .kit-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:18px;margin-top:48px;min-height:540px}
