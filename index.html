@@ -182,10 +182,10 @@ header.scrolled .nav-glass{background:rgba(253,251,247,.85);border-color:rgba(0,
 header.scrolled .nav-glass{--ntx:var(--forest-deep);--ntx2:var(--text-mid)}
 header:not(.scrolled) .nav-glass{--ntx:#fff;--ntx2:rgba(255,255,255,.7)}
 .logo{display:flex;align-items:center;gap:12px}
-.logo-svg{display:block;height:38px;width:auto;color:#fff;transition:color .4s var(--ease)}
+.logo-svg{display:block;height:46px;width:auto;color:#fff;transition:color .4s var(--ease)}
 header.scrolled .logo-svg{color:var(--forest-deep)}
 .logo-svg-footer{height:54px;color:#fff}
-@media(max-width:768px){.logo-svg{height:32px}.logo-svg-footer{height:46px}}
+@media(max-width:768px){.logo-svg{height:36px}.logo-svg-footer{height:46px}}
 .nl{display:flex;align-items:center;gap:2px}
 .nl a{font-size:.78rem;font-weight:500;color:var(--ntx2);padding:8px 14px;border-radius:8px;transition:color .3s;letter-spacing:.2px;position:relative}
 .nl a:hover,.nl a.active{color:var(--ntx)}
@@ -274,12 +274,15 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 
 .h-hero-inner{position:relative;z-index:3;min-height:100vh;display:flex;align-items:center;padding:140px 80px 80px}
 @media(max-width:768px){.h-hero-inner{padding:120px 40px 60px}}
-.h-hero-text{max-width:780px}
-.h-hero-text h1{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5.4rem);color:#fff;line-height:1.02;margin-bottom:24px;font-weight:500;letter-spacing:-.025em;animation:fadeIn 1.2s .4s both;text-shadow:0 4px 40px rgba(0,0,0,.4)}
-.h-hero-text h1 em{color:var(--gold-light);,'wght' 300}
-.h-hero-rule{width:60px;height:1px;background:var(--gold);margin-bottom:24px;animation:expand 1s .6s both;transform-origin:left}
+.h-hero-text{max-width:1020px}
+.h-hero-wordmark{display:block;width:100%;max-width:960px;margin:0 0 40px 0;padding:0;color:#fff;line-height:1;font-size:0;letter-spacing:0;text-shadow:none;animation:fadeIn 1.2s .25s both}
+.h-hero-wordmark svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 36px rgba(0,0,0,.45))}
+@media(max-width:768px){.h-hero-wordmark{max-width:480px;margin-bottom:30px}}
+.h-hero-tag{font-family:var(--serif);font-size:clamp(1.65rem,3.4vw,2.7rem);color:rgba(255,255,255,.84);line-height:1.18;margin-bottom:28px;font-weight:400;letter-spacing:-.014em;animation:fadeIn 1.2s .5s both}
+.h-hero-tag em{color:var(--gold-light);font-style:italic;font-weight:300}
+.h-hero-rule{width:72px;height:1px;background:var(--gold);margin-bottom:30px;animation:expand 1s .7s both;transform-origin:left}
 @keyframes expand{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.h-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.78);font-weight:300;line-height:1.85;max-width:520px;margin-bottom:40px;animation:fadeIn 1.2s .7s both}
+.h-hero-sub{font-size:clamp(1.08rem,1.35vw,1.28rem);color:rgba(255,255,255,.82);font-weight:300;line-height:1.75;max-width:660px;margin-bottom:48px;animation:fadeIn 1.2s .8s both}
 .h-hero-ctas{display:flex;gap:14px;flex-wrap:wrap;animation:fadeIn 1.2s .9s both}
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
@@ -577,6 +580,12 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 .fs{width:100%;padding:16px;background:var(--forest);color:var(--cream);border:none;border-radius:50px;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .4s var(--ease);display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:1.5px;text-transform:uppercase}
 .fs:hover{background:var(--forest-deep);transform:translateY(-1px);box-shadow:var(--sh-l)}
 .fs svg{width:14px;height:14px}
+.cb-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}
+@media(max-width:600px){.cb-grid{grid-template-columns:1fr}}
+.cb{display:flex;align-items:flex-start;gap:10px;font-size:.85rem;color:var(--text);font-weight:400;cursor:pointer;line-height:1.45;padding:4px 0;text-transform:none;letter-spacing:0}
+.cb input[type=checkbox]{width:16px;height:16px;margin-top:2px;accent-color:var(--forest);flex-shrink:0;cursor:pointer}
+.cb-consent{margin:4px 0 18px;padding:14px 16px;background:var(--cream-warm);border-radius:10px;border:1px solid var(--cream-dark);font-size:.78rem;color:var(--text-light);line-height:1.5}
+.cb-consent strong{color:var(--forest-deep)}
 
 /* ═══════════════ GLASSY IMAGE DEVICE ═══════════════ */
 /* Featured image containers: layered shadow + top glass-gleam + inner ring */
@@ -730,7 +739,7 @@ body.on-contact .float-call{opacity:0!important;transform:translateY(20px)!impor
 <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
 <!-- Logo symbol definition (used by nav + footer) -->
-<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="logo-mark" viewBox="0 0 586.830806 206.710570">
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="logo-mark" viewBox="0 0 586.830806 170">
 <g transform="translate(-27.169194,211.000000) scale(0.100000,-0.100000)"
 fill="currentColor" stroke="none">
 <path d="M2212 2097 c-37 -21 -49 -48 -57 -124 -6 -62 -10 -73 -26 -73 -17 0
@@ -895,7 +904,7 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
 
 <header id="hdr"><div class="nav-glass">
   <a href="#" class="logo" onclick="goTo('home');return false" aria-label="Hertfordshire Hedging home page">
-    <svg class="logo-svg" viewBox="0 0 586.830806 206.710570" role="img" aria-label="Hertfordshire Hedging"><use href="#logo-mark"/></svg>
+    <svg class="logo-svg" viewBox="0 0 586.830806 170" role="img" aria-label="Hertfordshire Hedging"><use href="#logo-mark"/></svg>
   </a>
   <nav class="nl" id="navLinks">
     <a href="#" data-page="home" class="active" onclick="goTo('home');return false">Home</a>
@@ -931,12 +940,15 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
     <div class="h-hero-veil"></div>
     <div class="grain"></div>
     <div class="h-hero-frame"></div>
-    <div class="h-hero-overline">Est. 2013 · Vol. 01</div>
+    <div class="h-hero-overline">Est. 2013</div>
     <div class="h-hero-inner">
       <div class="h-hero-text">
-        <h1>The art of <em>mature</em><br>hedging</h1>
+        <h1 class="h-hero-wordmark">
+          <svg viewBox="0 0 586.830806 170" role="img" aria-label="Hertfordshire Hedging"><use href="#logo-mark"/></svg>
+        </h1>
+        <p class="h-hero-tag">Full Service Horticultural Experts</p>
         <div class="h-hero-rule"></div>
-        <p class="h-hero-sub">Supplying, planting and maintaining semi-mature and mature hedging for discerning domestic and commercial clients across Hertfordshire and the Home Counties, since 2013.</p>
+        <p class="h-hero-sub">From a single specimen yew to thousands of metres of estate boundary, no project is too small or too large. Supplying, planting and maintaining semi-mature and mature stock of the finest quality for discerning domestic and commercial clients across Hertfordshire and the Home Counties since 2013.</p>
         <div class="h-hero-ctas">
           <a href="#" class="btn btn-g" onclick="goTo('contact');return false">Free Consultation <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="#" class="btn btn-glass" onclick="goTo('services');return false">Our Services <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -1714,8 +1726,18 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
           <p>We'll arrange your free consultation promptly.</p>
           <div class="fr"><div class="fg"><label for="cf-fn">First name *</label><input type="text" id="cf-fn" name="first-name" placeholder="First name" required></div><div class="fg"><label for="cf-ln">Last name *</label><input type="text" id="cf-ln" name="last-name" placeholder="Last name" required></div></div>
           <div class="fr"><div class="fg"><label for="cf-em">Email *</label><input type="email" id="cf-em" name="email" placeholder="you@example.com" required></div><div class="fg"><label for="cf-ph">Phone</label><input type="tel" id="cf-ph" name="phone" placeholder="07xxx xxx xxx"></div></div>
-          <div class="fg"><label for="cf-svc">Service of interest</label><select id="cf-svc" name="service"><option value="">Select…</option><option>Supply</option><option>Planting</option><option>Maintenance</option><option>Supply &amp; Planting</option><option>Full Service</option><option>General enquiry</option></select></div>
+          <div class="fg"><label for="cf-tw">Town or area</label><input type="text" id="cf-tw" name="town" placeholder="e.g. Harpenden, St Albans"></div>
+          <div class="fg"><label>Service(s) of interest</label>
+            <div class="cb-grid">
+              <label class="cb"><input type="checkbox" name="service-interest" value="supply_only"> Supply only</label>
+              <label class="cb"><input type="checkbox" name="service-interest" value="planting"> Planting</label>
+              <label class="cb"><input type="checkbox" name="service-interest" value="maintenance"> Maintenance</label>
+              <label class="cb"><input type="checkbox" name="service-interest" value="removal"> Removal</label>
+              <label class="cb"><input type="checkbox" name="service-interest" value="consultation"> Consultation</label>
+            </div>
+          </div>
           <div class="fg"><label for="cf-msg">Your project *</label><textarea id="cf-msg" name="message" placeholder="Describe your site, species you have in mind, ideal timing…" required></textarea></div>
+          <label class="cb cb-consent"><input type="checkbox" name="consent" required> I agree to Hertfordshire Hedging storing and processing my details to respond to this enquiry. <strong>*</strong></label>
           <button class="fs" id="cfSubmit" type="submit">Send Enquiry <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </form>
       </div>
@@ -1728,7 +1750,7 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
     <div class="ftg">
       <div class="ftb">
         <div class="logo">
-          <svg class="logo-svg logo-svg-footer" viewBox="0 0 586.830806 206.710570" role="img" aria-label="Hertfordshire Hedging"><use href="#logo-mark"/></svg>
+          <svg class="logo-svg logo-svg-footer" viewBox="0 0 586.830806 170" role="img" aria-label="Hertfordshire Hedging"><use href="#logo-mark"/></svg>
         </div>
         <p>Suppliers and growers of the finest quality hedging. Specialists across Hertfordshire and the Home Counties since 2013.</p>
       </div>
@@ -1949,21 +1971,58 @@ function submitForm(e){
   e.preventDefault();
   var f=e.target;
   var b=document.getElementById('cfSubmit');
-  var data=new URLSearchParams(new FormData(f));
+  var fd=new FormData(f);
+  if(fd.get('bot-field')){return false;}
   b.disabled=true;
   b.innerHTML='Sending…';
-  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()})
-    .then(function(r){
-      if(!r.ok)throw new Error('Network response was not ok');
+
+  var hsFields=[
+    {objectTypeId:'0-1',name:'firstname',       value:fd.get('first-name')||''},
+    {objectTypeId:'0-1',name:'lastname',        value:fd.get('last-name')||''},
+    {objectTypeId:'0-1',name:'email',           value:fd.get('email')||''},
+    {objectTypeId:'0-1',name:'phone',           value:fd.get('phone')||''},
+    {objectTypeId:'0-1',name:'city',            value:fd.get('town')||''},
+    {objectTypeId:'0-1',name:'service_interest',value:fd.getAll('service-interest').join(';')},
+    {objectTypeId:'0-1',name:'message',         value:fd.get('message')||''},
+    {objectTypeId:'0-1',name:'lead_source',     value:'website_form'},
+    {objectTypeId:'0-1',name:'job_status',      value:'enquiry'}
+  ].filter(function(x){return x.value;});
+
+  var hsPayload={
+    submittedAt:Date.now(),
+    fields:hsFields,
+    context:{
+      pageUri:window.location.href,
+      pageName:document.title,
+      hutk:(document.cookie.match(/hubspotutk=([^;]+)/)||[])[1]
+    },
+    legalConsentOptions:{
+      consent:{
+        consentToProcess:true,
+        text:'I agree to Hertfordshire Hedging storing and processing my personal data to respond to this enquiry.'
+      }
+    }
+  };
+
+  var hsUrl='https://api.hsforms.com/submissions/v3/integration/submit/148561686/4b7d48ae-157f-4f0d-870c-b7a98c0c2e35';
+  var nlData=new URLSearchParams(fd);
+
+  Promise.allSettled([
+    fetch(hsUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(hsPayload)}),
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:nlData.toString()})
+  ]).then(function(rs){
+    var hsOk=rs[0].status==='fulfilled'&&rs[0].value.ok;
+    var nlOk=rs[1].status==='fulfilled'&&rs[1].value.ok;
+    if(hsOk||nlOk){
       b.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><\/svg> Sent. Thank you';
       b.style.background='var(--moss)';
       f.reset();
-    })
-    .catch(function(){
+    }else{
       b.disabled=false;
       b.innerHTML='Send Enquiry <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><\/svg>';
       alert('Sorry, something went wrong sending your enquiry. Please call or email us instead.');
-    });
+    }
+  });
   return false;
 }
 </script>
