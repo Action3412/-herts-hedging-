@@ -323,9 +323,9 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 .h-hero-frame::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
 @media(max-width:768px){.h-hero-frame{inset:16px}}
 
-.h-hero-overline{position:absolute;top:140px;left:80px;z-index:3;color:var(--gold-light);font-size:.65rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;animation:fadeIn 1.2s .3s both}
-.h-hero-overline::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold);margin-right:14px;vertical-align:middle}
-@media(max-width:768px){.h-hero-overline{top:110px;left:40px;font-size:.58rem}}
+.h-hero-overline{display:flex;align-items:center;gap:14px;margin:0 0 28px;color:var(--gold-light);font-size:.7rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;animation:fadeIn 1.2s .3s both}
+.h-hero-overline::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold);flex-shrink:0}
+@media(max-width:768px){.h-hero-overline{font-size:.62rem;margin-bottom:22px}}
 
 .h-hero-inner{position:relative;z-index:3;min-height:100vh;display:flex;align-items:center;padding:140px 80px 80px}
 @media(max-width:768px){.h-hero-inner{padding:120px 40px 60px}}
@@ -1381,9 +1381,9 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
     <div class="h-hero-veil"></div>
     <div class="grain"></div>
     <div class="h-hero-frame"></div>
-    <div class="h-hero-overline">Est. 2013</div>
     <div class="h-hero-inner">
       <div class="h-hero-text">
+        <div class="h-hero-overline">Est. 2013</div>
         <h1 class="h-hero-wordmark">
           <svg viewBox="0 0 586.830806 170" role="img" aria-label="Hertfordshire Hedging"><use href="#logo-mark"/></svg>
         </h1>
@@ -1460,262 +1460,6 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
             <span class="svc-link">Read more <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPECIMEN COLLECTION -->
-  <section class="specimen-sec sec">
-    <div class="container">
-      <div class="sh">
-        <div class="tag rv">The Specimen Collection</div>
-        <h2 class="st rv rv-d1">Catalogue-grade plants,<br><em>individually selected</em></h2>
-        <p class="sd rv rv-d2">Each specimen is hand-picked from our nursery for form, density and structure. Browse the collection. Every plant is photographed against neutral light, so you see exactly what you'd receive.</p>
-      </div>
-      <div class="specimen-scroll" id="specimenScroll">
-        <article class="spec rv">
-          <div class="spec-img">
-            <img src="/img/gal2.jpg" alt="Portuguese Laurel specimen" loading="lazy">
-            <span class="spec-num">No. 01</span>
-            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>2.0m</span></div>
-          </div>
-          <div class="spec-body">
-            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 7 9 16 12 22C15 16 15 7 12 2Z"/><line x1="12" y1="4" x2="12" y2="20" opacity=".5"/><path d="M11 9L9.5 10" opacity=".55"/><path d="M11 15L9.5 16" opacity=".55"/><path d="M13 9L14.5 10" opacity=".55"/><path d="M13 15L14.5 16" opacity=".55"/></svg></div>
-            <div class="spec-type">Evergreen · Formal</div>
-            <h3 class="spec-name">Portuguese Laurel</h3>
-            <span class="spec-latin">Prunus lusitanica</span>
-          </div>
-        </article>
-        <article class="spec rv rv-d1">
-          <div class="spec-img">
-            <img src="/img/gal10.jpg" alt="Photinia Red Robin specimen" loading="lazy">
-            <span class="spec-num">No. 02</span>
-            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>2.2m</span></div>
-          </div>
-          <div class="spec-body">
-            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C7 5 5 10 5 14C5 18 8 21 12 21C16 21 19 18 19 14C19 10 17 5 12 3Z"/><line x1="12" y1="5" x2="12" y2="20" opacity=".5"/><path d="M11 10L8 11.5" opacity=".55"/><path d="M11 15L8 16.5" opacity=".55"/><path d="M13 10L16 11.5" opacity=".55"/><path d="M13 15L16 16.5" opacity=".55"/></svg></div>
-            <div class="spec-type">Evergreen · Vibrant</div>
-            <h3 class="spec-name">Photinia Red Robin</h3>
-            <span class="spec-latin">Photinia × fraseri</span>
-          </div>
-        </article>
-        <article class="spec rv rv-d2">
-          <div class="spec-img">
-            <img src="/img/gal13.jpg" alt="English Yew specimen" loading="lazy">
-            <span class="spec-num">No. 03</span>
-            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>1.8m</span></div>
-          </div>
-          <div class="spec-body">
-            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="7" y1="12" x2="5" y2="7" opacity=".7"/><line x1="7" y1="12" x2="5" y2="17" opacity=".7"/><line x1="12" y1="12" x2="10" y2="4.5"/><line x1="12" y1="12" x2="10" y2="19.5"/><line x1="17" y1="12" x2="15" y2="7" opacity=".7"/><line x1="17" y1="12" x2="15" y2="17" opacity=".7"/></svg></div>
-            <div class="spec-type">Evergreen · Classical</div>
-            <h3 class="spec-name">English Yew</h3>
-            <span class="spec-latin">Taxus baccata</span>
-          </div>
-        </article>
-        <article class="spec rv rv-d3">
-          <div class="spec-img">
-            <img src="/img/gal17.jpg" alt="Cherry Laurel specimen" loading="lazy">
-            <span class="spec-num">No. 04</span>
-            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>2.0m</span></div>
-          </div>
-          <div class="spec-body">
-            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C6 5 4 10 4 13C4 18 7 21 12 21C17 21 20 18 20 13C20 10 18 5 12 3Z"/><line x1="12" y1="5" x2="12" y2="20" opacity=".5"/><path d="M11 9L7 10.5" opacity=".55"/><path d="M11 15L7.5 16.5" opacity=".55"/><path d="M13 9L17 10.5" opacity=".55"/><path d="M13 15L16.5 16.5" opacity=".55"/></svg></div>
-            <div class="spec-type">Evergreen · Glossy</div>
-            <h3 class="spec-name">Cherry Laurel</h3>
-            <span class="spec-latin">Prunus laurocerasus</span>
-          </div>
-        </article>
-        <article class="spec rv rv-d4">
-          <div class="spec-img">
-            <img src="/img/gal8.jpg" alt="Portuguese Laurel column specimen" loading="lazy">
-            <span class="spec-num">No. 05</span>
-            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>2.4m</span></div>
-          </div>
-          <div class="spec-body">
-            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 7 9 16 12 22C15 16 15 7 12 2Z"/><line x1="12" y1="4" x2="12" y2="20" opacity=".5"/><path d="M11 9L9.5 10" opacity=".55"/><path d="M11 15L9.5 16" opacity=".55"/><path d="M13 9L14.5 10" opacity=".55"/><path d="M13 15L14.5 16" opacity=".55"/></svg></div>
-            <div class="spec-type">Evergreen · Column form</div>
-            <h3 class="spec-name">Portuguese Laurel</h3>
-            <span class="spec-latin">Prunus lusitanica</span>
-          </div>
-        </article>
-        <article class="spec rv rv-d5">
-          <div class="spec-img">
-            <img src="/img/gal18.jpg" alt="Portuguese Laurel slim column" loading="lazy">
-            <span class="spec-num">No. 06</span>
-            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>2.2m</span></div>
-          </div>
-          <div class="spec-body">
-            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 7 9 16 12 22C15 16 15 7 12 2Z"/><line x1="12" y1="4" x2="12" y2="20" opacity=".5"/><path d="M11 9L9.5 10" opacity=".55"/><path d="M11 15L9.5 16" opacity=".55"/><path d="M13 9L14.5 10" opacity=".55"/><path d="M13 15L14.5 16" opacity=".55"/></svg></div>
-            <div class="spec-type">Evergreen · Narrow</div>
-            <h3 class="spec-name">Portuguese Laurel</h3>
-            <span class="spec-latin">Prunus lusitanica</span>
-          </div>
-        </article>
-      </div>
-      <div class="specimen-hint rv">
-        <span>Scroll the collection</span>
-        <svg viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPECIES FEATURE -->
-  <section class="sec" style="background:var(--cream)">
-    <div class="container">
-      <div class="sh">
-        <div class="tag rv">Popular Species</div>
-        <h2 class="st rv rv-d1">Four hedges, <em>four characters</em></h2>
-        <p class="sd rv rv-d2">Most clients ask about these four. Each has a distinct personality: formal or relaxed, dark or bright, classical or contemporary.</p>
-      </div>
-      <div class="sp-grid">
-        <article class="sp rv">
-          <div class="sp-img"><img src="/img/gal14.jpg" alt="Photinia Red Robin in the nursery" loading="lazy"><span class="sp-tag">Vibrant</span></div>
-          <div class="sp-body">
-            <div class="sp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C7 5 5 10 5 14C5 18 8 21 12 21C16 21 19 18 19 14C19 10 17 5 12 3Z"/><line x1="12" y1="5" x2="12" y2="20" opacity=".5"/><path d="M11 10L8 11.5" opacity=".55"/><path d="M11 15L8 16.5" opacity=".55"/><path d="M13 10L16 11.5" opacity=".55"/><path d="M13 15L16 16.5" opacity=".55"/></svg></div>
-            <h4>Photinia Red Robin</h4>
-            <em class="sp-latin">Photinia × fraseri</em>
-            <p>Glossy green leaves with striking red young shoots. Fast-growing and dense, ideal for screening with year-round colour.</p>
-          </div>
-        </article>
-        <article class="sp rv rv-d1">
-          <div class="sp-img"><img src="/img/gal7.jpg" alt="Mature Portuguese Laurel hedge" loading="lazy"><span class="sp-tag">Formal</span></div>
-          <div class="sp-body">
-            <div class="sp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 7 9 16 12 22C15 16 15 7 12 2Z"/><line x1="12" y1="4" x2="12" y2="20" opacity=".5"/><path d="M11 9L9.5 10" opacity=".55"/><path d="M11 15L9.5 16" opacity=".55"/><path d="M13 9L14.5 10" opacity=".55"/><path d="M13 15L14.5 16" opacity=".55"/></svg></div>
-            <h4>Portuguese Laurel</h4>
-            <em class="sp-latin">Prunus lusitanica</em>
-            <p>Compact, dense growth with dark glossy foliage and maroon stems. The discerning choice for formal boundaries.</p>
-          </div>
-        </article>
-        <article class="sp rv rv-d2">
-          <div class="sp-img"><img src="/img/gal3.jpg" alt="English Yew nursery rows" loading="lazy"><span class="sp-tag">Classical</span></div>
-          <div class="sp-body">
-            <div class="sp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="7" y1="12" x2="5" y2="7" opacity=".7"/><line x1="7" y1="12" x2="5" y2="17" opacity=".7"/><line x1="12" y1="12" x2="10" y2="4.5"/><line x1="12" y1="12" x2="10" y2="19.5"/><line x1="17" y1="12" x2="15" y2="7" opacity=".7"/><line x1="17" y1="12" x2="15" y2="17" opacity=".7"/></svg></div>
-            <h4>English Yew</h4>
-            <em class="sp-latin">Taxus baccata</em>
-            <p>The quintessentially formal hedge. Dense, evergreen, with narrow leathery leaves and bright new growth in spring.</p>
-          </div>
-        </article>
-        <article class="sp rv rv-d3">
-          <div class="sp-img"><img src="/img/gal17.jpg" alt="Cherry Laurel specimen" loading="lazy"><span class="sp-tag">Glossy</span></div>
-          <div class="sp-body">
-            <div class="sp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C6 5 4 10 4 13C4 18 7 21 12 21C17 21 20 18 20 13C20 10 18 5 12 3Z"/><line x1="12" y1="5" x2="12" y2="20" opacity=".5"/><path d="M11 9L7 10.5" opacity=".55"/><path d="M11 15L7.5 16.5" opacity=".55"/><path d="M13 9L17 10.5" opacity=".55"/><path d="M13 15L16.5 16.5" opacity=".55"/></svg></div>
-            <h4>Cherry Laurel</h4>
-            <em class="sp-latin">Prunus laurocerasus</em>
-            <p>Large, rich glossy leaves on vigorous growth. A relaxed, abundant evergreen for screening and shelter.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS — alternating rows -->
-  <section class="process-sec sec">
-    <div class="container">
-      <div class="sh">
-        <div class="tag rv">Our Process</div>
-        <h2 class="st rv rv-d1">From nursery to <em>fully established</em></h2>
-      </div>
-      <div class="process-rows">
-        <article class="process-row">
-          <div class="process-text rv">
-            <div class="process-num">Step 01</div>
-            <h3>The right plant, <em>year-round</em></h3>
-            <p>Most root-ball hedging is supplied between September and March. Our Airpot nursery extends that to all twelve months, so you plant when you're ready, not when the season dictates.</p>
-            <ul class="process-points">
-              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bare-root, root-ball and containerised forms</li>
-              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Year-round availability via Airpot</li>
-              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Specimens hand-selected for form and density</li>
-            </ul>
-          </div>
-          <div class="process-img rv rv-d2">
-            <img src="/img/gal5.jpg" alt="Nursery specimens with height marker" loading="lazy">
-            <span class="process-img-label">01 · Supply</span>
-          </div>
-        </article>
-        <article class="process-row flip">
-          <div class="process-text rv">
-            <div class="process-num">Step 02</div>
-            <h3>Installation, <em>done right</em></h3>
-            <p>Mature hedging is a long-term investment. There are golden rules: soil prep, root orientation, depth, spacing, water management. They quietly decide whether a hedge thrives or struggles. We follow them.</p>
-            <ul class="process-points">
-              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Site assessment and soil preparation</li>
-              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Correct depth, spacing and orientation</li>
-              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Stakes, ties and irrigation guidance</li>
-            </ul>
-          </div>
-          <div class="process-img rv">
-            <img src="/img/gal6.jpg" alt="Hedge installation in progress" loading="lazy">
-            <span class="process-img-label">02 · Plant</span>
-          </div>
-        </article>
-        <article class="process-row">
-          <div class="process-text rv">
-            <div class="process-num">Step 03</div>
-            <h3>Maintenance, <em>species-specific</em></h3>
-            <p>Over-management or cutting at the wrong time can be as damaging as neglect. Each species has its own schedule, technique and tolerance, and we work to it, not to a generic calendar.</p>
-            <ul class="process-points">
-              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Seasonal trimming and feeding programmes</li>
-              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Restoration of overgrown hedges</li>
-              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Renovation cuts when reduction is needed</li>
-            </ul>
-          </div>
-          <div class="process-img rv rv-d2">
-            <img src="/img/gal15.jpg" alt="Established hedge in autumn" loading="lazy">
-            <span class="process-img-label">03 · Maintain</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE KIT — unified equipment section with real imagery -->
-  <section class="kit-sec sec">
-    <div class="grain"></div>
-    <div class="container">
-      <div class="sh">
-        <div class="tag tag-w rv">Specialist Equipment</div>
-        <h2 class="st rv rv-d1" style="color:#fff">The right kit for<br><em style="color:var(--gold-light)">every scale</em></h2>
-        <p class="sd rv rv-d2" style="color:rgba(237,227,200,.6);margin:0 auto">From estate-scale boundary runs to single-specimen shaping. We bring what the job actually needs, and nothing more.</p>
-      </div>
-      <div class="kit-grid">
-        <article class="kit-feature rv" onclick="openLB(18)" tabindex="0" role="button" aria-label="Open gallery, aerial platform">
-          <img src="/img/gal19.jpg" alt="Manitou aerial platform trimming a tall hedge" loading="lazy" decoding="async">
-          <div class="kit-badge">
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="3" width="10" height="8" rx="1"/><circle cx="7" cy="7" r="2"/></svg>
-            <span>View gallery</span>
-          </div>
-          <div class="kit-feature-cap">
-            <div class="kit-feature-tag">No. 01 · Aerial Platform</div>
-            <h3 class="kit-feature-title">Manitou cherry picker</h3>
-            <p class="kit-feature-desc">Mobile elevated platforms for hedging over four metres. Safe, controlled access for top-cutting and shaping mature specimens at height.</p>
-          </div>
-        </article>
-        <div class="kit-thumbs">
-          <article class="kit-thumb rv" onclick="openLB(19)" tabindex="0" role="button" aria-label="Open gallery, mobilised on-site">
-            <img src="/img/gal20.jpg" alt="Cherry picker beside Hertfordshire Hedging van" loading="lazy" decoding="async">
-            <div class="kit-thumb-cap">
-              <div class="kit-thumb-tag">No. 02 · Mobilised</div>
-              <div class="kit-thumb-name">The fleet, on-site</div>
-            </div>
-          </article>
-          <article class="kit-thumb rv rv-d1" onclick="openLB(25)" tabindex="0" role="button" aria-label="Open gallery, long-reach trimmer">
-            <img src="/img/gal26.jpg" alt="Long-reach trimmer and scaffold tower against yew" loading="lazy" decoding="async">
-            <div class="kit-thumb-cap">
-              <div class="kit-thumb-tag">No. 03 · Long-reach</div>
-              <div class="kit-thumb-name">Pole trimmer + scaffold</div>
-            </div>
-          </article>
-          <article class="kit-thumb rv rv-d2" onclick="openLB(22)" tabindex="0" role="button" aria-label="Open gallery, hand finishing">
-            <img src="/img/gal23.jpg" alt="Trimming an established Portuguese Laurel by hand" loading="lazy" decoding="async">
-            <div class="kit-thumb-cap">
-              <div class="kit-thumb-tag">No. 04 · Hand-finish</div>
-              <div class="kit-thumb-name">Detail work, by hand</div>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="kit-cta-row rv">
-        <a href="#" class="btn btn-glass" onclick="goTo('gallery');return false">View the full gallery <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </section>
@@ -1813,60 +1557,6 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
       <div style="text-align:center;margin-top:48px">
         <a href="#" class="btn btn-ghost rv" onclick="goTo('gallery');return false">View Full Gallery <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-    </div>
-  </section>
-
-  <!-- SERVICE AREAS -->
-  <section class="sec" style="background:var(--cream)">
-    <div class="container">
-      <div class="sh">
-        <div class="tag rv">Where we work</div>
-        <h2 class="st rv rv-d1">Service <em>area</em></h2>
-        <p class="sd rv rv-d2">Based in Harpenden, we cover Hertfordshire and the Home Counties. Anywhere within comfortable reach for supply, planting and ongoing aftercare.</p>
-      </div>
-      <div class="areas-grid">
-        <div class="areas-col rv">
-          <h4 class="areas-head">Mid Hertfordshire</h4>
-          <ul>
-            <li>Harpenden <span class="areas-pill">HQ</span></li>
-            <li>St Albans</li>
-            <li>Wheathampstead</li>
-            <li>Redbourn</li>
-            <li>Markyate</li>
-          </ul>
-        </div>
-        <div class="areas-col rv rv-d1">
-          <h4 class="areas-head">West Hertfordshire</h4>
-          <ul>
-            <li>Berkhamsted</li>
-            <li>Hemel Hempstead</li>
-            <li>Tring</li>
-            <li>Watford</li>
-            <li>Rickmansworth</li>
-          </ul>
-        </div>
-        <div class="areas-col rv rv-d2">
-          <h4 class="areas-head">East &amp; North Herts</h4>
-          <ul>
-            <li>Welwyn Garden City</li>
-            <li>Hertford</li>
-            <li>Hitchin</li>
-            <li>Stevenage</li>
-            <li>Letchworth</li>
-          </ul>
-        </div>
-        <div class="areas-col rv rv-d3">
-          <h4 class="areas-head">Home Counties</h4>
-          <ul>
-            <li>Bedfordshire</li>
-            <li>Buckinghamshire</li>
-            <li>North London</li>
-            <li>West Essex</li>
-            <li>South Northants</li>
-          </ul>
-        </div>
-      </div>
-      <p class="areas-note rv rv-d2">Not sure if we cover you? <a href="#" onclick="goTo('contact');return false">Get in touch</a>. We travel further for larger projects.</p>
     </div>
   </section>
 
@@ -2128,6 +1818,118 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
       </div>
     </div>
   </section>
+
+  <!-- PROCESS — alternating rows -->
+  <section class="process-sec sec">
+    <div class="container">
+      <div class="sh">
+        <div class="tag rv">Our Process</div>
+        <h2 class="st rv rv-d1">From nursery to <em>fully established</em></h2>
+      </div>
+      <div class="process-rows">
+        <article class="process-row">
+          <div class="process-text rv">
+            <div class="process-num">Step 01</div>
+            <h3>The right plant, <em>year-round</em></h3>
+            <p>Most root-ball hedging is supplied between September and March. Our Airpot nursery extends that to all twelve months, so you plant when you're ready, not when the season dictates.</p>
+            <ul class="process-points">
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bare-root, root-ball and containerised forms</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Year-round availability via Airpot</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Specimens hand-selected for form and density</li>
+            </ul>
+          </div>
+          <div class="process-img rv rv-d2">
+            <img src="/img/gal5.jpg" alt="Nursery specimens with height marker" loading="lazy">
+            <span class="process-img-label">01 · Supply</span>
+          </div>
+        </article>
+        <article class="process-row flip">
+          <div class="process-text rv">
+            <div class="process-num">Step 02</div>
+            <h3>Installation, <em>done right</em></h3>
+            <p>Mature hedging is a long-term investment. There are golden rules: soil prep, root orientation, depth, spacing, water management. They quietly decide whether a hedge thrives or struggles. We follow them.</p>
+            <ul class="process-points">
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Site assessment and soil preparation</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Correct depth, spacing and orientation</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Stakes, ties and irrigation guidance</li>
+            </ul>
+          </div>
+          <div class="process-img rv">
+            <img src="/img/gal6.jpg" alt="Hedge installation in progress" loading="lazy">
+            <span class="process-img-label">02 · Plant</span>
+          </div>
+        </article>
+        <article class="process-row">
+          <div class="process-text rv">
+            <div class="process-num">Step 03</div>
+            <h3>Maintenance, <em>species-specific</em></h3>
+            <p>Over-management or cutting at the wrong time can be as damaging as neglect. Each species has its own schedule, technique and tolerance, and we work to it, not to a generic calendar.</p>
+            <ul class="process-points">
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Seasonal trimming and feeding programmes</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Restoration of overgrown hedges</li>
+              <li><span class="ck"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l3 3 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Renovation cuts when reduction is needed</li>
+            </ul>
+          </div>
+          <div class="process-img rv rv-d2">
+            <img src="/img/gal15.jpg" alt="Established hedge in autumn" loading="lazy">
+            <span class="process-img-label">03 · Maintain</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE KIT — unified equipment section with real imagery -->
+  <section class="kit-sec sec">
+    <div class="grain"></div>
+    <div class="container">
+      <div class="sh">
+        <div class="tag tag-w rv">Specialist Equipment</div>
+        <h2 class="st rv rv-d1" style="color:#fff">The right kit for<br><em style="color:var(--gold-light)">every scale</em></h2>
+        <p class="sd rv rv-d2" style="color:rgba(237,227,200,.6);margin:0 auto">From estate-scale boundary runs to single-specimen shaping. We bring what the job actually needs, and nothing more.</p>
+      </div>
+      <div class="kit-grid">
+        <article class="kit-feature rv" onclick="openLB(18)" tabindex="0" role="button" aria-label="Open gallery, aerial platform">
+          <img src="/img/gal19.jpg" alt="Manitou aerial platform trimming a tall hedge" loading="lazy" decoding="async">
+          <div class="kit-badge">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="3" width="10" height="8" rx="1"/><circle cx="7" cy="7" r="2"/></svg>
+            <span>View gallery</span>
+          </div>
+          <div class="kit-feature-cap">
+            <div class="kit-feature-tag">No. 01 · Aerial Platform</div>
+            <h3 class="kit-feature-title">Manitou cherry picker</h3>
+            <p class="kit-feature-desc">Mobile elevated platforms for hedging over four metres. Safe, controlled access for top-cutting and shaping mature specimens at height.</p>
+          </div>
+        </article>
+        <div class="kit-thumbs">
+          <article class="kit-thumb rv" onclick="openLB(19)" tabindex="0" role="button" aria-label="Open gallery, mobilised on-site">
+            <img src="/img/gal20.jpg" alt="Cherry picker beside Hertfordshire Hedging van" loading="lazy" decoding="async">
+            <div class="kit-thumb-cap">
+              <div class="kit-thumb-tag">No. 02 · Mobilised</div>
+              <div class="kit-thumb-name">The fleet, on-site</div>
+            </div>
+          </article>
+          <article class="kit-thumb rv rv-d1" onclick="openLB(25)" tabindex="0" role="button" aria-label="Open gallery, long-reach trimmer">
+            <img src="/img/gal26.jpg" alt="Long-reach trimmer and scaffold tower against yew" loading="lazy" decoding="async">
+            <div class="kit-thumb-cap">
+              <div class="kit-thumb-tag">No. 03 · Long-reach</div>
+              <div class="kit-thumb-name">Pole trimmer + scaffold</div>
+            </div>
+          </article>
+          <article class="kit-thumb rv rv-d2" onclick="openLB(22)" tabindex="0" role="button" aria-label="Open gallery, hand finishing">
+            <img src="/img/gal23.jpg" alt="Trimming an established Portuguese Laurel by hand" loading="lazy" decoding="async">
+            <div class="kit-thumb-cap">
+              <div class="kit-thumb-tag">No. 04 · Hand-finish</div>
+              <div class="kit-thumb-name">Detail work, by hand</div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="kit-cta-row rv">
+        <a href="#" class="btn btn-glass" onclick="goTo('gallery');return false">View the full gallery <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- ═══════════════════ SERVICES ═══════════════════ -->
@@ -2203,6 +2005,150 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
           <img src="/img/gal15.jpg" alt="Established hedge in autumn">
           <div class="sd-img-label">Established · Long-term care</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIMEN COLLECTION -->
+  <section class="specimen-sec sec">
+    <div class="container">
+      <div class="sh">
+        <div class="tag rv">The Specimen Collection</div>
+        <h2 class="st rv rv-d1">Catalogue-grade plants,<br><em>individually selected</em></h2>
+        <p class="sd rv rv-d2">Each specimen is hand-picked from our nursery for form, density and structure. Browse the collection. Every plant is photographed against neutral light, so you see exactly what you'd receive.</p>
+      </div>
+      <div class="specimen-scroll" id="specimenScroll">
+        <article class="spec rv">
+          <div class="spec-img">
+            <img src="/img/gal2.jpg" alt="Portuguese Laurel specimen" loading="lazy">
+            <span class="spec-num">No. 01</span>
+            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>2.0m</span></div>
+          </div>
+          <div class="spec-body">
+            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 7 9 16 12 22C15 16 15 7 12 2Z"/><line x1="12" y1="4" x2="12" y2="20" opacity=".5"/><path d="M11 9L9.5 10" opacity=".55"/><path d="M11 15L9.5 16" opacity=".55"/><path d="M13 9L14.5 10" opacity=".55"/><path d="M13 15L14.5 16" opacity=".55"/></svg></div>
+            <div class="spec-type">Evergreen · Formal</div>
+            <h3 class="spec-name">Portuguese Laurel</h3>
+            <span class="spec-latin">Prunus lusitanica</span>
+          </div>
+        </article>
+        <article class="spec rv rv-d1">
+          <div class="spec-img">
+            <img src="/img/gal10.jpg" alt="Photinia Red Robin specimen" loading="lazy">
+            <span class="spec-num">No. 02</span>
+            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>2.2m</span></div>
+          </div>
+          <div class="spec-body">
+            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C7 5 5 10 5 14C5 18 8 21 12 21C16 21 19 18 19 14C19 10 17 5 12 3Z"/><line x1="12" y1="5" x2="12" y2="20" opacity=".5"/><path d="M11 10L8 11.5" opacity=".55"/><path d="M11 15L8 16.5" opacity=".55"/><path d="M13 10L16 11.5" opacity=".55"/><path d="M13 15L16 16.5" opacity=".55"/></svg></div>
+            <div class="spec-type">Evergreen · Vibrant</div>
+            <h3 class="spec-name">Photinia Red Robin</h3>
+            <span class="spec-latin">Photinia × fraseri</span>
+          </div>
+        </article>
+        <article class="spec rv rv-d2">
+          <div class="spec-img">
+            <img src="/img/gal13.jpg" alt="English Yew specimen" loading="lazy">
+            <span class="spec-num">No. 03</span>
+            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>1.8m</span></div>
+          </div>
+          <div class="spec-body">
+            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="7" y1="12" x2="5" y2="7" opacity=".7"/><line x1="7" y1="12" x2="5" y2="17" opacity=".7"/><line x1="12" y1="12" x2="10" y2="4.5"/><line x1="12" y1="12" x2="10" y2="19.5"/><line x1="17" y1="12" x2="15" y2="7" opacity=".7"/><line x1="17" y1="12" x2="15" y2="17" opacity=".7"/></svg></div>
+            <div class="spec-type">Evergreen · Classical</div>
+            <h3 class="spec-name">English Yew</h3>
+            <span class="spec-latin">Taxus baccata</span>
+          </div>
+        </article>
+        <article class="spec rv rv-d3">
+          <div class="spec-img">
+            <img src="/img/gal17.jpg" alt="Cherry Laurel specimen" loading="lazy">
+            <span class="spec-num">No. 04</span>
+            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>2.0m</span></div>
+          </div>
+          <div class="spec-body">
+            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C6 5 4 10 4 13C4 18 7 21 12 21C17 21 20 18 20 13C20 10 18 5 12 3Z"/><line x1="12" y1="5" x2="12" y2="20" opacity=".5"/><path d="M11 9L7 10.5" opacity=".55"/><path d="M11 15L7.5 16.5" opacity=".55"/><path d="M13 9L17 10.5" opacity=".55"/><path d="M13 15L16.5 16.5" opacity=".55"/></svg></div>
+            <div class="spec-type">Evergreen · Glossy</div>
+            <h3 class="spec-name">Cherry Laurel</h3>
+            <span class="spec-latin">Prunus laurocerasus</span>
+          </div>
+        </article>
+        <article class="spec rv rv-d4">
+          <div class="spec-img">
+            <img src="/img/gal8.jpg" alt="Portuguese Laurel column specimen" loading="lazy">
+            <span class="spec-num">No. 05</span>
+            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>2.4m</span></div>
+          </div>
+          <div class="spec-body">
+            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 7 9 16 12 22C15 16 15 7 12 2Z"/><line x1="12" y1="4" x2="12" y2="20" opacity=".5"/><path d="M11 9L9.5 10" opacity=".55"/><path d="M11 15L9.5 16" opacity=".55"/><path d="M13 9L14.5 10" opacity=".55"/><path d="M13 15L14.5 16" opacity=".55"/></svg></div>
+            <div class="spec-type">Evergreen · Column form</div>
+            <h3 class="spec-name">Portuguese Laurel</h3>
+            <span class="spec-latin">Prunus lusitanica</span>
+          </div>
+        </article>
+        <article class="spec rv rv-d5">
+          <div class="spec-img">
+            <img src="/img/gal18.jpg" alt="Portuguese Laurel slim column" loading="lazy">
+            <span class="spec-num">No. 06</span>
+            <div class="spec-ruler"><div class="spec-ruler-bar"></div><span>2.2m</span></div>
+          </div>
+          <div class="spec-body">
+            <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 7 9 16 12 22C15 16 15 7 12 2Z"/><line x1="12" y1="4" x2="12" y2="20" opacity=".5"/><path d="M11 9L9.5 10" opacity=".55"/><path d="M11 15L9.5 16" opacity=".55"/><path d="M13 9L14.5 10" opacity=".55"/><path d="M13 15L14.5 16" opacity=".55"/></svg></div>
+            <div class="spec-type">Evergreen · Narrow</div>
+            <h3 class="spec-name">Portuguese Laurel</h3>
+            <span class="spec-latin">Prunus lusitanica</span>
+          </div>
+        </article>
+      </div>
+      <div class="specimen-hint rv">
+        <span>Scroll the collection</span>
+        <svg viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIES FEATURE -->
+  <section class="sec" style="background:var(--cream)">
+    <div class="container">
+      <div class="sh">
+        <div class="tag rv">Popular Species</div>
+        <h2 class="st rv rv-d1">Four hedges, <em>four characters</em></h2>
+        <p class="sd rv rv-d2">Most clients ask about these four. Each has a distinct personality: formal or relaxed, dark or bright, classical or contemporary.</p>
+      </div>
+      <div class="sp-grid">
+        <article class="sp rv">
+          <div class="sp-img"><img src="/img/gal14.jpg" alt="Photinia Red Robin in the nursery" loading="lazy"><span class="sp-tag">Vibrant</span></div>
+          <div class="sp-body">
+            <div class="sp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C7 5 5 10 5 14C5 18 8 21 12 21C16 21 19 18 19 14C19 10 17 5 12 3Z"/><line x1="12" y1="5" x2="12" y2="20" opacity=".5"/><path d="M11 10L8 11.5" opacity=".55"/><path d="M11 15L8 16.5" opacity=".55"/><path d="M13 10L16 11.5" opacity=".55"/><path d="M13 15L16 16.5" opacity=".55"/></svg></div>
+            <h4>Photinia Red Robin</h4>
+            <em class="sp-latin">Photinia × fraseri</em>
+            <p>Glossy green leaves with striking red young shoots. Fast-growing and dense, ideal for screening with year-round colour.</p>
+          </div>
+        </article>
+        <article class="sp rv rv-d1">
+          <div class="sp-img"><img src="/img/gal7.jpg" alt="Mature Portuguese Laurel hedge" loading="lazy"><span class="sp-tag">Formal</span></div>
+          <div class="sp-body">
+            <div class="sp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 7 9 16 12 22C15 16 15 7 12 2Z"/><line x1="12" y1="4" x2="12" y2="20" opacity=".5"/><path d="M11 9L9.5 10" opacity=".55"/><path d="M11 15L9.5 16" opacity=".55"/><path d="M13 9L14.5 10" opacity=".55"/><path d="M13 15L14.5 16" opacity=".55"/></svg></div>
+            <h4>Portuguese Laurel</h4>
+            <em class="sp-latin">Prunus lusitanica</em>
+            <p>Compact, dense growth with dark glossy foliage and maroon stems. The discerning choice for formal boundaries.</p>
+          </div>
+        </article>
+        <article class="sp rv rv-d2">
+          <div class="sp-img"><img src="/img/gal3.jpg" alt="English Yew nursery rows" loading="lazy"><span class="sp-tag">Classical</span></div>
+          <div class="sp-body">
+            <div class="sp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="7" y1="12" x2="5" y2="7" opacity=".7"/><line x1="7" y1="12" x2="5" y2="17" opacity=".7"/><line x1="12" y1="12" x2="10" y2="4.5"/><line x1="12" y1="12" x2="10" y2="19.5"/><line x1="17" y1="12" x2="15" y2="7" opacity=".7"/><line x1="17" y1="12" x2="15" y2="17" opacity=".7"/></svg></div>
+            <h4>English Yew</h4>
+            <em class="sp-latin">Taxus baccata</em>
+            <p>The quintessentially formal hedge. Dense, evergreen, with narrow leathery leaves and bright new growth in spring.</p>
+          </div>
+        </article>
+        <article class="sp rv rv-d3">
+          <div class="sp-img"><img src="/img/gal17.jpg" alt="Cherry Laurel specimen" loading="lazy"><span class="sp-tag">Glossy</span></div>
+          <div class="sp-body">
+            <div class="sp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C6 5 4 10 4 13C4 18 7 21 12 21C17 21 20 18 20 13C20 10 18 5 12 3Z"/><line x1="12" y1="5" x2="12" y2="20" opacity=".5"/><path d="M11 9L7 10.5" opacity=".55"/><path d="M11 15L7.5 16.5" opacity=".55"/><path d="M13 9L17 10.5" opacity=".55"/><path d="M13 15L16.5 16.5" opacity=".55"/></svg></div>
+            <h4>Cherry Laurel</h4>
+            <em class="sp-latin">Prunus laurocerasus</em>
+            <p>Large, rich glossy leaves on vigorous growth. A relaxed, abundant evergreen for screening and shelter.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -2627,6 +2573,60 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
           <button class="fs" id="cfSubmit" type="submit">Send Enquiry <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </form>
       </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="sec" style="background:var(--cream)">
+    <div class="container">
+      <div class="sh">
+        <div class="tag rv">Where we work</div>
+        <h2 class="st rv rv-d1">Service <em>area</em></h2>
+        <p class="sd rv rv-d2">Based in Harpenden, we cover Hertfordshire and the Home Counties. Anywhere within comfortable reach for supply, planting and ongoing aftercare.</p>
+      </div>
+      <div class="areas-grid">
+        <div class="areas-col rv">
+          <h4 class="areas-head">Mid Hertfordshire</h4>
+          <ul>
+            <li>Harpenden <span class="areas-pill">HQ</span></li>
+            <li>St Albans</li>
+            <li>Wheathampstead</li>
+            <li>Redbourn</li>
+            <li>Markyate</li>
+          </ul>
+        </div>
+        <div class="areas-col rv rv-d1">
+          <h4 class="areas-head">West Hertfordshire</h4>
+          <ul>
+            <li>Berkhamsted</li>
+            <li>Hemel Hempstead</li>
+            <li>Tring</li>
+            <li>Watford</li>
+            <li>Rickmansworth</li>
+          </ul>
+        </div>
+        <div class="areas-col rv rv-d2">
+          <h4 class="areas-head">East &amp; North Herts</h4>
+          <ul>
+            <li>Welwyn Garden City</li>
+            <li>Hertford</li>
+            <li>Hitchin</li>
+            <li>Stevenage</li>
+            <li>Letchworth</li>
+          </ul>
+        </div>
+        <div class="areas-col rv rv-d3">
+          <h4 class="areas-head">Home Counties</h4>
+          <ul>
+            <li>Bedfordshire</li>
+            <li>Buckinghamshire</li>
+            <li>North London</li>
+            <li>West Essex</li>
+            <li>South Northants</li>
+          </ul>
+        </div>
+      </div>
+      <p class="areas-note rv rv-d2">Not sure if we cover you? Use the form above. We travel further for larger projects.</p>
     </div>
   </section>
 </main>
