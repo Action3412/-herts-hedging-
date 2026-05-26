@@ -246,6 +246,11 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 .nl a:hover,.nl a.active{color:var(--ntx)}
 .nl a.active::after{content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:14px;height:2px;background:var(--gold);border-radius:2px}
 .nl .nc{background:var(--gold)!important;color:var(--forest-deep)!important;padding:10px 22px!important;border-radius:50px!important;font-weight:600!important;letter-spacing:.5px}
+.nl .nt{margin-left:6px;padding-left:18px;border-left:1px solid rgba(237,227,200,.18);color:var(--gold-light)!important;display:inline-flex;align-items:center;gap:6px;font-weight:600;letter-spacing:.6px}
+.nl .nt span{transition:transform .3s var(--ease);font-size:1.1em;line-height:.7}
+.nl .nt:hover span{transform:translateX(3px)}
+header.scrolled .nl .nt{border-left-color:rgba(15,36,24,.15);color:var(--gold-deep)!important}
+@media(max-width:768px){.nl .nt{margin-left:0;padding-left:24px;border-left:none;border-top:1px solid rgba(237,227,200,.12);padding-top:18px;margin-top:6px}}
 .nl .nc:hover{background:var(--gold-light)!important;transform:translateY(-1px)}
 .nl .nc::after{display:none!important}
 .mt{display:none;width:32px;height:32px;flex-direction:column;justify-content:center;gap:5px;z-index:101;margin-right:10px}
@@ -969,6 +974,48 @@ body.on-contact .float-call{opacity:0!important;transform:translateY(20px)!impor
 .faq-a a{color:var(--forest-deep);font-weight:500;border-bottom:1px solid rgba(45,107,69,.3);transition:border-color .25s var(--ease),color .25s var(--ease);cursor:pointer}
 .faq-a a:hover{color:var(--moss);border-color:var(--moss)}
 
+/* ═══════════════ SEASONAL OFFER (HOME) ═══════════════ */
+.offer-strip{padding:60px 0;background:var(--cream-warm)}
+.offer-strip[data-active="false"]{display:none}
+.offer-pill{position:relative;max-width:940px;margin:0 auto;padding:48px 56px;background:linear-gradient(135deg,var(--forest-deep) 0%,var(--forest) 70%,var(--forest-night) 100%);color:var(--cream);border-radius:var(--rxl);border:1px solid rgba(196,161,79,.4);box-shadow:0 30px 70px rgba(15,36,24,.28);text-align:center;overflow:hidden}
+@media(max-width:600px){.offer-pill{padding:36px 28px}}
+.offer-pill::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 0%,var(--gold-light) 20%,var(--gold) 50%,var(--gold-light) 80%,transparent 100%)}
+.offer-pill::after{content:'';position:absolute;top:14px;right:14px;width:14px;height:14px;border-right:1px solid var(--gold);border-top:1px solid var(--gold);opacity:.6}
+.offer-tag{display:inline-flex;align-items:center;gap:10px;font-size:.6rem;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px}
+.offer-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
+.offer-title{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;font-weight:500;line-height:1.15;letter-spacing:-.018em;margin-bottom:14px}
+.offer-title em{color:var(--gold-light);font-style:italic;font-weight:400}
+.offer-text{font-size:1.02rem;color:rgba(237,227,200,.85);font-weight:300;line-height:1.7;max-width:620px;margin:0 auto 28px}
+.offer-meta{font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(196,161,79,.7);margin-top:18px}
+
+/* ═══════════════ TRADE PAGE ═══════════════ */
+.trade-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1080px;margin:0 auto}
+@media(max-width:900px){.trade-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.trade-grid{grid-template-columns:1fr}}
+.trade-card{background:var(--white);border:1px solid rgba(15,36,24,.06);border-radius:var(--rl);padding:30px 26px;display:flex;flex-direction:column;gap:10px;transition:all .35s var(--ease);position:relative;overflow:hidden}
+.trade-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height .5s var(--ease)}
+.trade-card:hover{transform:translateY(-3px);box-shadow:var(--sh-l);border-color:rgba(196,161,79,.3)}
+.trade-card:hover::before{height:100%}
+.trade-card-tag{font-size:.58rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep)}
+.trade-card h3{font-family:var(--serif);font-size:1.25rem;color:var(--forest-deep);font-weight:500;line-height:1.2;letter-spacing:-.012em}
+.trade-card p{font-size:.92rem;color:var(--text-mid);font-weight:300;line-height:1.7}
+
+.trade-benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1020px;margin:0 auto}
+@media(max-width:760px){.trade-benefits{grid-template-columns:1fr}}
+.trade-benefit{background:var(--cream-warm);border:1px solid var(--cream-dark);border-radius:var(--rl);padding:32px 30px;display:flex;gap:24px;align-items:flex-start;transition:all .35s var(--ease)}
+.trade-benefit:hover{border-color:rgba(45,107,69,.25);background:var(--white);box-shadow:var(--sh-sm)}
+.trade-benefit-n{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--gold-deep);line-height:1;letter-spacing:-.04em;flex-shrink:0;width:46px}
+.trade-benefit-body h3{font-family:var(--serif);font-size:1.2rem;color:var(--forest-deep);font-weight:500;line-height:1.2;letter-spacing:-.012em;margin-bottom:8px}
+.trade-benefit-body p{font-size:.92rem;color:var(--text-mid);font-weight:300;line-height:1.7;margin:0}
+
+.trade-offers-sec[data-state="empty"] .trade-offers-grid{display:none}
+.trade-offers-sec[data-state="active"] .trade-empty{display:none}
+.trade-empty{max-width:680px;margin:0 auto;text-align:center;padding:48px 24px;background:var(--cream-warm);border:1px dashed var(--cream-dark);border-radius:var(--rl);color:var(--text-mid);font-size:1rem;font-weight:300;line-height:1.75}
+.trade-empty p{margin:0}
+.trade-offers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;max-width:1080px;margin:0 auto}
+.trade-offer-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--rl);padding:28px 24px;display:flex;flex-direction:column;gap:10px;position:relative}
+.trade-offer-card .offer-tag{justify-content:flex-start}
+
 </style>
 </head>
 <body>
@@ -1353,6 +1400,7 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
     <a href="#" data-page="gallery" onclick="goTo('gallery');return false">Gallery</a>
     <a href="#" data-page="care" onclick="goTo('care');return false">Care Guide</a>
     <a href="#" data-page="contact" onclick="goTo('contact');return false" class="nc">Contact</a>
+    <a href="#" data-page="trade" onclick="goTo('trade');return false" class="nt">Trade <span aria-hidden="true">›</span></a>
   </nav>
   <button class="mt" id="mobT" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </div></header>
@@ -1460,6 +1508,19 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
             <span class="svc-link">Read more <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEASONAL OFFER — toggle by changing data-active="true" to "false" (or delete the section) when there's nothing on -->
+  <section class="offer-strip" data-active="true">
+    <div class="container">
+      <div class="offer-pill rv">
+        <div class="offer-tag">Limited time · Seasonal offer</div>
+        <h2 class="offer-title">Mature beech specimens at <em>spring rates</em></h2>
+        <p class="offer-text">For a short window this season we have exceptional availability on 2-metre English beech specimens at preferential rates. Ideal for new boundaries planted before the leaf comes back.</p>
+        <a href="#" class="btn btn-g" onclick="goTo('contact');return false">Enquire about this offer <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="offer-meta">Trade rates also available · Get in touch</div>
       </div>
     </div>
   </section>
@@ -2514,6 +2575,148 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
 
 </main>
 
+<!-- ═══════════════════ TRADE ═══════════════════ -->
+<main class="page" id="page-trade">
+
+  <section class="inner-hero">
+    <div class="inner-hero-bg"><img src="/img/hero-trade.jpg" alt=""></div>
+    <div class="inner-hero-veil"></div>
+    <div class="grain"></div>
+    <div class="inner-hero-frame"></div>
+    <div class="inner-hero-content">
+      <div class="inner-hero-card">
+        <div class="tag rv">For the trade</div>
+        <h1 class="st rv rv-d1">Trade &amp; <em>project</em> supply</h1>
+        <p class="sd rv rv-d2">We supply mature and semi-mature hedging to landscape architects, garden designers, contractors and trade buyers across the UK. Year-round Airpot availability, trade rates, delivered.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="background:var(--cream-warm)">
+    <div class="container">
+      <div class="sec-h rv">
+        <div class="tag">Who we work with</div>
+        <h2 class="st">Trade buyers we <em>regularly supply</em></h2>
+        <p class="sd">We're a working nursery and contractor in one. We know what the trade actually needs: reliable specification, honest stock photographs, and turning up when we said we would.</p>
+      </div>
+      <div class="trade-grid">
+        <article class="trade-card rv">
+          <div class="trade-card-tag">01</div>
+          <h3>Landscape architects</h3>
+          <p>Project-specific specification and growing-on for design schemes. We work to your sizes, your species, your delivery dates.</p>
+        </article>
+        <article class="trade-card rv rv-d1">
+          <div class="trade-card-tag">02</div>
+          <h3>Garden designers</h3>
+          <p>Plant lists turned into reliable supply. Honest stock photographs before you commit. We know what arrives at the client's gate sets your reputation.</p>
+        </article>
+        <article class="trade-card rv rv-d2">
+          <div class="trade-card-tag">03</div>
+          <h3>Contractors &amp; landscapers</h3>
+          <p>Bulk stock at trade rates. Delivery to site. Roots wrapped properly. We help you turn up looking good and finish on time.</p>
+        </article>
+        <article class="trade-card rv">
+          <div class="trade-card-tag">04</div>
+          <h3>Garden centres &amp; nurseries</h3>
+          <p>Wholesale supply of mature and semi-mature stock. Custom growing for slower-moving sizes you can't justify keeping on-site.</p>
+        </article>
+        <article class="trade-card rv rv-d1">
+          <div class="trade-card-tag">05</div>
+          <h3>Estates &amp; institutional clients</h3>
+          <p>Boundary-scale supply for estates, schools, councils and large private gardens. Site visits, written specifications, multi-year supply commitments.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="sec-h rv">
+        <div class="tag">Trade terms</div>
+        <h2 class="st">What's <em>different</em> for trade</h2>
+        <p class="sd">Six things the trade gets that the open-market route doesn't. None of it gimmicky; all of it makes your job easier.</p>
+      </div>
+      <div class="trade-benefits">
+        <article class="trade-benefit rv">
+          <div class="trade-benefit-n">01</div>
+          <div class="trade-benefit-body">
+            <h3>Year-round Airpot availability</h3>
+            <p>We grow our own stock using the Airpot air-pruning system, so mature hedging is liftable in any month. You're not locked into the September-to-March root-ball window.</p>
+          </div>
+        </article>
+        <article class="trade-benefit rv rv-d1">
+          <div class="trade-benefit-n">02</div>
+          <div class="trade-benefit-body">
+            <h3>Mature stock at scale</h3>
+            <p>Specimens from 1.5m to 3.5m+ in commercial quantities. Custom growing-on for project sizes that fall outside the standard nursery range.</p>
+          </div>
+        </article>
+        <article class="trade-benefit rv">
+          <div class="trade-benefit-n">03</div>
+          <div class="trade-benefit-body">
+            <h3>Custom growing to spec</h3>
+            <p>For project work with long lead times we'll grow species, sizes and quantities to your written specification. The earlier you talk to us, the more we can match exactly.</p>
+          </div>
+        </article>
+        <article class="trade-benefit rv rv-d1">
+          <div class="trade-benefit-n">04</div>
+          <div class="trade-benefit-body">
+            <h3>Transparent trade rates</h3>
+            <p>Trade pricing tiered by quantity. Better than the open-market rates published on retail-facing nursery sites, and the figures are written down so there's no back-and-forth.</p>
+          </div>
+        </article>
+        <article class="trade-benefit rv">
+          <div class="trade-benefit-n">05</div>
+          <div class="trade-benefit-body">
+            <h3>Delivery &amp; on-site support</h3>
+            <p>UK-wide delivery for project quantities. For larger jobs we'll come and unload, walk the site with your team and answer questions on aftercare so it lands well.</p>
+          </div>
+        </article>
+        <article class="trade-benefit rv rv-d1">
+          <div class="trade-benefit-n">06</div>
+          <div class="trade-benefit-body">
+            <h3>Honest specification advice</h3>
+            <p>We'll tell you when a species won't work, when a size won't establish, or when there's a better option. Your reputation is on the line. So is ours.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADE OFFERS — toggle data-state="active" to show offer cards instead of the empty message. Add cards inside .trade-offers-grid when active. -->
+  <section class="sec trade-offers-sec" style="background:var(--cream-warm)" data-state="empty">
+    <div class="container">
+      <div class="sec-h rv">
+        <div class="tag">Currently available</div>
+        <h2 class="st">Trade <em>offers</em></h2>
+        <p class="sd">Bulk stock at preferential rates, end-of-season availability, and project surplus appear here as it comes up.</p>
+      </div>
+      <div class="trade-empty rv rv-d1">
+        <p>Nothing listed at the moment. We post trade offers and project-surplus availability here when we have them. Get in touch about your project anyway — we sometimes have stock to clear that suits scheme work even when nothing is published.</p>
+      </div>
+      <div class="trade-offers-grid">
+        <!-- Example offer card to copy when activating:
+        <article class="trade-offer-card rv">
+          <div class="offer-tag">Limited · Spring 2026</div>
+          <h3>Description of the offer</h3>
+          <p>Brief description of what's available, quantity, sizes, why it's notable.</p>
+          <a href="#" class="btn btn-f" onclick="goTo('contact');return false">Enquire <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-sec sec">
+    <div class="grain"></div>
+    <div class="container">
+      <h2 class="rv">Set up a <em>trade account</em></h2>
+      <p class="rv rv-d1">Discuss a project, request a current stock list, or open a trade account. Talk to Mike directly.</p>
+      <a href="#" class="btn btn-g rv rv-d2" onclick="goTo('contact');return false">Make a trade enquiry <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </section>
+</main>
+
 <!-- ═══════════════════ CONTACT ═══════════════════ -->
 <main class="page" id="page-contact">
   <section class="inner-hero" style="min-height:50vh">
@@ -2653,6 +2856,7 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
         <a href="#" onclick="goTo('gallery');return false">Gallery</a>
         <a href="#" onclick="goTo('care');return false">Care Guide</a>
         <a href="#" onclick="goTo('contact');return false">Contact</a>
+        <a href="#" onclick="goTo('trade');return false">Trade enquiries</a>
         <a href="https://www.facebook.com/progardencare/" target="_blank" rel="noopener">Pro Garden Care</a>
       </div>
       <div class="ftc">
@@ -2926,7 +3130,8 @@ var pageMeta={
   services:{t:'Services · Hertfordshire Hedging',d:'Supply, planting and maintenance of semi-mature and mature hedging for domestic and commercial clients in Hertfordshire.'},
   gallery:{t:'Gallery · Hertfordshire Hedging',d:'Recent installations, nursery specimens and completed projects across Hertfordshire and the Home Counties.'},
   care:{t:'Care Guide · Hertfordshire Hedging',d:'Month-by-month guidance for hedging, lawns, trees and gardens. Pruning, watering, feeding, planting — what to do, when to do it, and when to bring in the experts.'},
-  contact:{t:'Contact · Hertfordshire Hedging',d:'Book a free consultation. Call 07815 802 817, email mike@hertshedging.com, or send a message via the contact form.'}
+  contact:{t:'Contact · Hertfordshire Hedging',d:'Book a free consultation. Call 07815 802 817, email mike@hertshedging.com, or send a message via the contact form.'},
+  trade:{t:'Trade & Project Supply · Hertfordshire Hedging',d:'Trade supply of mature and semi-mature hedging for landscape architects, garden designers, contractors and trade buyers. Year-round availability, trade rates, delivered.'}
 };
 
 function goTo(p){
