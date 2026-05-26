@@ -3195,13 +3195,19 @@ function toggleMob(){
   n.classList.toggle('open');
   document.body.style.overflow=n.classList.contains('open')?'hidden':'';
 }
-// Hash-based deep links — /#care, /#contact etc. switch to the right page on load + back/forward
-function routeFromHash(){
-  var h=(location.hash||'').replace('#','');
-  if(h && document.getElementById('page-'+h)) goTo(h);
-}
-window.addEventListener('hashchange',routeFromHash);
-routeFromHash();
+// One-time deep link via ?goto=X — used by the carebook 'Back to Care Guide'
+// link. Read the param, switch to that page, then strip the query so a refresh
+// or logo click returns to home rather than sticking on the deep-linked page.
+(function(){
+  try{
+    var p=new URLSearchParams(location.search);
+    var goto=p.get('goto');
+    if(goto && document.getElementById('page-'+goto)){
+      goTo(goto);
+      history.replaceState(null,'',location.pathname);
+    }
+  }catch(e){}
+})();
 function goToAnchor(p,anchor){
   goTo(p);
   setTimeout(function(){var el=document.getElementById(anchor);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},120);
