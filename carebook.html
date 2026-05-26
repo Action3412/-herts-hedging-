@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Care Book · Hertfordshire Hedging</title>
+<meta name="description" content="A short interactive guide to caring for your new hedge. Eight panels. Everything you need.">
+<meta name="theme-color" content="#08160E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Care Book · Hertfordshire Hedging">
+<meta property="og:description" content="A short, interactive hedge-care guide. Eight panels, around five minutes.">
+<meta property="og:url" content="https://herts-hedging.netlify.app/carebook.html">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --forest:#1B3A2D;
+  --forest-deep:#0F2418;
+  --forest-night:#08160E;
+  --moss:#2D6B45;
+  --sage-light:#97BEA0;
+  --gold:#C4A14F;
+  --gold-light:#D4B76A;
+  --gold-deep:#A88838;
+  --cream:#F6F3EC;
+  --cream-warm:#FDFBF7;
+  --cream-dark:#E8E2D5;
+  --white:#FFF;
+  --text:#2A2A28;
+  --text-mid:#6B6B62;
+  --text-light:#9A9A91;
+  --serif:'Funnel Display','Helvetica Neue',sans-serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{font-size:112.5%;overflow:hidden;height:100%}
+body{font-family:var(--sans);color:var(--text);background:var(--forest-night);overflow:hidden;height:100vh;height:100dvh;-webkit-font-smoothing:antialiased;font-weight:400}
+a{text-decoration:none;color:inherit}
+button{border:none;background:none;cursor:pointer;font-family:inherit;color:inherit}
+
+/* ─── Stage ─── */
+.cb-stage{position:fixed;inset:0;display:flex;flex-direction:column;overflow:hidden}
+
+/* ─── Header ─── */
+.cb-header{flex-shrink:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(8,22,14,.65);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:20;border-bottom:1px solid rgba(196,161,79,.15)}
+.cb-logo{display:flex;align-items:center;color:#fff;transition:opacity .25s var(--ease)}
+.cb-logo:hover{opacity:.85}
+.cb-logo svg{height:28px;width:auto;color:#fff}
+.cb-exit{font-size:.68rem;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .25s var(--ease)}
+.cb-exit:hover{color:var(--gold-light)}
+
+/* ─── Panels container ─── */
+.cb-viewport{flex:1;overflow:hidden;position:relative}
+.cb-panels{display:flex;width:800%;height:100%;transition:transform .7s var(--ease);will-change:transform}
+.cb-panel{flex:0 0 12.5%;width:12.5%;height:100%;overflow-y:auto;overflow-x:hidden;padding:40px 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+@media(max-width:600px){.cb-panel{padding:28px 20px}}
+
+/* Each panel has its own atmosphere */
+.cb-p1{background:radial-gradient(ellipse at center top,#1B3A2D 0%,#08160E 65%);color:#fff}
+.cb-p2{background:linear-gradient(180deg,var(--forest-deep) 0%,var(--forest-night) 100%);color:#fff}
+.cb-p3{background:linear-gradient(135deg,#1B3A2D 0%,#0F2418 100%);color:#fff}
+.cb-p4{background:linear-gradient(180deg,var(--cream-warm),var(--cream));color:var(--text)}
+.cb-p5{background:linear-gradient(135deg,#2D6B45 0%,#1B3A2D 100%);color:#fff}
+.cb-p6{background:linear-gradient(180deg,var(--cream),var(--cream-warm));color:var(--text)}
+.cb-p7{background:linear-gradient(180deg,var(--forest) 0%,var(--forest-deep) 100%);color:#fff}
+.cb-p8{background:linear-gradient(135deg,var(--forest-deep) 0%,var(--forest-night) 100%);color:#fff}
+
+/* Common */
+.cb-tag{font-size:.6rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px;display:inline-flex;align-items:center;gap:14px}
+.cb-tag::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold)}
+.cb-title{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;line-height:1.06;letter-spacing:-.022em;margin-bottom:14px;max-width:820px;text-align:center}
+.cb-title em{font-style:italic;font-weight:400;color:var(--gold-light)}
+.cb-sub{font-family:var(--sans);font-size:1.02rem;line-height:1.7;font-weight:300;max-width:580px;text-align:center;margin-bottom:30px}
+.cb-p4 .cb-tag,.cb-p6 .cb-tag{color:var(--gold-deep)}
+.cb-p4 .cb-title,.cb-p6 .cb-title{color:var(--forest-deep)}
+.cb-p4 .cb-title em,.cb-p6 .cb-title em{color:var(--gold-deep)}
+.cb-p4 .cb-sub,.cb-p6 .cb-sub{color:var(--text-mid)}
+.cb-panel.cb-p3 .cb-sub,.cb-panel.cb-p7 .cb-sub,.cb-panel.cb-p1 .cb-sub,.cb-panel.cb-p2 .cb-sub,.cb-panel.cb-p5 .cb-sub,.cb-panel.cb-p8 .cb-sub{color:rgba(237,227,200,.82)}
+
+/* Buttons */
+.cb-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:50px;font-size:.74rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .35s var(--ease);font-family:var(--sans);border:none}
+.cb-btn-gold{background:var(--gold);color:var(--forest-deep)}
+.cb-btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(196,161,79,.3)}
+.cb-btn-ghost{background:transparent;border:1px solid var(--gold-light);color:var(--gold-light)}
+.cb-btn-ghost:hover{background:rgba(196,161,79,.12)}
+.cb-btn svg{width:14px;height:14px}
+
+/* Controls */
+.cb-controls{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:24px;padding:16px 28px;background:rgba(8,22,14,.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(196,161,79,.18);z-index:20}
+.cb-nav-btn{width:44px;height:44px;border-radius:50%;background:transparent;border:1px solid rgba(196,161,79,.35);color:var(--gold-light);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.cb-nav-btn:hover:not(:disabled){background:rgba(196,161,79,.14);border-color:var(--gold-light)}
+.cb-nav-btn:disabled{opacity:.25;cursor:not-allowed}
+.cb-nav-btn svg{width:16px;height:16px}
+.cb-dots{display:flex;gap:8px}
+.cb-dot{width:8px;height:8px;border-radius:50%;background:rgba(196,161,79,.3);transition:all .3s var(--ease);padding:0;border:none;cursor:pointer}
+.cb-dot.active{background:var(--gold);transform:scale(1.5)}
+.cb-dot.visited{background:rgba(196,161,79,.65)}
+.cb-counter{font-family:var(--serif);font-size:.78rem;color:rgba(196,161,79,.7);letter-spacing:.5px;min-width:48px;text-align:center}
+
+/* ─── P1 Cover ─── */
+.cb-cover-mark{height:56px;margin-bottom:30px;color:#fff;animation:cbFadeUp .9s var(--ease) both}
+.cb-cover-mark svg{height:100%;width:auto;color:#fff}
+.cb-cover-title{font-family:var(--serif);font-size:clamp(2.6rem,5.6vw,4rem);font-weight:500;line-height:1.05;letter-spacing:-.025em;color:#fff;text-align:center;margin-bottom:16px;animation:cbFadeUp .9s .15s var(--ease) both}
+.cb-cover-title em{color:var(--gold-light);font-style:italic;font-weight:400}
+.cb-cover-sub{font-family:var(--sans);font-size:1.05rem;line-height:1.7;font-weight:300;color:rgba(237,227,200,.78);text-align:center;max-width:480px;margin-bottom:16px;animation:cbFadeUp .9s .3s var(--ease) both}
+.cb-cover-meta{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:34px;display:inline-flex;align-items:center;gap:14px;animation:cbFadeUp .9s .45s var(--ease) both}
+.cb-cover-meta span+span::before{content:'·';margin-right:14px;color:rgba(196,161,79,.5)}
+.cb-cover-cta{animation:cbFadeUp .9s .6s var(--ease) both}
+.cb-resume{display:block;font-size:.62rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:18px;animation:cbFadeUp .9s .8s var(--ease) both}
+.cb-resume a{color:var(--gold-light);border-bottom:1px solid currentColor;padding-bottom:1px;cursor:pointer}
+@keyframes cbFadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── P2 12 months ─── */
+.cb-months{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;max-width:780px;width:100%;margin:0 auto 26px;padding:12px;background:rgba(196,161,79,.08);border-radius:14px;border:1px solid rgba(196,161,79,.2)}
+@media(min-width:700px){.cb-months{grid-template-columns:repeat(12,1fr)}}
+.cb-month{padding:13px 4px;border-radius:8px;color:rgba(237,227,200,.7);font-family:var(--serif);font-size:.92rem;font-weight:500;transition:all .25s var(--ease)}
+.cb-month:hover{background:rgba(255,255,255,.05);color:#fff}
+.cb-month.active{background:var(--gold);color:var(--forest-deep);box-shadow:0 6px 18px rgba(196,161,79,.3)}
+.cb-month.current{position:relative}
+.cb-month.current::after{content:'';position:absolute;top:4px;right:4px;width:5px;height:5px;border-radius:50%;background:var(--gold-light)}
+.cb-month-info{max-width:580px;width:100%;text-align:center;padding:24px 26px;background:rgba(255,255,255,.04);border:1px solid rgba(196,161,79,.22);border-radius:14px;color:rgba(237,227,200,.92);font-size:1rem;line-height:1.65;font-weight:300;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cb-month-info strong{color:var(--gold-light);font-weight:600;display:block;margin-bottom:10px;font-size:.95rem;font-family:var(--serif);letter-spacing:.3px}
+
+/* ─── P3 Watering ─── */
+.cb-stat{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5rem);font-weight:300;line-height:1;color:var(--gold-light);text-align:center;margin-bottom:12px;letter-spacing:-.04em}
+.cb-stat-detail{font-size:.74rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(237,227,200,.7);text-align:center;margin-bottom:32px}
+
+/* Flip cards (shared pattern) */
+.cb-water-cards,.cb-species-grid,.cb-fact-grid{width:100%}
+.cb-water-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:820px;margin:0 auto}
+@media(max-width:680px){.cb-water-cards{grid-template-columns:1fr}}
+.cb-flip{perspective:1200px;height:200px}
+.cb-flip-inner{position:relative;width:100%;height:100%;transition:transform .65s var(--ease);transform-style:preserve-3d;cursor:pointer}
+.cb-flip.flipped .cb-flip-inner{transform:rotateY(180deg)}
+.cb-flip-front,.cb-flip-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;border-radius:14px;text-align:center}
+.cb-flip-front{background:rgba(255,255,255,.06);border:1px solid rgba(196,161,79,.25);color:rgba(237,227,200,.92)}
+.cb-flip-back{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);color:var(--forest-deep);transform:rotateY(180deg);font-size:.9rem;line-height:1.55;font-weight:500}
+.cb-flip-front h4{font-family:var(--serif);font-size:1.2rem;color:#fff;margin-bottom:10px;font-weight:500}
+.cb-flip-hint{font-size:.58rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-light);opacity:.85;margin-top:auto;display:inline-flex;align-items:center;gap:6px;padding-top:14px}
+.cb-flip-back strong{display:block;font-family:var(--serif);font-size:.7rem;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;margin-bottom:10px}
+
+/* ─── P4 Species ─── */
+.cb-species-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:980px;margin:0 auto}
+@media(max-width:760px){.cb-species-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.cb-species-grid{grid-template-columns:1fr}}
+.cb-species{height:230px}
+.cb-species .cb-flip-front{background:var(--white);border:1px solid var(--cream-dark);color:var(--forest-deep);box-shadow:var(--sh-sm,0 4px 12px rgba(0,0,0,.04))}
+.cb-species .cb-flip-front h4{color:var(--forest-deep);font-size:1.4rem;margin-bottom:6px}
+.cb-species .cb-flip-front .cb-species-latin{color:var(--text-mid);font-size:.82rem;font-style:italic;font-weight:300}
+.cb-species .cb-flip-hint{color:var(--gold-deep)}
+.cb-species .cb-flip-back{background:linear-gradient(135deg,var(--forest) 0%,var(--forest-deep) 100%);color:var(--cream);text-align:left;align-items:flex-start;padding:24px 22px}
+.cb-species .cb-flip-back strong{color:var(--gold-light);text-align:left}
+.cb-species .cb-flip-back p{font-size:.88rem;line-height:1.55;font-weight:300}
+
+/* ─── P5 Mulch ─── */
+.cb-mulch-illus{width:100%;max-width:520px;margin:0 auto 28px;color:var(--gold-light)}
+.cb-mulch-illus svg{width:100%;height:auto;display:block}
+.cb-mulch-points{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:820px;width:100%;margin:0 auto}
+@media(max-width:700px){.cb-mulch-points{grid-template-columns:1fr}}
+.cb-mulch-point{padding:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;color:rgba(255,255,255,.92);font-size:.92rem;line-height:1.55;font-weight:300}
+.cb-mulch-point strong{display:block;font-family:var(--serif);font-size:1rem;color:var(--gold-light);margin-bottom:6px;font-weight:600;letter-spacing:.3px}
+
+/* ─── P6 Quiz ─── */
+.cb-quiz{max-width:680px;width:100%;background:var(--white);border-radius:18px;padding:36px 32px;box-shadow:0 30px 70px rgba(15,36,24,.14);text-align:left}
+@media(max-width:600px){.cb-quiz{padding:26px 22px}}
+.cb-quiz-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.cb-quiz-counter{font-size:.6rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep)}
+.cb-quiz-q{font-family:var(--serif);font-size:1.35rem;color:var(--forest-deep);font-weight:500;line-height:1.35;margin-bottom:6px}
+.cb-quiz-opts{display:flex;flex-direction:column;gap:8px;margin:18px 0 0}
+.cb-quiz-opt{padding:14px 18px;background:var(--cream-warm);border:1px solid var(--cream-dark);border-radius:10px;cursor:pointer;font-size:.94rem;color:var(--text);text-align:left;transition:all .22s var(--ease);font-family:var(--sans);width:100%}
+.cb-quiz-opt:hover:not(.disabled){border-color:var(--moss);background:rgba(45,107,69,.06)}
+.cb-quiz-opt.correct{border-color:var(--moss);background:rgba(45,107,69,.12);color:var(--forest-deep);font-weight:600}
+.cb-quiz-opt.incorrect{border-color:#b54442;background:rgba(181,68,66,.08);color:#823331}
+.cb-quiz-opt.disabled{cursor:default}
+.cb-quiz-explain{margin-top:14px;padding:14px 18px;background:rgba(196,161,79,.1);border-left:3px solid var(--gold);border-radius:6px;font-size:.92rem;color:var(--text-mid);line-height:1.6;display:none}
+.cb-quiz-explain.show{display:block;animation:cbFadeUp .35s var(--ease) both}
+.cb-quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+.cb-quiz-prev,.cb-quiz-next{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--forest-deep);padding:8px 14px;border-radius:6px;transition:background .2s var(--ease)}
+.cb-quiz-prev:disabled,.cb-quiz-next:disabled{opacity:.25;cursor:not-allowed}
+.cb-quiz-prev:not(:disabled):hover,.cb-quiz-next:not(:disabled):hover{background:rgba(15,36,24,.06)}
+
+/* ─── P7 Facts ─── */
+.cb-fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1060px;margin:0 auto}
+@media(max-width:760px){.cb-fact-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.cb-fact-grid{grid-template-columns:1fr}}
+.cb-fact{cursor:pointer;height:170px;perspective:1200px}
+.cb-fact-inner{position:relative;width:100%;height:100%;transition:transform .65s var(--ease);transform-style:preserve-3d}
+.cb-fact.revealed .cb-fact-inner{transform:rotateY(180deg)}
+.cb-fact-front,.cb-fact-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;padding:20px 18px;border-radius:14px}
+.cb-fact-front{background:rgba(255,255,255,.06);border:1px solid rgba(196,161,79,.22);align-items:center;justify-content:center;text-align:center}
+.cb-fact-back{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--forest-deep);transform:rotateY(180deg);font-size:.86rem;line-height:1.55;font-weight:500;justify-content:center}
+.cb-fact-front-tag{font-size:.54rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:10px}
+.cb-fact-front h4{font-family:var(--serif);font-size:1.08rem;color:#fff;font-weight:500;line-height:1.3}
+.cb-fact-hint{font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:rgba(196,161,79,.7);margin-top:12px}
+.cb-fact-back strong{display:block;font-family:var(--serif);font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px;color:var(--forest-deep)}
+
+/* ─── P8 Closing ─── */
+.cb-close-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:880px;width:100%;margin:0 auto 30px}
+@media(max-width:640px){.cb-close-grid{grid-template-columns:1fr}}
+.cb-close-col{padding:28px 26px;border-radius:14px;color:rgba(237,227,200,.88)}
+.cb-close-yes{background:linear-gradient(180deg,rgba(45,107,69,.18),rgba(45,107,69,.08));border:1px solid rgba(151,190,160,.3)}
+.cb-close-no{background:linear-gradient(180deg,rgba(196,161,79,.16),rgba(196,161,79,.06));border:1px solid rgba(196,161,79,.35)}
+.cb-close-col h3{font-family:var(--serif);font-size:1.2rem;color:#fff;font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.cb-close-col h3::before{content:'';width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.cb-close-yes h3::before{background:var(--sage-light)}
+.cb-close-no h3::before{background:var(--gold)}
+.cb-close-col ul{list-style:none;padding:0;font-size:.92rem;line-height:1.65}
+.cb-close-col li{padding-left:18px;position:relative;margin-bottom:8px}
+.cb-close-col li::before{content:'';position:absolute;left:0;top:.62em;width:10px;height:1px;background:currentColor;opacity:.5}
+.cb-finale{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 0 0}
+.cb-finale p{color:rgba(237,227,200,.7);font-size:.95rem;line-height:1.6;max-width:480px}
+.cb-thanks{font-family:var(--serif);font-size:1rem;color:var(--gold-light);font-style:italic;font-weight:300;margin-top:14px}
+
+/* ─── Keyboard hint ─── */
+.cb-kbd{position:fixed;bottom:78px;right:20px;font-size:.55rem;color:rgba(237,227,200,.42);letter-spacing:1px;text-transform:uppercase;background:rgba(0,0,0,.45);padding:6px 10px;border-radius:6px;pointer-events:none;display:flex;gap:8px;align-items:center;z-index:30;opacity:0;transition:opacity .4s var(--ease)}
+.cb-kbd.show{opacity:1}
+@media(max-width:768px){.cb-kbd{display:none}}
+.cb-kbd kbd{font-family:inherit;background:rgba(255,255,255,.1);padding:2px 6px;border-radius:3px;color:var(--gold-light)}
+</style>
+</head>
+<body>
+
+<!-- Logo wordmark symbol (carried over from main site) -->
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="logo-mark" viewBox="0 0 586.830806 170">
+<g transform="translate(-27.169194,211.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
+<path d="M2212 2097 c-37 -21 -49 -48 -57 -124 -6 -62 -10 -73 -26 -73 -17 0 -19 -8 -19 -60 0 -53 2 -60 20 -60 19 0 20 -7 20 -200 l0 -200 55 0 55 0 0 -101 0 -101 -34 22 c-199 122 -429 -135 -327 -367 59 -133 227 -197 328 -125 31 22 31 22 36 1 5 -18 12 -20 74 -17 l68 3 0 355 0 355 -52 3 -53 3 0 185 0 184 35 0 35 0 0 60 0 60 -36 0 -35 0 3 43 c3 42 3 42 41 40 l37 -2 0 55 c0 49 -2 55 -26 64 -35 14 -114 12 -142 -3z m2 -1028 c109 -86 50 -269 -84 -256 -106 11 -154 159 -76 241 41 44 114 51 160 15z"/>
+<path d="M5055 2085 c-68 -67 15 -188 98 -143 82 43 53 168 -38 168 -25 0 -44 -8 -60 -25z"/>
+<path d="M3770 1980 l0 -121 -47 28 c-123 72 -293 -2 -333 -145 -66 -240 144 -459 335 -348 43 26 45 26 45 6 0 -18 6 -20 70 -20 l70 0 0 360 0 360 -70 0 -70 0 0 -120z m-44 -233 c41 -38 55 -99 35 -159 -47 -142 -241 -104 -241 47 0 129 117 193 206 112z"/>
+<path d="M4475 2088 c-3 -7 -4 -168 -3 -358 l3 -345 70 0 70 0 5 173 5 174 28 24 c36 31 87 32 113 3 17 -19 19 -41 22 -200 l3 -179 70 0 70 0 -3 213 -3 214 -29 37 c-57 75 -145 92 -237 46 l-38 -20 -3 112 -3 113 -68 3 c-48 2 -69 -1 -72 -10z"/>
+<path d="M1880 1995 l0 -95 -30 0 -30 0 0 -60 0 -60 30 0 30 0 0 -200 0 -200 70 0 70 0 0 200 0 200 40 0 40 0 0 59 0 60 -37 3 -38 3 -3 93 -3 92 -69 0 -70 0 0 -95z"/>
+<path d="M275 2067 c-3 -6 -4 -163 -3 -347 l3 -335 73 -3 72 -3 0 151 0 150 105 0 105 0 0 -495 0 -496 73 3 72 3 2 135 c1 74 2 141 2 148 1 9 28 12 101 12 l100 0 0 -150 0 -150 75 0 75 0 0 338 0 338 61 2 c75 3 115 19 168 67 52 47 52 49 -11 81 l-53 27 -35 -20 c-76 -43 -149 -36 -194 18 -49 58 -47 59 175 59 l202 0 -7 56 c-19 161 -120 257 -271 258 -242 1 -360 -299 -185 -473 39 -39 44 -47 26 -47 -20 1 -21 -4 -24 -126 l-3 -128 -102 0 -102 0 0 467 0 468 -72 3 -73 3 0 -131 0 -130 -105 0 -105 0 0 130 0 130 -70 0 c-48 0 -72 -4 -75 -13z m985 -312 c45 -43 40 -45 -90 -45 -66 0 -120 3 -120 6 0 71 148 98 210 39z"/>
+<path d="M1676 1895 c-27 -18 -36 -21 -36 -10 0 12 -14 15 -65 15 l-65 0 0 -260 0 -260 70 0 70 0 0 128 c0 215 22 290 81 277 25 -6 28 -3 47 55 l21 61 -25 9 c-39 15 -58 12 -98 -15z"/>
+<path d="M2612 1902 c-197 -70 -244 -333 -86 -472 146 -128 374 -55 430 137 60 207 -144 406 -344 335z m153 -142 c71 -44 80 -159 18 -222 -77 -76 -198 -27 -210 85 -13 116 98 195 192 137z"/>
+<path d="M3230 1909 c-13 -5 -33 -17 -42 -26 -17 -15 -18 -15 -18 0 0 14 -11 17 -60 17 l-60 0 0 -260 0 -260 60 0 60 0 -6 -29 c-20 -97 116 -148 161 -60 38 72 -29 156 -101 129 -14 -6 -27 -10 -30 -10 -2 0 -4 69 -4 153 0 184 12 222 69 222 32 0 35 3 53 54 10 30 15 58 10 63 -14 14 -66 18 -92 7z"/>
+<path d="M4127 1906 c-144 -53 -143 -211 2 -296 31 -18 66 -40 79 -47 15 -9 22 -22 20 -36 -5 -35 -66 -36 -107 -2 -37 32 -37 32 -86 -23 l-38 -43 28 -29 c106 -110 315 -70 341 65 16 88 -25 151 -141 214 -38 20 -70 44 -70 52 0 23 54 23 86 0 38 -28 41 -27 82 22 41 51 38 64 -27 102 -54 31 -119 40 -169 21z"/>
+<path d="M5460 1909 c-13 -5 -33 -17 -42 -26 -17 -15 -18 -15 -18 0 0 14 -11 17 -60 17 l-60 0 0 -260 0 -260 70 0 70 0 0 168 c0 200 11 237 69 237 32 0 35 3 53 54 10 30 15 58 10 63 -14 14 -66 18 -92 7z"/>
+<path d="M5799 1907 c-201 -57 -262 -336 -103 -476 97 -85 280 -84 372 2 48 45 47 54 -10 83 l-53 27 -35 -20 c-73 -42 -150 -36 -196 14 -55 59 -45 63 171 63 l195 0 0 48 c0 180 -168 307 -341 259z m148 -137 c17 -10 37 -28 43 -39 11 -21 9 -21 -110 -21 -109 0 -121 2 -118 17 10 54 124 80 185 43z"/>
+<path d="M5046 1892 c-6 -11 -7 -479 0 -497 5 -11 23 -15 75 -15 l69 0 0 260 0 260 -69 0 c-39 0 -72 -3 -75 -8z"/>
+<path d="M1430 1215 c-174 -54 -237 -300 -113 -444 99 -117 296 -125 403 -16 l43 43 -59 30 -59 29 -27 -20 c-76 -57 -228 -12 -228 68 0 3 91 5 201 5 l202 0 -6 64 c-18 189 -178 296 -357 241z m180 -144 c46 -38 43 -40 -88 -42 -132 -2 -133 -1 -87 40 50 44 124 45 175 2z"/>
+<path d="M2676 1216 c-211 -78 -207 -441 6 -512 59 -19 146 -14 183 10 36 23 47 8 29 -39 -18 -45 -156 -63 -204 -25 -19 15 -41 20 -97 20 -87 0 -93 -12 -40 -81 88 -116 306 -133 417 -33 69 63 75 92 75 394 l0 265 -67 3 c-63 3 -68 1 -68 -18 0 -25 0 -25 -51 2 -52 27 -131 33 -183 14z m175 -142 c59 -30 78 -133 36 -195 -71 -105 -227 -51 -227 78 0 107 97 166 191 117z"/>
+<path d="M3634 1205 c-59 -30 -54 -29 -54 -5 0 18 -7 20 -70 20 l-70 0 0 -270 0 -270 70 0 70 0 0 149 c0 203 23 261 102 261 65 0 72 -23 76 -232 l4 -178 69 0 69 0 0 188 c-1 257 -12 294 -100 340 -57 29 -105 28 -166 -3z"/>
+<path d="M4167 1216 c-167 -62 -220 -310 -95 -451 69 -79 185 -104 277 -58 l43 22 -6 -32 c-11 -57 -37 -72 -120 -72 -56 0 -79 4 -93 18 -19 16 -173 27 -173 12 0 -3 9 -23 20 -44 87 -171 393 -176 483 -8 21 40 22 54 25 330 l3 287 -66 0 c-58 0 -68 -3 -72 -20 -6 -24 -4 -24 -47 1 -45 26 -129 34 -179 15z m188 -156 c84 -79 34 -240 -74 -240 -103 0 -164 93 -125 190 32 80 139 107 199 50z"/>
+<path d="M3180 950 l0 -270 70 0 70 0 0 270 0 270 -70 0 -70 0 0 -270z"/>
+</g>
+</symbol></svg>
+
+<main class="cb-stage">
+
+  <header class="cb-header">
+    <a href="/" class="cb-logo" aria-label="Back to Hertfordshire Hedging home">
+      <svg viewBox="0 0 586.830806 170" role="img" aria-label="Hertfordshire Hedging"><use href="#logo-mark"/></svg>
+    </a>
+    <a href="/" class="cb-exit">Back to site →</a>
+  </header>
+
+  <div class="cb-viewport">
+    <div class="cb-panels" id="cbPanels">
+
+      <!-- ═══ PANEL 1: COVER ═══ -->
+      <section class="cb-panel cb-p1" data-panel="1">
+        <div class="cb-cover-mark"><svg viewBox="0 0 586.830806 170" role="img" aria-label="Hertfordshire Hedging"><use href="#logo-mark"/></svg></div>
+        <h1 class="cb-cover-title">The <em>Care</em> Book</h1>
+        <p class="cb-cover-sub">A short, interactive guide to caring for your new hedge. Everything that matters. Nothing that doesn't.</p>
+        <div class="cb-cover-meta"><span>8 panels</span><span>~5 minutes</span><span>Save your place</span></div>
+        <button class="cb-btn cb-btn-gold cb-cover-cta" onclick="cbGo(1)">Begin <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <span class="cb-resume" id="cbResume" style="display:none">Where you left off: <a id="cbResumeLink"></a></span>
+      </section>
+
+      <!-- ═══ PANEL 2: THE YEAR AHEAD ═══ -->
+      <section class="cb-panel cb-p2" data-panel="2">
+        <div class="cb-tag">The year ahead</div>
+        <h2 class="cb-title">The first 12 months matter more than the next <em>ten years</em></h2>
+        <p class="cb-sub">Tap any month to see what to focus on. The current month is highlighted in gold.</p>
+        <div class="cb-months" id="cbMonths">
+          <button class="cb-month" data-month="jan">Jan</button>
+          <button class="cb-month" data-month="feb">Feb</button>
+          <button class="cb-month" data-month="mar">Mar</button>
+          <button class="cb-month" data-month="apr">Apr</button>
+          <button class="cb-month" data-month="may">May</button>
+          <button class="cb-month" data-month="jun">Jun</button>
+          <button class="cb-month" data-month="jul">Jul</button>
+          <button class="cb-month" data-month="aug">Aug</button>
+          <button class="cb-month" data-month="sep">Sep</button>
+          <button class="cb-month" data-month="oct">Oct</button>
+          <button class="cb-month" data-month="nov">Nov</button>
+          <button class="cb-month" data-month="dec">Dec</button>
+        </div>
+        <div class="cb-month-info" id="cbMonthInfo">Tap a month to see the priority task.</div>
+      </section>
+
+      <!-- ═══ PANEL 3: WATERING ═══ -->
+      <section class="cb-panel cb-p3" data-panel="3">
+        <div class="cb-tag">Watering</div>
+        <h2 class="cb-title">Get this <em>one thing</em> right</h2>
+        <div class="cb-stat">20L × 2/wk</div>
+        <div class="cb-stat-detail">Per plant, for the whole first growing season</div>
+        <p class="cb-sub">Deep, infrequent watering drives roots downward. Daily light watering keeps roots at the surface where they'll fail. Tap a card to see what each pattern looks like.</p>
+        <div class="cb-water-cards">
+          <div class="cb-flip"><div class="cb-flip-inner">
+            <div class="cb-flip-front"><h4>Under-watering?</h4><span class="cb-flip-hint">Tap to see ›</span></div>
+            <div class="cb-flip-back"><strong>Signs</strong>Wilting outer leaves first. Yellowing on the oldest, lower leaves. Brown, crispy edges. Soil bone dry and powdery 5cm down.</div>
+          </div></div>
+          <div class="cb-flip"><div class="cb-flip-inner">
+            <div class="cb-flip-front"><h4>Over-watering?</h4><span class="cb-flip-hint">Tap to see ›</span></div>
+            <div class="cb-flip-back"><strong>Signs</strong>Yellowing across the whole plant. Rapid leaf drop. Soil sodden, sour-smelling. Leaf spot disease. Looks like drought, but isn't.</div>
+          </div></div>
+          <div class="cb-flip"><div class="cb-flip-inner">
+            <div class="cb-flip-front"><h4>Just right?</h4><span class="cb-flip-hint">Tap to see ›</span></div>
+            <div class="cb-flip-back"><strong>Signs</strong>Firm soil that crumbles in the hand. Soft, glossy new growth. Leaves reach full size by mid-summer. New shoots extending each week in season.</div>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- ═══ PANEL 4: PRUNING BY SPECIES ═══ -->
+      <section class="cb-panel cb-p4" data-panel="4">
+        <div class="cb-tag">Pruning</div>
+        <h2 class="cb-title">Tap a hedge. <em>See when to cut it.</em></h2>
+        <p class="cb-sub">Each species has its own schedule. The wrong month can cost a whole season of growth.</p>
+        <div class="cb-species-grid">
+          <div class="cb-flip cb-species"><div class="cb-flip-inner">
+            <div class="cb-flip-front"><h4>Beech</h4><span class="cb-species-latin">Fagus sylvatica</span><span class="cb-flip-hint">Tap for pruning ›</span></div>
+            <div class="cb-flip-back"><strong>When to cut</strong><p>One annual trim in <strong style="display:inline">August</strong>. That's it. Holds dead leaves through winter for privacy.</p></div>
+          </div></div>
+          <div class="cb-flip cb-species"><div class="cb-flip-inner">
+            <div class="cb-flip-front"><h4>Hornbeam</h4><span class="cb-species-latin">Carpinus betulus</span><span class="cb-flip-hint">Tap for pruning ›</span></div>
+            <div class="cb-flip-back"><strong>When to cut</strong><p>Same as beech. <strong style="display:inline">August</strong>, once a year. Tougher than beech in heavy clay or wet ground.</p></div>
+          </div></div>
+          <div class="cb-flip cb-species"><div class="cb-flip-inner">
+            <div class="cb-flip-front"><h4>Yew</h4><span class="cb-species-latin">Taxus baccata</span><span class="cb-flip-hint">Tap for pruning ›</span></div>
+            <div class="cb-flip-back"><strong>When to cut</strong><p>Two cuts: <strong style="display:inline">late May</strong> and <strong style="display:inline">late August</strong>. Will regrow from old wood, unusually for a conifer.</p></div>
+          </div></div>
+          <div class="cb-flip cb-species"><div class="cb-flip-inner">
+            <div class="cb-flip-front"><h4>Box</h4><span class="cb-species-latin">Buxus sempervirens</span><span class="cb-flip-hint">Tap for pruning ›</span></div>
+            <div class="cb-flip-back"><strong>When to cut</strong><p>Two cuts: <strong style="display:inline">late May</strong> and <strong style="display:inline">late August</strong>. Use clean, sharp shears. Box blight is real.</p></div>
+          </div></div>
+          <div class="cb-flip cb-species"><div class="cb-flip-inner">
+            <div class="cb-flip-front"><h4>Laurel</h4><span class="cb-species-latin">Prunus laurocerasus</span><span class="cb-flip-hint">Tap for pruning ›</span></div>
+            <div class="cb-flip-back"><strong>When to cut</strong><p>Use <strong style="display:inline">secateurs, not shears</strong>. Shears tear leaves and they brown at the edges. Trim August.</p></div>
+          </div></div>
+          <div class="cb-flip cb-species"><div class="cb-flip-inner">
+            <div class="cb-flip-front"><h4>Photinia</h4><span class="cb-species-latin">Photinia × fraseri</span><span class="cb-flip-hint">Tap for pruning ›</span></div>
+            <div class="cb-flip-back"><strong>When to cut</strong><p>Light trim <strong style="display:inline">after the red spring flush</strong>. Avoid hard cuts. A second light tidy in late summer if needed.</p></div>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- ═══ PANEL 5: MULCH ═══ -->
+      <section class="cb-panel cb-p5" data-panel="5">
+        <div class="cb-tag">Mulch</div>
+        <h2 class="cb-title">The one job to <em>never skip</em></h2>
+        <p class="cb-sub">50mm of well-rotted compost or bark, around the base of every hedge, every March. The single most valuable annual task in a garden.</p>
+        <div class="cb-mulch-illus" aria-hidden="true">
+          <svg viewBox="0 0 280 160" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <!-- left scene: bare soil -->
+            <g transform="translate(0,0)">
+              <text x="65" y="14" fill="currentColor" stroke="none" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing="2" text-anchor="middle" opacity=".6">WITHOUT MULCH</text>
+              <!-- hedge canopy struggling -->
+              <path d="M30 60C30 38 50 30 65 32C80 30 100 38 100 60"/>
+              <path d="M50 60V42M65 60V36M80 60V42"/>
+              <!-- trunk + soil -->
+              <path d="M65 60V94"/>
+              <!-- exposed soil surface -->
+              <path d="M16 100C30 96 50 104 65 100C80 96 100 104 116 100"/>
+              <!-- dry cracks -->
+              <path d="M30 105V112M48 105V114M82 105V112M100 105V114" opacity=".6"/>
+              <!-- evaporation arrows -->
+              <path d="M40 90L37 78M44 90L47 78" opacity=".7"/>
+              <path d="M85 90L82 78M89 90L92 78" opacity=".7"/>
+            </g>
+            <!-- divider -->
+            <line x1="140" y1="20" x2="140" y2="140" stroke="currentColor" stroke-width="1" opacity=".3" stroke-dasharray="3 4"/>
+            <!-- right scene: mulched -->
+            <g transform="translate(140,0)">
+              <text x="65" y="14" fill="currentColor" stroke="none" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing="2" text-anchor="middle">WITH MULCH</text>
+              <!-- hedge canopy thriving -->
+              <path d="M22 56C22 32 50 22 65 24C80 22 108 32 108 56"/>
+              <path d="M40 56V36M55 56V32M70 56V30M85 56V36"/>
+              <!-- trunk -->
+              <path d="M65 56V92"/>
+              <!-- mulch layer (thicker, lighter) -->
+              <path d="M14 98H116" stroke-width="2.2"/>
+              <path d="M14 104H116" stroke-width="2.2"/>
+              <!-- mulch label -->
+              <text x="120" y="103" fill="currentColor" stroke="none" font-family="Inter,sans-serif" font-size="5.5" font-weight="600" letter-spacing="1">MULCH 50mm</text>
+              <!-- soil layer below -->
+              <path d="M14 112H116"/>
+              <!-- roots reaching down -->
+              <path d="M65 112V128" opacity=".7"/>
+              <path d="M65 118L52 130M65 118L78 130" opacity=".7"/>
+              <!-- moisture being held -->
+              <circle cx="40" cy="120" r="1.2" fill="currentColor"/>
+              <circle cx="55" cy="124" r="1.2" fill="currentColor"/>
+              <circle cx="75" cy="120" r="1.2" fill="currentColor"/>
+              <circle cx="92" cy="124" r="1.2" fill="currentColor"/>
+            </g>
+          </svg>
+        </div>
+        <div class="cb-mulch-points">
+          <div class="cb-mulch-point"><strong>Suppresses weeds</strong>They steal water and nutrients. Mulch shuts them out.</div>
+          <div class="cb-mulch-point"><strong>Locks in moisture</strong>Reduces evaporation by ~30%, dramatically reducing how often you need to water.</div>
+          <div class="cb-mulch-point"><strong>Feeds the soil</strong>Slow-release nutrients all year. Worms and soil life do the rest.</div>
+        </div>
+      </section>
+
+      <!-- ═══ PANEL 6: QUIZ ═══ -->
+      <section class="cb-panel cb-p6" data-panel="6">
+        <div class="cb-tag">Mini quiz</div>
+        <h2 class="cb-title">Spot the problem in <em>three questions</em></h2>
+        <p class="cb-sub">No score, no judgement. Just the three things hedge owners get wrong most often.</p>
+        <div class="cb-quiz" id="cbQuiz">
+          <div class="cb-quiz-head">
+            <span class="cb-quiz-counter" id="cbQuizCounter">Question 1 of 3</span>
+          </div>
+          <h3 class="cb-quiz-q" id="cbQuizQ"></h3>
+          <div class="cb-quiz-opts" id="cbQuizOpts"></div>
+          <div class="cb-quiz-explain" id="cbQuizExplain"></div>
+          <div class="cb-quiz-nav">
+            <button class="cb-quiz-prev" id="cbQuizPrev" disabled>‹ Previous</button>
+            <button class="cb-quiz-next" id="cbQuizNext">Next ›</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ PANEL 7: DID YOU KNOW ═══ -->
+      <section class="cb-panel cb-p7" data-panel="7">
+        <div class="cb-tag">Curious facts</div>
+        <h2 class="cb-title">Hedge wisdom, in <em>six tiles</em></h2>
+        <p class="cb-sub">Tap any tile to reveal a fact you can tell your neighbour over the fence.</p>
+        <div class="cb-fact-grid">
+          <div class="cb-fact"><div class="cb-fact-inner">
+            <div class="cb-fact-front"><span class="cb-fact-front-tag">No. 01</span><h4>Yew can live for 2,000+ years</h4><span class="cb-fact-hint">Tap ›</span></div>
+            <div class="cb-fact-back"><strong>The fact</strong>The Fortingall Yew in Perthshire is estimated at 2,000–5,000 years old. Many old churchyard yews are older than the churches they stand next to.</div>
+          </div></div>
+          <div class="cb-fact"><div class="cb-fact-inner">
+            <div class="cb-fact-front"><span class="cb-fact-front-tag">No. 02</span><h4>Beech holds its leaves through winter</h4><span class="cb-fact-hint">Tap ›</span></div>
+            <div class="cb-fact-back"><strong>The fact</strong>It's called marcescence. Young beech and the lower branches of mature trees hold dead brown leaves through winter — handy for privacy when other hedges go bare.</div>
+          </div></div>
+          <div class="cb-fact"><div class="cb-fact-inner">
+            <div class="cb-fact-front"><span class="cb-fact-front-tag">No. 03</span><h4>Mulch cuts watering by ~30%</h4><span class="cb-fact-hint">Tap ›</span></div>
+            <div class="cb-fact-back"><strong>The fact</strong>A 50mm mulch layer reduces evaporation from the soil dramatically. In a hot summer it can be the difference between thriving and barely surviving.</div>
+          </div></div>
+          <div class="cb-fact"><div class="cb-fact-inner">
+            <div class="cb-fact-front"><span class="cb-fact-front-tag">No. 04</span><h4>Hedges sequester carbon for life</h4><span class="cb-fact-hint">Tap ›</span></div>
+            <div class="cb-fact-back"><strong>The fact</strong>An average mature hedge stores about 80kg of carbon per metre over its lifetime, plus shelters wildlife, breaks wind and reduces noise pollution.</div>
+          </div></div>
+          <div class="cb-fact"><div class="cb-fact-inner">
+            <div class="cb-fact-front"><span class="cb-fact-front-tag">No. 05</span><h4>Box has been clipped for 2,000 years</h4><span class="cb-fact-hint">Tap ›</span></div>
+            <div class="cb-fact-back"><strong>The fact</strong>The Romans were the first to clip box into formal shapes. The word 'topiary' comes from Topiarius, the Roman gardener responsible for it.</div>
+          </div></div>
+          <div class="cb-fact"><div class="cb-fact-inner">
+            <div class="cb-fact-front"><span class="cb-fact-front-tag">No. 06</span><h4>Hedges are wildlife corridors</h4><span class="cb-fact-hint">Tap ›</span></div>
+            <div class="cb-fact-back"><strong>The fact</strong>A single 100m hedge can support over 40 species of birds, mammals and invertebrates — linking otherwise isolated patches of habitat.</div>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- ═══ PANEL 8: CLOSING ═══ -->
+      <section class="cb-panel cb-p8" data-panel="8">
+        <div class="cb-tag">Closing</div>
+        <h2 class="cb-title">When to do it yourself, <em>and when to call us</em></h2>
+        <div class="cb-close-grid">
+          <div class="cb-close-col cb-close-yes">
+            <h3>You can probably do it yourself</h3>
+            <ul>
+              <li>Mulching, hand-weeding, watering</li>
+              <li>Light trim of a young, easy-to-reach hedge</li>
+              <li>Spotting and reporting any pest or disease signs</li>
+              <li>Small-scale planting (5 to 10 bare-root plants)</li>
+              <li>Lawn mowing and basic feeding</li>
+            </ul>
+          </div>
+          <div class="cb-close-col cb-close-no">
+            <h3>Worth bringing us in</h3>
+            <ul>
+              <li>Anything over 2m tall — height + ladders multiply risk</li>
+              <li>Sculpted, formal or topiary cuts</li>
+              <li>Renovation of an old or overgrown hedge</li>
+              <li>Suspected disease — box blight, honey fungus</li>
+              <li>Planting more than 20m, or any specimen over 1.8m</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cb-finale">
+          <a href="/#contact" class="cb-btn cb-btn-gold">Talk to Mike <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p>This guide remembers where you are. Bookmark the page, share the link with a neighbour, or come back later.</p>
+          <div class="cb-thanks">Thanks for reading. — Mike, Hertfordshire Hedging</div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="cb-controls">
+    <button class="cb-nav-btn" id="cbPrev" aria-label="Previous panel">
+      <svg viewBox="0 0 18 18" fill="none"><path d="M11 3l-5 6 5 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="cb-dots" id="cbDots"></div>
+    <span class="cb-counter" id="cbCounter">1 / 8</span>
+    <button class="cb-nav-btn" id="cbNext" aria-label="Next panel">
+      <svg viewBox="0 0 18 18" fill="none"><path d="M7 3l5 6-5 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </nav>
+</main>
+
+<div class="cb-kbd" id="cbKbd"><kbd>←</kbd><kbd>→</kbd>or swipe</div>
+
+<script>
+var TOTAL = 8;
+var STORAGE_KEY = 'hh-carebook-progress';
+var current = 0;
+
+// Load saved progress
+var saved = 0;
+try {
+  var s = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+  if (s > 0 && s < TOTAL) saved = s;
+} catch(e) {}
+
+// Build dots
+var dotsHost = document.getElementById('cbDots');
+for (var i = 0; i < TOTAL; i++) {
+  (function(idx){
+    var d = document.createElement('button');
+    d.className = 'cb-dot';
+    d.setAttribute('aria-label', 'Go to panel ' + (idx + 1));
+    d.addEventListener('click', function(){ cbGo(idx); });
+    dotsHost.appendChild(d);
+  })(i);
+}
+
+function cbGo(idx) {
+  current = Math.max(0, Math.min(TOTAL - 1, idx));
+  var pct = -(current * (100 / TOTAL));
+  document.getElementById('cbPanels').style.transform = 'translateX(' + pct + '%)';
+  document.querySelectorAll('.cb-dot').forEach(function(d, i){
+    d.classList.toggle('active', i === current);
+    d.classList.toggle('visited', i < current);
+  });
+  document.getElementById('cbPrev').disabled = current === 0;
+  document.getElementById('cbNext').disabled = current === TOTAL - 1;
+  document.getElementById('cbCounter').textContent = (current + 1) + ' / ' + TOTAL;
+  try { localStorage.setItem(STORAGE_KEY, current.toString()); } catch(e) {}
+}
+
+document.getElementById('cbPrev').addEventListener('click', function(){ cbGo(current - 1); });
+document.getElementById('cbNext').addEventListener('click', function(){ cbGo(current + 1); });
+
+document.addEventListener('keydown', function(e){
+  if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+  if (e.key === 'ArrowLeft') cbGo(current - 1);
+  if (e.key === 'ArrowRight') cbGo(current + 1);
+});
+
+// Touch swipe
+var tStartX = 0, tStartY = 0, tStartT = 0;
+document.addEventListener('touchstart', function(e){
+  tStartX = e.touches[0].clientX;
+  tStartY = e.touches[0].clientY;
+  tStartT = Date.now();
+}, {passive: true});
+document.addEventListener('touchend', function(e){
+  var dx = e.changedTouches[0].clientX - tStartX;
+  var dy = e.changedTouches[0].clientY - tStartY;
+  var dt = Date.now() - tStartT;
+  if (dt > 500) return;
+  if (Math.abs(dx) < 60) return;
+  if (Math.abs(dy) > Math.abs(dx)) return;
+  if (dx < 0) cbGo(current + 1); else cbGo(current - 1);
+}, {passive: true});
+
+// Resume hint on cover
+if (saved > 0) {
+  var labels = ['Cover','The year ahead','Watering','Pruning','Mulch','Quiz','Did you know','Closing'];
+  var r = document.getElementById('cbResume');
+  var link = document.getElementById('cbResumeLink');
+  link.textContent = labels[saved];
+  link.addEventListener('click', function(){ cbGo(saved); });
+  r.style.display = 'block';
+}
+
+// Flip cards (P3 watering + P4 species)
+document.querySelectorAll('.cb-flip').forEach(function(el){
+  el.addEventListener('click', function(){ el.classList.toggle('flipped'); });
+  el.setAttribute('role','button');
+  el.setAttribute('tabindex','0');
+  el.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.classList.toggle('flipped'); }});
+});
+
+// Did-you-know tiles
+document.querySelectorAll('.cb-fact').forEach(function(el){
+  el.addEventListener('click', function(){ el.classList.toggle('revealed'); });
+  el.setAttribute('role','button');
+  el.setAttribute('tabindex','0');
+  el.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.classList.toggle('revealed'); }});
+});
+
+// P2 — 12 months
+var monthData = {
+  jan: ['Plan & order', 'Bare-root stock is liftable now. Photograph any gaps you want filled and place orders for spring delivery.'],
+  feb: ['Last bare-root window', 'Finish dormant-season planting before buds break. Service mowers and shears.'],
+  mar: ['Mulch everything', '50mm of well-rotted compost or bark around hedges, beds and shrubs. The single best annual job in the garden.'],
+  apr: ['Start the watering season', 'Newly planted hedging needs deep, twice-weekly soaks now and through the season.'],
+  may: ['First trim of formal hedges', 'Yew, box and privet take their first cut. Get the shape right at this cut.'],
+  jun: ['Watch and water', 'June reveals whether first-year plants have rooted properly. Deep soak twice a week if no rain.'],
+  jul: ['Heat-defence mode', 'Water early morning, never evening. Raise the mower height. Avoid hard pruning in heat.'],
+  aug: ['The main hedging cut', 'Beech, hornbeam and mixed natives all get their annual trim now and hold tidy through spring.'],
+  sep: ['Best month for container planting', 'Soils still warm, rain returning. Roots establish fast.'],
+  oct: ['Bare-root season opens', 'Prepare planting trenches now. Clear fallen leaves from lawns.'],
+  nov: ['Peak bare-root planting', 'Soil workable, rain reliable, plants dormant. The ideal window for hedge establishment.'],
+  dec: ['Tools, planning, fire', 'Sharpen, clean and oil tools. Plan next year. Continue bare-root planting if soil isn’t frozen.']
+};
+var monthKeys = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+var nowMonth = monthKeys[new Date().getMonth()];
+document.querySelectorAll('.cb-month').forEach(function(b){
+  b.classList.toggle('current', b.dataset.month === nowMonth);
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.cb-month').forEach(function(o){ o.classList.toggle('active', o === b); });
+    var d = monthData[b.dataset.month];
+    document.getElementById('cbMonthInfo').innerHTML = '<strong>' + d[0] + '</strong>' + d[1];
+  });
+});
+// Default to current month
+var nowBtn = document.querySelector('[data-month="' + nowMonth + '"]');
+if (nowBtn) nowBtn.click();
+
+// P6 — Quiz
+var quizData = [
+  {
+    q: 'The lower leaves on your hedge are yellowing. The most likely cause is...',
+    options: [
+      {t: 'Not enough water', correct: false},
+      {t: 'Too much water or poor drainage', correct: true},
+      {t: 'Lack of fertiliser', correct: false},
+      {t: 'Cold damage', correct: false}
+    ],
+    explain: 'Yellowing on the oldest, lowest leaves is the classic sign of over-watering or poor drainage. Roots can’t breathe in waterlogged soil. Counter-intuitively the leaves look thirsty — but they’re drowning.'
+  },
+  {
+    q: 'When is the right time to do the main trim of a beech hedge?',
+    options: [
+      {t: 'April, with the spring growth', correct: false},
+      {t: 'June, at peak season', correct: false},
+      {t: 'August', correct: true},
+      {t: 'November, in winter', correct: false}
+    ],
+    explain: 'August is the answer. Beech holds its dead leaves through winter for privacy, and an August cut sets the shape until next year. A spring or summer cut bleeds the plant of energy when it’s actively growing.'
+  },
+  {
+    q: 'Your new hedge has been in the ground six months. How often should you water?',
+    options: [
+      {t: 'A little every day', correct: false},
+      {t: 'Deep soak, twice a week', correct: true},
+      {t: 'Once a fortnight', correct: false},
+      {t: 'Only when leaves wilt', correct: false}
+    ],
+    explain: 'Deep, twice a week. Shallow daily watering keeps roots at the surface, where they’ll fail in the next dry spell. Deep, infrequent watering drives roots down toward the permanent moisture.'
+  }
+];
+var quizIdx = 0;
+function renderQuiz(){
+  var d = quizData[quizIdx];
+  document.getElementById('cbQuizCounter').textContent = 'Question ' + (quizIdx + 1) + ' of ' + quizData.length;
+  document.getElementById('cbQuizQ').textContent = d.q;
+  var host = document.getElementById('cbQuizOpts');
+  host.innerHTML = '';
+  d.options.forEach(function(o){
+    var b = document.createElement('button');
+    b.className = 'cb-quiz-opt';
+    b.textContent = o.t;
+    b.dataset.correct = o.correct ? 'true' : 'false';
+    b.addEventListener('click', function(){
+      var opts = host.querySelectorAll('.cb-quiz-opt');
+      opts.forEach(function(x){
+        x.classList.add('disabled');
+        if (x.dataset.correct === 'true') x.classList.add('correct');
+      });
+      if (!o.correct) b.classList.add('incorrect');
+      var ex = document.getElementById('cbQuizExplain');
+      ex.textContent = d.explain;
+      ex.classList.add('show');
+    });
+    host.appendChild(b);
+  });
+  document.getElementById('cbQuizExplain').classList.remove('show');
+  document.getElementById('cbQuizPrev').disabled = quizIdx === 0;
+  document.getElementById('cbQuizNext').disabled = quizIdx === quizData.length - 1;
+  document.getElementById('cbQuizNext').textContent = quizIdx === quizData.length - 1 ? 'Done' : 'Next ›';
+}
+document.getElementById('cbQuizPrev').addEventListener('click', function(){ quizIdx = Math.max(0, quizIdx - 1); renderQuiz(); });
+document.getElementById('cbQuizNext').addEventListener('click', function(){
+  if (quizIdx < quizData.length - 1) { quizIdx++; renderQuiz(); }
+});
+renderQuiz();
+
+// Initial state
+cbGo(0); // Always start at cover; user can resume via link
+
+// Keyboard hint
+setTimeout(function(){ document.getElementById('cbKbd').classList.add('show'); }, 1500);
+setTimeout(function(){ document.getElementById('cbKbd').classList.remove('show'); }, 6500);
+</script>
+</body>
+</html>
