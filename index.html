@@ -141,7 +141,7 @@
   /* Spacing */
   --sec-y:120px;
 }
-html{overflow-x:hidden;scroll-behavior:smooth}
+html{font-size:112.5%;overflow-x:hidden;scroll-behavior:smooth}
 
 /* Skip-to-content link — visible only when focused via keyboard */
 .skip{position:absolute;top:-50px;left:18px;background:var(--forest-deep);color:var(--cream);padding:10px 18px;border-radius:0 0 8px 8px;font-size:.78rem;font-weight:600;letter-spacing:.5px;z-index:201;transition:top .25s var(--ease)}
@@ -306,14 +306,18 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 .inner-hero{position:relative;min-height:60vh;overflow:hidden;display:flex;align-items:flex-end;background:var(--forest-night)}
 .inner-hero-bg{position:absolute;inset:0;z-index:0}
 .inner-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
-.inner-hero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(8,22,14,.92) 0%,rgba(8,22,14,.5) 40%,rgba(8,22,14,.3) 100%)}
+.inner-hero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(8,22,14,.48) 0%,rgba(8,22,14,.18) 55%,rgba(8,22,14,.06) 100%)}
 .inner-hero-frame{position:absolute;inset:32px;z-index:2;border:1px solid rgba(237,227,200,.18);pointer-events:none}
 @media(max-width:768px){.inner-hero-frame{inset:16px}}
 .inner-hero-content{position:relative;z-index:3;max-width:1240px;width:100%;margin:0 auto;padding:160px 44px 80px}
 @media(max-width:768px){.inner-hero-content{padding:140px 24px 60px}}
 .inner-hero-content .tag{color:var(--gold-light)}
 .inner-hero-content .st{color:#fff;margin-bottom:14px;max-width:780px}
-.inner-hero-content .sd{color:rgba(255,255,255,.6);max-width:560px}
+.inner-hero-content .sd{color:rgba(255,255,255,.78);max-width:560px}
+.inner-hero-card{display:inline-block;background:rgba(11,28,18,.7);backdrop-filter:blur(16px) saturate(125%);-webkit-backdrop-filter:blur(16px) saturate(125%);border:1px solid rgba(196,161,79,.22);border-radius:var(--rxl);padding:38px 44px;max-width:720px;box-shadow:0 30px 70px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.04);position:relative}
+.inner-hero-card::before{content:'';position:absolute;top:14px;left:14px;width:14px;height:14px;border-left:1px solid var(--gold);border-top:1px solid var(--gold);opacity:.6}
+.inner-hero-card::after{content:'';position:absolute;bottom:14px;right:14px;width:14px;height:14px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);opacity:.6}
+@media(max-width:600px){.inner-hero-card{padding:26px 24px}}
 
 /* ═══════════════ SERVICES INTRO ═══════════════ */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -379,7 +383,7 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 .sp:hover .sp-icon{background:var(--sage-pale);transform:scale(1.05)}
 .sp h4{font-family:var(--serif);font-size:1.32rem;color:var(--forest-deep);margin-bottom:4px;font-weight:500;letter-spacing:-.015em}
 .sp-latin{font-family:var(--serif);font-size:.78rem;color:var(--text-mid);font-weight:300;margin-bottom:12px;display:block}
-.sp-body p{font-size:.82rem;color:var(--text-mid);font-weight:300;line-height:1.7}
+.sp-body p{font-size:.95rem;color:var(--text-mid);font-weight:300;line-height:1.7}
 
 /* ═══════════════ PROCESS — alternating rows ═══════════════ */
 .process-sec{background:var(--cream-warm);position:relative}
@@ -491,7 +495,7 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 .wc-i{width:44px;height:44px;margin-bottom:24px;color:var(--gold-deep)}
 .wc-i svg{width:100%;height:100%}
 .wc h4{font-family:var(--serif);font-size:1.2rem;color:var(--forest-deep);font-weight:500;margin-bottom:10px;letter-spacing:-.015em}
-.wc p{font-size:.85rem;color:var(--text-mid);font-weight:300;line-height:1.75}
+.wc p{font-size:.95rem;color:var(--text-mid);font-weight:300;line-height:1.75}
 
 /* ═══════════════ PARALLAX BREAK / TESTIMONIAL ═══════════════ */
 .px-break{height:520px;position:relative;overflow:hidden}
@@ -574,7 +578,7 @@ header.scrolled .logo-svg{color:var(--forest-deep)}
 @media(max-width:600px){.fr{grid-template-columns:1fr}}
 .fg{margin-bottom:16px}
 .fg label{display:block;font-size:.65rem;font-weight:600;color:var(--forest-deep);margin-bottom:7px;letter-spacing:1.2px;text-transform:uppercase}
-.fg input,.fg select,.fg textarea{width:100%;padding:14px 18px;border:1px solid var(--cream-dark);border-radius:10px;font-family:var(--sans);font-size:.88rem;color:var(--text);background:var(--cream-warm);transition:all .3s;outline:none}
+.fg input,.fg select,.fg textarea{width:100%;padding:14px 18px;border:1px solid var(--cream-dark);border-radius:10px;font-family:var(--sans);font-size:1rem;color:var(--text);background:var(--cream-warm);transition:all .3s;outline:none}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--moss);background:var(--white);box-shadow:0 0 0 3px rgba(45,107,69,.1)}
 .fg textarea{min-height:110px;resize:vertical}
 .fs{width:100%;padding:16px;background:var(--forest);color:var(--cream);border:none;border-radius:50px;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .4s var(--ease);display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:1.5px;text-transform:uppercase}
@@ -731,6 +735,100 @@ body.on-contact .float-call{opacity:0!important;transform:translateY(20px)!impor
 .testi-name{font-weight:600;color:var(--forest-deep);font-size:.9rem}
 .testi-loc{font-size:.78rem;color:var(--text-mid);font-weight:300}
 .testi-svc{font-size:.62rem;color:var(--gold-deep);text-transform:uppercase;letter-spacing:2.5px;font-weight:600;margin-top:6px}
+
+/* ═══════════════ CARE GUIDE ═══════════════ */
+.cg-intro{max-width:780px;margin:0 auto 56px;text-align:center}
+.cg-intro .tag{justify-content:center;color:var(--gold-deep)}
+.cg-intro h2{margin-bottom:16px}
+.cg-intro p{margin:0 auto}
+
+.cg-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:32px}
+.cg-filter{padding:9px 18px;border-radius:50px;background:transparent;border:1px solid var(--cream-dark);color:var(--text-mid);font-size:.78rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;transition:all .3s var(--ease)}
+.cg-filter:hover{border-color:var(--forest);color:var(--forest)}
+.cg-filter.active{background:var(--forest);border-color:var(--forest);color:var(--cream)}
+
+.cg-months{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin-bottom:32px;background:var(--cream-warm);padding:10px;border-radius:14px;border:1px solid var(--cream-dark)}
+@media(max-width:768px){.cg-months{grid-template-columns:repeat(6,1fr);gap:5px}}
+.cg-month{position:relative;padding:16px 4px 12px;border-radius:9px;background:transparent;border:none;color:var(--text-mid);font-family:var(--serif);font-size:.98rem;font-weight:500;cursor:pointer;transition:all .25s var(--ease);letter-spacing:.3px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.cg-month::after{content:'';width:16px;height:2px;border-radius:1px;background:var(--season-color,transparent);transition:all .25s var(--ease)}
+.cg-month[data-season="winter"]{--season-color:#9CAFAE}
+.cg-month[data-season="spring"]{--season-color:#7BAE83}
+.cg-month[data-season="summer"]{--season-color:#D4B76A}
+.cg-month[data-season="autumn"]{--season-color:#B07738}
+.cg-month:hover{background:rgba(27,58,45,.06);color:var(--forest-deep)}
+.cg-month.active{background:var(--forest);color:var(--cream);box-shadow:0 4px 14px rgba(15,36,24,.18)}
+.cg-month.active::after{background:var(--gold);width:24px}
+.cg-month.current::before{content:'';position:absolute;top:5px;right:5px;width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(196,161,79,.2)}
+
+.cg-panel{position:relative;overflow:hidden;background:var(--white);border-radius:var(--rxl);box-shadow:var(--sh-l);border:1px solid rgba(15,36,24,.04);padding:48px;min-height:560px;transition:background .6s var(--ease)}
+@media(max-width:768px){.cg-panel{padding:28px}}
+.cg-panel[data-season="winter"]{background:linear-gradient(135deg,#FDFBF7 0%,#E8ECEA 100%)}
+.cg-panel[data-season="spring"]{background:linear-gradient(135deg,#FDFBF7 0%,#EAF2E8 100%)}
+.cg-panel[data-season="summer"]{background:linear-gradient(135deg,#FDFBF7 0%,#FAF1D9 100%)}
+.cg-panel[data-season="autumn"]{background:linear-gradient(135deg,#FDFBF7 0%,#F4E5D0 100%)}
+.cg-panel-num{position:absolute;top:0;right:32px;font-family:var(--serif);font-size:clamp(10rem,18vw,18rem);font-weight:300;line-height:.85;color:var(--forest-deep);opacity:.05;pointer-events:none;letter-spacing:-.08em;user-select:none}
+.cg-panel-motif{position:absolute;top:48px;right:48px;width:88px;height:88px;color:var(--gold-deep);opacity:.35;pointer-events:none;transition:color .6s var(--ease),opacity .6s var(--ease)}
+.cg-panel[data-season="winter"] .cg-panel-motif{color:#5e7878}
+.cg-panel[data-season="spring"] .cg-panel-motif{color:var(--moss)}
+.cg-panel[data-season="summer"] .cg-panel-motif{color:var(--gold-deep)}
+.cg-panel[data-season="autumn"] .cg-panel-motif{color:#9c5e2c}
+@media(max-width:600px){.cg-panel-motif{width:64px;height:64px;top:24px;right:24px}.cg-panel-num{font-size:8rem;right:16px}}
+.cg-panel-head{position:relative;z-index:1;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid rgba(15,36,24,.08);max-width:78%}
+@media(max-width:600px){.cg-panel-head{max-width:100%}}
+.cg-now-pill{display:inline-block;font-size:.55rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;background:var(--gold);color:var(--forest-deep);padding:5px 12px;border-radius:50px;margin-bottom:12px}
+.cg-season{display:inline-block;font-size:.62rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px}
+.cg-month-name{font-family:var(--serif);font-size:clamp(1.9rem,3.4vw,2.8rem);color:var(--forest-deep);font-weight:500;line-height:1.05;margin-bottom:10px;letter-spacing:-.02em}
+.cg-month-blurb{font-size:1rem;color:var(--text-mid);font-weight:300;line-height:1.7;max-width:680px}
+
+.cg-tasks{position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.cg-task{position:relative;padding:28px 24px 24px;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(15,36,24,.08);border-radius:var(--rl);transition:all .3s var(--ease);display:flex;flex-direction:column;gap:10px;animation:cgTaskIn .45s var(--ease) both}
+.cg-task:hover{transform:translateY(-3px);box-shadow:var(--sh);border-color:rgba(27,58,45,.2);background:var(--white)}
+.cg-task-icon{width:38px;height:38px;color:var(--gold-deep);margin-bottom:4px}
+.cg-task-cat{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--gold-deep)}
+.cg-task h4{font-family:var(--serif);font-size:1.22rem;color:var(--forest-deep);font-weight:500;line-height:1.25;letter-spacing:-.012em}
+.cg-task p{font-size:.92rem;color:var(--text-mid);font-weight:300;line-height:1.65}
+.cg-task-badge{position:absolute;top:18px;right:18px;font-size:.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 10px;border-radius:50px}
+.cg-task-diy{background:rgba(45,107,69,.14);color:var(--moss)}
+.cg-task-pro{background:rgba(196,161,79,.18);color:var(--gold-deep)}
+.cg-empty{grid-column:1/-1;padding:60px 20px;text-align:center;color:var(--text-light);font-size:.95rem;font-style:italic}
+@keyframes cgTaskIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.cg-task:nth-child(1){animation-delay:.04s}
+.cg-task:nth-child(2){animation-delay:.10s}
+.cg-task:nth-child(3){animation-delay:.16s}
+.cg-task:nth-child(4){animation-delay:.22s}
+.cg-task:nth-child(5){animation-delay:.28s}
+.cg-task:nth-child(6){animation-delay:.34s}
+.cg-icon{display:inline-block;width:100%;height:100%}
+
+.cg-topics{display:flex;flex-direction:column;gap:64px;margin-top:24px}
+.cg-topic{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center}
+@media(max-width:860px){.cg-topic{grid-template-columns:1fr;gap:24px}}
+.cg-topic:nth-child(even){direction:rtl}
+.cg-topic:nth-child(even)>*{direction:ltr}
+@media(max-width:860px){.cg-topic:nth-child(even){direction:ltr}}
+.cg-topic-img{aspect-ratio:4/3;border-radius:var(--rxl);overflow:hidden;box-shadow:var(--sh-l)}
+.cg-topic-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.cg-topic:hover .cg-topic-img img{transform:scale(1.04)}
+.cg-topic-tag{font-size:.62rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.cg-topic-tag::before{content:'';width:24px;height:1px;background:var(--gold)}
+.cg-topic-body h3{font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.2rem);color:var(--forest-deep);font-weight:500;line-height:1.1;margin-bottom:18px;letter-spacing:-.02em}
+.cg-topic-body>p{font-size:1.02rem;color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:22px}
+.cg-points{list-style:none;display:flex;flex-direction:column;gap:12px;padding-left:0}
+.cg-points li{padding-left:24px;position:relative;font-size:.95rem;color:var(--text);line-height:1.6;font-weight:300}
+.cg-points li::before{content:'';position:absolute;left:0;top:.7em;width:12px;height:1px;background:var(--gold)}
+.cg-points strong{font-weight:600;color:var(--forest-deep)}
+
+.cg-diy-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:24px}
+@media(max-width:768px){.cg-diy-grid{grid-template-columns:1fr}}
+.cg-diy-col{padding:40px;border-radius:var(--rxl);border:1px solid var(--cream-dark)}
+.cg-diy-yes{background:linear-gradient(180deg,rgba(45,107,69,.06),rgba(45,107,69,.02));border-color:rgba(45,107,69,.2)}
+.cg-diy-no{background:linear-gradient(180deg,rgba(196,161,79,.08),rgba(196,161,79,.02));border-color:rgba(196,161,79,.25)}
+.cg-diy-col h3{font-family:var(--serif);font-size:1.4rem;color:var(--forest-deep);font-weight:500;margin-bottom:20px;letter-spacing:-.012em;display:flex;align-items:center;gap:12px}
+.cg-diy-yes h3::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--moss)}
+.cg-diy-no h3::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold-deep)}
+.cg-diy-col ul{list-style:none;display:flex;flex-direction:column;gap:14px;padding:0}
+.cg-diy-col li{padding-left:24px;position:relative;font-size:.95rem;color:var(--text);line-height:1.55;font-weight:300}
+.cg-diy-col li::before{content:'';position:absolute;left:0;top:.65em;width:12px;height:1px;background:currentColor;opacity:.4}
 
 </style>
 </head>
@@ -901,6 +999,94 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
 </g>
 </symbol></svg>
 
+<!-- ═══════════════ ICON LIBRARY ═══════════════
+     Signature line-icon system. 24x24 viewBox, stroke 1.5, rounded caps/joins.
+     Reuse anywhere with <svg class="cg-icon"><use href="#i-planting"/></svg>.
+     Colour via currentColor on the parent. -->
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+  <symbol id="i-planting" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 18V11"/>
+    <path d="M12 11C12 8.5 14 7 16.5 7C16.5 9.5 14.5 11 12 11Z"/>
+    <path d="M12 11C12 9 10 7.5 7.5 7.5C7.5 9.5 9.5 11 12 11Z"/>
+    <path d="M4 18C7 20 17 20 20 18"/>
+    <path d="M3 18H21"/>
+  </symbol>
+  <symbol id="i-pruning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="6" cy="7" r="2.2"/>
+    <circle cx="6" cy="17" r="2.2"/>
+    <path d="M7.7 8.5L20 16.5"/>
+    <path d="M7.7 15.5L20 7.5"/>
+    <path d="M14 12H17"/>
+  </symbol>
+  <symbol id="i-watering" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3C12 3 6.5 9 6.5 13.5C6.5 16 9 18 12 18C15 18 17.5 16 17.5 13.5C17.5 9 12 3 12 3Z"/>
+    <path d="M9.5 13.5C9.5 12 10.5 11 12 11"/>
+  </symbol>
+  <symbol id="i-feeding" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="8" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="12" cy="4.5" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="16" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    <path d="M3 14C7 11 17 11 21 14"/>
+    <path d="M3 14C7 17 17 17 21 14"/>
+    <path d="M3 14V19"/>
+    <path d="M21 14V19"/>
+  </symbol>
+  <symbol id="i-mulching" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 8C7 6.5 11 8.5 15 7C18 6 21 8 21 8"/>
+    <path d="M3 12C7 10.5 11 12.5 15 11C18 10 21 12 21 12"/>
+    <path d="M3 16C7 14.5 11 16.5 15 15C18 14 21 16 21 16"/>
+    <path d="M3 20C7 18.5 11 20.5 15 19C18 18 21 20 21 20"/>
+  </symbol>
+  <symbol id="i-health" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 19C5 11 11 5 19 5C19 13 13 19 5 19Z"/>
+    <path d="M5 19C8 16 13 13 18 10"/>
+    <circle cx="10" cy="13" r="1.3" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="i-planning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="6" width="16" height="14" rx="1.5"/>
+    <path d="M4 10H20"/>
+    <path d="M8 4V8"/>
+    <path d="M16 4V8"/>
+    <circle cx="9" cy="15" r="1.4" fill="currentColor" stroke="none"/>
+    <path d="M13 15H17"/>
+    <path d="M13 17.5H16"/>
+  </symbol>
+  <!-- Seasonal motifs: 80x80, decorative -->
+  <symbol id="m-winter" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 10V70"/>
+    <path d="M10 40H70"/>
+    <path d="M19 19L61 61"/>
+    <path d="M61 19L19 61"/>
+    <path d="M40 22L34 28M40 22L46 28"/>
+    <path d="M40 58L34 52M40 58L46 52"/>
+    <path d="M22 40L28 34M22 40L28 46"/>
+    <path d="M58 40L52 34M58 40L52 46"/>
+  </symbol>
+  <symbol id="m-spring" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 70V30"/>
+    <path d="M40 46C28 46 18 40 18 28C32 28 40 34 40 46Z"/>
+    <path d="M40 38C52 38 62 32 62 20C48 20 40 26 40 38Z"/>
+  </symbol>
+  <symbol id="m-summer" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="40" cy="40" r="14"/>
+    <path d="M40 10V18"/>
+    <path d="M40 62V70"/>
+    <path d="M10 40H18"/>
+    <path d="M62 40H70"/>
+    <path d="M19 19L25 25"/>
+    <path d="M55 55L61 61"/>
+    <path d="M19 61L25 55"/>
+    <path d="M55 25L61 19"/>
+  </symbol>
+  <symbol id="m-autumn" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 15C30 25 22 48 25 66"/>
+    <path d="M50 15C46 28 38 42 28 56"/>
+    <path d="M50 15C58 18 62 26 60 36C56 50 42 56 28 56"/>
+    <path d="M40 28C44 24 48 22 52 22"/>
+    <path d="M35 38C39 34 44 32 49 32"/>
+  </symbol>
+</svg>
+
 
 <header id="hdr"><div class="nav-glass">
   <a href="#" class="logo" onclick="goTo('home');return false" aria-label="Hertfordshire Hedging home page">
@@ -911,6 +1097,7 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
     <a href="#" data-page="about" onclick="goTo('about');return false">About</a>
     <a href="#" data-page="services" onclick="goTo('services');return false">Services</a>
     <a href="#" data-page="gallery" onclick="goTo('gallery');return false">Gallery</a>
+    <a href="#" data-page="care" onclick="goTo('care');return false">Care Guide</a>
     <a href="#" data-page="contact" onclick="goTo('contact');return false" class="nc">Contact</a>
   </nav>
   <button class="mt" id="mobT" onclick="toggleMob()"><span></span><span></span><span></span></button>
@@ -1546,14 +1733,16 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
 <!-- ═══════════════════ ABOUT ═══════════════════ -->
 <main class="page" id="page-about">
   <section class="inner-hero">
-    <div class="inner-hero-bg"><img src="/img/gal6.jpg" alt=""></div>
+    <div class="inner-hero-bg"><img src="/img/hero-about.jpg" alt=""></div>
     <div class="inner-hero-veil"></div>
     <div class="grain"></div>
     <div class="inner-hero-frame"></div>
     <div class="inner-hero-content">
-      <div class="tag rv">About us</div>
-      <h1 class="st rv rv-d1">Passionate about <em>perfect hedges</em></h1>
-      <p class="sd rv rv-d2">Dedicated, professional, and exclusively focused on hedging since day one.</p>
+      <div class="inner-hero-card">
+        <div class="tag rv">About us</div>
+        <h1 class="st rv rv-d1">Passionate about <em>perfect hedges</em></h1>
+        <p class="sd rv rv-d2">Dedicated, professional, and exclusively focused on hedging since day one.</p>
+      </div>
     </div>
   </section>
 
@@ -1590,14 +1779,16 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
 <!-- ═══════════════════ SERVICES ═══════════════════ -->
 <main class="page" id="page-services">
   <section class="inner-hero">
-    <div class="inner-hero-bg"><img src="/img/gal9.jpg" alt=""></div>
+    <div class="inner-hero-bg"><img src="/img/hero-services.jpg" alt=""></div>
     <div class="inner-hero-veil"></div>
     <div class="grain"></div>
     <div class="inner-hero-frame"></div>
     <div class="inner-hero-content">
-      <div class="tag rv">Our services</div>
-      <h1 class="st rv rv-d1">Everything your hedge <em>needs</em></h1>
-      <p class="sd rv rv-d2">Premium sourcing, expert installation, species-specific ongoing care.</p>
+      <div class="inner-hero-card">
+        <div class="tag rv">Our services</div>
+        <h1 class="st rv rv-d1">Everything your hedge <em>needs</em></h1>
+        <p class="sd rv rv-d2">Premium sourcing, expert installation, species-specific ongoing care.</p>
+      </div>
     </div>
   </section>
 
@@ -1666,14 +1857,16 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
 <!-- ═══════════════════ GALLERY ═══════════════════ -->
 <main class="page" id="page-gallery">
   <section class="inner-hero" style="min-height:50vh">
-    <div class="inner-hero-bg"><img src="/img/gal4.jpg" alt=""></div>
+    <div class="inner-hero-bg"><img src="/img/hero-gallery.jpg" alt=""></div>
     <div class="inner-hero-veil"></div>
     <div class="grain"></div>
     <div class="inner-hero-frame"></div>
     <div class="inner-hero-content">
-      <div class="tag rv">Our work</div>
-      <h1 class="st rv rv-d1">Project <em>gallery</em></h1>
-      <p class="sd rv rv-d2">Hedging projects delivered across Hertfordshire and the Home Counties.</p>
+      <div class="inner-hero-card">
+        <div class="tag rv">Our work</div>
+        <h1 class="st rv rv-d1">Project <em>gallery</em></h1>
+        <p class="sd rv rv-d2">Hedging projects delivered across Hertfordshire and the Home Counties.</p>
+      </div>
     </div>
   </section>
 
@@ -1684,17 +1877,210 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
   </section>
 </main>
 
-<!-- ═══════════════════ CONTACT ═══════════════════ -->
-<main class="page" id="page-contact">
-  <section class="inner-hero" style="min-height:50vh">
-    <div class="inner-hero-bg"><img src="/img/gal3.jpg" alt=""></div>
+<!-- ═══════════════════ CARE GUIDE ═══════════════════ -->
+<main class="page" id="page-care">
+
+  <section class="inner-hero" style="min-height:55vh">
+    <div class="inner-hero-bg"><img src="/img/hero-care.jpg" alt=""></div>
     <div class="inner-hero-veil"></div>
     <div class="grain"></div>
     <div class="inner-hero-frame"></div>
     <div class="inner-hero-content">
-      <div class="tag rv">Get in touch</div>
-      <h1 class="st rv rv-d1">Let's discuss your <em>project</em></h1>
-      <p class="sd rv rv-d2">Free, no-obligation consultation. Tell us about your site, and we'll come out for a look.</p>
+      <div class="inner-hero-card">
+        <div class="tag rv">Reference &amp; guidance</div>
+        <h1 class="st rv rv-d1">The <em>Care</em> Guide</h1>
+        <p class="sd rv rv-d2">A month-by-month, plant-by-plant reference for hedging, lawns, trees and gardens. Use it to plan, to learn, and to know when to lift the shears yourself or when to call us in.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="cg-intro rv">
+        <div class="tag">The year-round calendar</div>
+        <h2 class="st">What to do, <em>when</em></h2>
+        <p class="sd">Click any month for the most important tasks of that period. Filter by category to focus on what matters to you. The amber dot marks the current month.</p>
+      </div>
+
+      <div class="cg-filters rv rv-d1" id="cgFilters">
+        <button class="cg-filter active" data-cat="all">All</button>
+        <button class="cg-filter" data-cat="planting">Planting</button>
+        <button class="cg-filter" data-cat="pruning">Pruning</button>
+        <button class="cg-filter" data-cat="watering">Watering</button>
+        <button class="cg-filter" data-cat="feeding">Feeding &amp; soil</button>
+        <button class="cg-filter" data-cat="mulching">Mulching</button>
+        <button class="cg-filter" data-cat="health">Plant health</button>
+        <button class="cg-filter" data-cat="planning">Planning</button>
+      </div>
+
+      <div class="cg-months rv rv-d2" id="cgMonths">
+        <button class="cg-month" data-month="jan" data-season="winter">Jan</button>
+        <button class="cg-month" data-month="feb" data-season="winter">Feb</button>
+        <button class="cg-month" data-month="mar" data-season="spring">Mar</button>
+        <button class="cg-month" data-month="apr" data-season="spring">Apr</button>
+        <button class="cg-month" data-month="may" data-season="spring">May</button>
+        <button class="cg-month" data-month="jun" data-season="summer">Jun</button>
+        <button class="cg-month" data-month="jul" data-season="summer">Jul</button>
+        <button class="cg-month" data-month="aug" data-season="summer">Aug</button>
+        <button class="cg-month" data-month="sep" data-season="autumn">Sep</button>
+        <button class="cg-month" data-month="oct" data-season="autumn">Oct</button>
+        <button class="cg-month" data-month="nov" data-season="autumn">Nov</button>
+        <button class="cg-month" data-month="dec" data-season="winter">Dec</button>
+      </div>
+
+      <div class="cg-panel rv rv-d3" id="cgPanel">
+        <div class="cg-panel-num" id="cgPanelNum">01</div>
+        <svg class="cg-panel-motif" viewBox="0 0 80 80" aria-hidden="true"><use id="cgPanelMotif" href="#m-winter"/></svg>
+        <div class="cg-panel-head">
+          <span class="cg-now-pill" id="cgNowPill" style="display:none">We are here</span>
+          <span class="cg-season" id="cgSeason"></span>
+          <h3 class="cg-month-name" id="cgMonthName"></h3>
+          <p class="cg-month-blurb" id="cgMonthBlurb"></p>
+        </div>
+        <div class="cg-tasks" id="cgTasks"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="background:var(--cream-warm)">
+    <div class="container">
+      <div class="sec-h rv">
+        <div class="tag">Essentials</div>
+        <h2 class="st">The fundamentals of <em>good</em> care</h2>
+        <p class="sd">Five principles that underpin every healthy garden, whatever the size or species. Get these right and most of the rest takes care of itself.</p>
+      </div>
+
+      <div class="cg-topics">
+        <article class="cg-topic rv">
+          <div class="cg-topic-img"><img src="/img/gal2.jpg" alt="Established hedging being watered" loading="lazy"></div>
+          <div class="cg-topic-body">
+            <div class="cg-topic-tag">Watering &amp; irrigation</div>
+            <h3>Water early, water deep</h3>
+            <p>The single most common mistake in garden care is shallow, frequent watering. New planting needs deep, infrequent soaks that drive roots downward in search of moisture. Established plants rarely need any supplementary water at all.</p>
+            <ul class="cg-points">
+              <li><strong>Best time of day:</strong> early morning. Avoid evening (encourages fungal disease) and midday (high evaporation losses).</li>
+              <li><strong>Newly planted hedging:</strong> 20-30 litres per plant, twice a week, for the whole first growing season.</li>
+              <li><strong>Established hedging:</strong> only during prolonged drought, more than three weeks without meaningful rain.</li>
+              <li><strong>Lawns:</strong> 25mm of water once a week is far better than 5mm every day.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="cg-topic rv">
+          <div class="cg-topic-img"><img src="/img/gal5.jpg" alt="Hedge being shaped with shears" loading="lazy"></div>
+          <div class="cg-topic-body">
+            <div class="cg-topic-tag">Pruning</div>
+            <h3>The right cut at the right time</h3>
+            <p>Pruning timing depends on species and intent. The wrong month can cost a whole year of growth, or worse, set a hedge back permanently. Formative, maintenance and renovation pruning each follow different rules.</p>
+            <ul class="cg-points">
+              <li><strong>Beech &amp; Hornbeam:</strong> a single annual trim in August. Will hold dead leaves through winter for privacy.</li>
+              <li><strong>Yew &amp; Box:</strong> two cuts per year — late spring and late summer.</li>
+              <li><strong>Laurel:</strong> use secateurs, not shears, to avoid ugly cut leaves that brown at the edges.</li>
+              <li><strong>Flowering shrubs:</strong> prune immediately after flowering, not before.</li>
+              <li><strong>Anything taller than 2m:</strong> consider getting help. Most accidents happen on ladders.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="cg-topic rv">
+          <div class="cg-topic-img"><img src="/img/gal9.jpg" alt="Mulched soil at base of hedge" loading="lazy"></div>
+          <div class="cg-topic-body">
+            <div class="cg-topic-tag">Feeding &amp; soil</div>
+            <h3>Feed the soil, not the plant</h3>
+            <p>A well-mulched, biologically active soil makes most fertiliser unnecessary. Where feeding is genuinely needed, slow-release organic feeds in spring outperform fast-acting chemical ones almost every time.</p>
+            <ul class="cg-points">
+              <li><strong>Annual mulch:</strong> 50mm of well-rotted compost or bark, every March. The single most valuable garden task.</li>
+              <li><strong>Spring feed for hungry hedges</strong> (privet, laurel): blood, fish &amp; bone, or pelleted chicken manure.</li>
+              <li><strong>Avoid lawn feed near hedges:</strong> within 1m of hedge roots, lawn nitrogen encourages weak leggy growth.</li>
+              <li><strong>Test before you treat:</strong> a £15 pH test from a garden centre will tell you more than three years of guesswork.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="cg-topic rv">
+          <div class="cg-topic-img"><img src="/img/gal12.jpg" alt="Close-up of hedge foliage" loading="lazy"></div>
+          <div class="cg-topic-body">
+            <div class="cg-topic-tag">Plant health</div>
+            <h3>Catch problems early</h3>
+            <p>Most hedge and shrub problems are easy to fix if spotted in the first few weeks. Box blight, honey fungus, drought stress and pest damage all show telltale signs long before they become serious. Walk your boundaries once a month.</p>
+            <ul class="cg-points">
+              <li><strong>Yellow lower leaves:</strong> usually overwatering or poor drainage, not under-feeding.</li>
+              <li><strong>Bare patches in box:</strong> probable blight. Act fast — isolate and treat or replace.</li>
+              <li><strong>Brown tips in spring:</strong> winter desiccation. New growth will mask it; no action needed.</li>
+              <li><strong>Sudden dieback in summer:</strong> get someone to look. Honey fungus, vine weevil and Phytophthora all look similar at first.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="cg-topic rv">
+          <div class="cg-topic-img"><img src="/img/gal14.jpg" alt="Manicured lawn beside hedging" loading="lazy"></div>
+          <div class="cg-topic-body">
+            <div class="cg-topic-tag">Lawn care</div>
+            <h3>The four-job lawn year</h3>
+            <p>You can have a lovely lawn with four well-timed jobs per year. Doing more rarely helps. Doing them in the wrong order definitely hurts.</p>
+            <ul class="cg-points">
+              <li><strong>March:</strong> first cut on a high setting. Spring feed.</li>
+              <li><strong>May:</strong> scarify or rake out moss. Top-dress thin areas with a sand-soil mix.</li>
+              <li><strong>August:</strong> if dry, leave the grass longer. Let it go dormant rather than scalping.</li>
+              <li><strong>October:</strong> autumn feed. Aerate compacted areas with a garden fork.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="sec-h rv">
+        <div class="tag">When to ask</div>
+        <h2 class="st">DIY, or get the <em>professionals</em> in?</h2>
+        <p class="sd">A rough guide. We'd always rather give you honest advice than sell you work you don't need. If in doubt, send us a photo.</p>
+      </div>
+      <div class="cg-diy-grid rv rv-d1">
+        <div class="cg-diy-col cg-diy-yes">
+          <h3>You can probably do it yourself</h3>
+          <ul>
+            <li>Light formative trim of a young, easy-to-reach hedge</li>
+            <li>Mulching, hand-weeding, watering</li>
+            <li>Small-scale planting (5 to 10 bare-root plants)</li>
+            <li>Lawn mowing, basic feeding, scarifying with a rake</li>
+            <li>Walking the boundary to spot and report any pest or disease signs</li>
+          </ul>
+        </div>
+        <div class="cg-diy-col cg-diy-no">
+          <h3>Worth bringing us in</h3>
+          <ul>
+            <li>Anything over 2m tall — height and ladders multiply risk fast</li>
+            <li>Sculpted, formal or topiary cuts</li>
+            <li>Renovation of an old, overgrown or one-sided hedge</li>
+            <li>Planting more than 20 metres, or container-grown specimens over 1.8m</li>
+            <li>Diagnosing disease — box blight, honey fungus, Phytophthora</li>
+            <li>Removal, especially where root systems or barriers are involved</li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:48px" class="rv rv-d2">
+        <a href="#" class="btn btn-g" onclick="goTo('contact');return false">Ask Mike <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<main class="page" id="page-contact">
+  <section class="inner-hero" style="min-height:50vh">
+    <div class="inner-hero-bg"><img src="/img/hero-contact.jpg" alt=""></div>
+    <div class="inner-hero-veil"></div>
+    <div class="grain"></div>
+    <div class="inner-hero-frame"></div>
+    <div class="inner-hero-content">
+      <div class="inner-hero-card">
+        <div class="tag rv">Get in touch</div>
+        <h1 class="st rv rv-d1">Let's discuss your <em>project</em></h1>
+        <p class="sd rv rv-d2">Free, no-obligation consultation. Tell us about your site, and we'll come out for a look.</p>
+      </div>
     </div>
   </section>
 
@@ -1765,6 +2151,7 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
         <h5>Company</h5>
         <a href="#" onclick="goTo('about');return false">About</a>
         <a href="#" onclick="goTo('gallery');return false">Gallery</a>
+        <a href="#" onclick="goTo('care');return false">Care Guide</a>
         <a href="#" onclick="goTo('contact');return false">Contact</a>
         <a href="https://www.facebook.com/progardencare/" target="_blank" rel="noopener">Pro Garden Care</a>
       </div>
@@ -1794,6 +2181,10 @@ var nimgProfiles={
 };
 function nimg(src,profile){
   var p=nimgProfiles[profile];if(!p||!src)return{srcset:'',sizes:''};
+  // Netlify Image CDN only works on Netlify-served deploys. On localhost/file:
+  // serve from the raw /img/ asset via src; leave srcset empty so the browser uses it.
+  var h=location.hostname;
+  if(h==='localhost'||h==='127.0.0.1'||h==='')return{srcset:'',sizes:''};
   var ss=p.ws.map(function(w){return '/.netlify/images?url='+src+'&w='+w+' '+w+'w'}).join(', ');
   return{srcset:ss,sizes:p.sz};
 }
@@ -1894,11 +2285,147 @@ document.addEventListener('keydown',function(e){if(!document.getElementById('lb'
 // Enter/Space activates kit cards (role=button)
 document.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;var t=e.target;if(!t.matches||!t.matches('.kit-feature,.kit-thumb'))return;e.preventDefault();t.click()});
 
+// Care Guide calendar data
+var careData = {
+  jan:{name:'January',season:'Deep winter',blurb:'The garden sleeps. Plant bare-root stock while dormant, plan the year ahead, and use any dry day to check structures and tools.',tasks:[
+    {cat:'planting',diy:false,t:'Plant bare-root hedging',p:'Bare-root specimens establish best from now until mid-March. Dig in plenty of well-rotted compost. Firm in well, water in even if cold.'},
+    {cat:'pruning',diy:true,t:'Prune deciduous hedges',p:'Beech, hornbeam and hawthorn can have their main shape cut now while dormant. Easier to see structure with no leaves.'},
+    {cat:'health',diy:true,t:'Check for storm damage',p:'Walk all boundaries. Loose stakes, snapped branches, broken wires. Fix while access is easy.'},
+    {cat:'planning',diy:true,t:'Plan the spring planting list',p:'Photograph gaps you want filled. Order bare-root stock now for delivery before March.'}
+  ]},
+  feb:{name:'February',season:'Late winter',blurb:'Last chance for dormant-season work before sap rises. Sharpen tools, finish bare-root planting, prepare beds.',tasks:[
+    {cat:'planting',diy:false,t:'Last of the bare-root window',p:'Bare-root planting becomes risky once buds break. Finish by end of month for best results.'},
+    {cat:'pruning',diy:true,t:'Final dormant prune of deciduous hedges',p:'Wisteria, winter jasmine and late-flowering clematis can all be pruned now.'},
+    {cat:'feeding',diy:true,t:'Apply a slow-release feed',p:'Blood, fish and bone scattered around the base of hedges. Rain will wash it in over the coming weeks.'},
+    {cat:'planning',diy:true,t:'Service the mower',p:'Get it back from service now, not in April when waits stretch to weeks.'}
+  ]},
+  mar:{name:'March',season:'Early spring',blurb:'The garden wakes up. Mulch everything, finish planting, and get ahead of weeds before they get ahead of you.',tasks:[
+    {cat:'mulching',diy:true,t:'Annual mulch — the single best job of the year',p:'50mm of well-rotted compost or bark around hedges, shrubs and beds. Locks in winter moisture, suppresses weeds, feeds the soil.'},
+    {cat:'planting',diy:false,t:'Plant container-grown stock',p:'Container plants can go in now and through to October, but spring planting roots in fastest.'},
+    {cat:'feeding',diy:true,t:'First lawn feed of the year',p:'Apply a nitrogen-led spring feed once temperatures stay reliably above 8°C.'},
+    {cat:'pruning',diy:true,t:'Prune late-summer flowering shrubs',p:'Buddleia, lavatera, hardy fuchsia. Cut back hard now for vigorous new growth.'}
+  ]},
+  apr:{name:'April',season:'Mid spring',blurb:'Growth accelerates. Establish good watering habits early, watch for late frosts, and stay on top of weeds.',tasks:[
+    {cat:'watering',diy:true,t:'Water any planting from the last 18 months',p:'Newly planted hedging needs deep, twice-weekly soaks now. Don’t wait until plants look dry.'},
+    {cat:'pruning',diy:true,t:'Prune early-spring flowering shrubs after flowering',p:'Forsythia, kerria, ribes. Cut flowered shoots back to a strong bud.'},
+    {cat:'planting',diy:true,t:'Sow grass seed for bare lawn patches',p:'Soil is warming, rain still likely. Best window of the year for new lawn.'},
+    {cat:'health',diy:true,t:'Watch for late frosts',p:'Fleece any tender new growth on overnight forecasts below 2°C.'}
+  ]},
+  may:{name:'May',season:'Late spring',blurb:'Peak growth month. First trim of formal hedges, scarify the lawn, and water established planting deeply rather than often.',tasks:[
+    {cat:'pruning',diy:false,t:'First trim of formal hedges',p:'Yew, box and privet can take their first cut now. Get the shape right at this cut — it dictates the rest of the year.'},
+    {cat:'feeding',diy:true,t:'Liquid feed pots and tubs weekly',p:'Container hedging and topiary need feeding through the growing season. Tomato food works fine.'},
+    {cat:'watering',diy:true,t:'Deep weekly water for first-year planting',p:'20–30 litres per plant once a week beats 5 litres daily. Drives roots down.'},
+    {cat:'health',diy:true,t:'Scarify and weed lawns',p:'Rake out moss and thatch. Top-dress thin patches with sandy soil and over-sow.'}
+  ]},
+  jun:{name:'June',season:'Early summer',blurb:'The garden is at its peak. Maintenance pruning, vigilant watering for new planting, and enjoying the results.',tasks:[
+    {cat:'pruning',diy:true,t:'Light maintenance trim of formal hedges',p:'Yew and box can take a light tidy now to keep edges crisp. Avoid hard cuts in hot weather.'},
+    {cat:'watering',diy:true,t:'Water any planting from the last two years',p:'June reveals whether first-year plants have rooted properly. Deep soak twice a week if no rain.'},
+    {cat:'health',diy:true,t:'Inspect for pests',p:'Aphids on roses, box caterpillar webbing, vine weevil notches on leaves. Catch early, treat early.'},
+    {cat:'mulching',diy:true,t:'Top up mulch on bare patches',p:'If spring mulch has thinned or weeds have come through, top up to 50mm wherever bare soil is showing.'}
+  ]},
+  jul:{name:'July',season:'High summer',blurb:'Heat and drought management is the main story. Water deeply, mow higher, and avoid hard pruning.',tasks:[
+    {cat:'watering',diy:true,t:'Water deeply in early morning, not evening',p:'Evening watering encourages slugs and fungal disease. Early morning gives plants the day to absorb.'},
+    {cat:'health',diy:true,t:'Raise the mower height',p:'Long grass shades its own roots and holds moisture. Cut to 50mm minimum in dry weeks.'},
+    {cat:'pruning',diy:true,t:'Deadhead repeat-flowering shrubs',p:'Roses, hydrangea paniculata, buddleia. Encourages a second flush.'},
+    {cat:'planning',diy:true,t:'Note any gaps for autumn planting',p:'Mid-summer reveals where hedges are thin or struggling. Photograph for the autumn order.'}
+  ]},
+  aug:{name:'August',season:'Late summer',blurb:'The main hedging cut. Beech, hornbeam and mixed natives all get their annual trim now and hold tidy through to spring.',tasks:[
+    {cat:'pruning',diy:false,t:'Annual trim of deciduous hedges',p:'Beech, hornbeam, mixed natives. One annual cut now sets shape until next August. Slope sides (top narrower than bottom) for even light.'},
+    {cat:'pruning',diy:false,t:'Second trim of formal evergreens',p:'Yew, box and privet take their final cut of the year. Slow growth from here gives clean lines through autumn.'},
+    {cat:'watering',diy:true,t:'Continue deep watering of new planting',p:'Don’t back off. August dry spells are the most common cause of first-year hedge failure.'},
+    {cat:'planning',diy:true,t:'Order bare-root for winter',p:'Reputable nurseries take orders now for November and December lifting. Best stock goes early.'}
+  ]},
+  sep:{name:'September',season:'Early autumn',blurb:'Soils are warm, rain returns. The best planting month for container stock. Lawn renovation season.',tasks:[
+    {cat:'planting',diy:false,t:'Plant container-grown hedging',p:'September planting roots in fast with warm soil and reliable rain. Best month for evergreens.'},
+    {cat:'health',diy:true,t:'Lawn renovation',p:'Scarify, aerate, top-dress and over-sow. Cooler, wetter weather suits germination.'},
+    {cat:'feeding',diy:true,t:'Autumn lawn feed',p:'Low-nitrogen, high-potassium autumn feed strengthens roots for winter. Not the same as spring feed.'},
+    {cat:'pruning',diy:true,t:'Last trim for conifers if needed',p:'Cypress and thuja can take a final light trim. Don’t cut into old wood, it won’t regrow.'}
+  ]},
+  oct:{name:'October',season:'Mid autumn',blurb:'Planting season opens for bare-root. Tidy, clear, and prepare ground for winter work.',tasks:[
+    {cat:'planting',diy:false,t:'Bare-root planting season opens',p:'Bare-root stock starts lifting from mid-month. Prepare planting trenches now — dig deeply, work in compost.'},
+    {cat:'health',diy:true,t:'Clear fallen leaves from lawns',p:'Wet leaves suffocate grass. Rake weekly. Leaf mould bins turn them into next year’s mulch.'},
+    {cat:'feeding',diy:true,t:'Final mulch top-up before winter',p:'A thin autumn mulch protects soil structure and feeds the worms over winter.'},
+    {cat:'planning',diy:true,t:'Photograph the garden now',p:'Autumn colour and bare structure both visible. Best month to assess what worked and what needs changing.'}
+  ]},
+  nov:{name:'November',season:'Late autumn',blurb:'Main planting season for bare-root and root-balled stock. Establish hedges before the ground freezes.',tasks:[
+    {cat:'planting',diy:false,t:'Peak bare-root planting month',p:'Soil still workable, rain reliable, plants dormant. The ideal window for hedge establishment.'},
+    {cat:'pruning',diy:true,t:'Prune deciduous trees once leaves drop',p:'Fruit trees and ornamental trees. Structural pruning is easier with no leaves.'},
+    {cat:'health',diy:true,t:'Stake and tie newly planted hedging',p:'Wind rock is the number one cause of new-plant failure. Secure stakes, check ties aren’t cutting in.'},
+    {cat:'planning',diy:true,t:'Note frost-damaged areas',p:'First frosts reveal cold pockets and exposed positions. Plan tougher species for those spots.'}
+  ]},
+  dec:{name:'December',season:'Deep winter',blurb:'Quiet month. Finish planting if soil isn’t frozen, service tools, and plan the new year over the fire.',tasks:[
+    {cat:'planting',diy:false,t:'Continue bare-root planting if soil workable',p:'Avoid planting into frozen or waterlogged ground. Heel in deliveries until conditions improve.'},
+    {cat:'pruning',diy:true,t:'Prune wisteria summer growth',p:'Cut back summer shoots to 2–3 buds for next year’s flowers.'},
+    {cat:'health',diy:true,t:'Clean and oil tools',p:'Sharpen shears, oil moving parts, clean wooden handles with linseed. Saves you time in March.'},
+    {cat:'planning',diy:true,t:'Plan next year’s mulch order',p:'Bulk compost prices rise in spring. Order now for March delivery.'}
+  ]}
+};
+var careCatLabels = {planting:'Planting',pruning:'Pruning',watering:'Watering',feeding:'Feeding & soil',mulching:'Mulching',health:'Plant health',planning:'Planning'};
+var careSeasonMap = {jan:'winter',feb:'winter',mar:'spring',apr:'spring',may:'spring',jun:'summer',jul:'summer',aug:'summer',sep:'autumn',oct:'autumn',nov:'autumn',dec:'winter'};
+var careNumMap = {jan:'01',feb:'02',mar:'03',apr:'04',may:'05',jun:'06',jul:'07',aug:'08',sep:'09',oct:'10',nov:'11',dec:'12'};
+var careMotifMap = {winter:'#m-winter',spring:'#m-spring',summer:'#m-summer',autumn:'#m-autumn'};
+var careMonthKeys = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+var careCurrentMonth = 'jan';
+var careCurrentCat = 'all';
+
+function renderCare(){
+  var data = careData[careCurrentMonth]; if(!data) return;
+  var season = careSeasonMap[careCurrentMonth];
+  var panel = document.getElementById('cgPanel');
+  panel.setAttribute('data-season', season);
+  document.getElementById('cgPanelNum').textContent = careNumMap[careCurrentMonth];
+  document.getElementById('cgPanelMotif').setAttribute('href', careMotifMap[season]);
+  document.getElementById('cgSeason').textContent = data.season;
+  document.getElementById('cgMonthName').textContent = data.name;
+  document.getElementById('cgMonthBlurb').textContent = data.blurb;
+  var nowMonth = careMonthKeys[new Date().getMonth()];
+  document.getElementById('cgNowPill').style.display = (careCurrentMonth === nowMonth) ? 'inline-block' : 'none';
+  var host = document.getElementById('cgTasks');
+  var tasks = data.tasks.filter(function(t){return careCurrentCat==='all' || t.cat===careCurrentCat;});
+  if(tasks.length===0){
+    host.innerHTML = '<div class="cg-empty">No tasks in this category for '+data.name+'. Try another month or filter.</div>';
+    return;
+  }
+  host.innerHTML = tasks.map(function(t){
+    var badge = t.diy ? '<span class="cg-task-badge cg-task-diy">DIY</span>' : '<span class="cg-task-badge cg-task-pro">Get help</span>';
+    return '<article class="cg-task">'+badge+
+      '<div class="cg-task-icon"><svg class="cg-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-'+t.cat+'"/></svg></div>'+
+      '<div class="cg-task-cat">'+careCatLabels[t.cat]+'</div>'+
+      '<h4>'+t.t+'</h4>'+
+      '<p>'+t.p+'</p>'+
+      '</article>';
+  }).join('');
+}
+
+function initCare(){
+  var nowMonth = careMonthKeys[new Date().getMonth()];
+  careCurrentMonth = nowMonth;
+  document.querySelectorAll('.cg-month').forEach(function(b){
+    b.classList.toggle('current', b.dataset.month===nowMonth);
+    b.classList.toggle('active', b.dataset.month===nowMonth);
+    b.addEventListener('click', function(){
+      careCurrentMonth = b.dataset.month;
+      document.querySelectorAll('.cg-month').forEach(function(o){o.classList.toggle('active', o===b);});
+      renderCare();
+    });
+  });
+  document.querySelectorAll('.cg-filter').forEach(function(b){
+    b.addEventListener('click', function(){
+      careCurrentCat = b.dataset.cat;
+      document.querySelectorAll('.cg-filter').forEach(function(o){o.classList.toggle('active', o===b);});
+      renderCare();
+    });
+  });
+  renderCare();
+}
+initCare();
+
 var pageMeta={
   home:{t:'Hertfordshire Hedging · Supply · Plant · Maintain',d:'Specialists in supplying, planting and maintaining the finest quality hedging across Hertfordshire and the Home Counties.'},
   about:{t:'About · Hertfordshire Hedging',d:'Established 2013 in Harpenden. Founded by Michael Cumming, Landscape Architect, bringing twenty years of horticultural expertise to every project.'},
   services:{t:'Services · Hertfordshire Hedging',d:'Supply, planting and maintenance of semi-mature and mature hedging for domestic and commercial clients in Hertfordshire.'},
   gallery:{t:'Gallery · Hertfordshire Hedging',d:'Recent installations, nursery specimens and completed projects across Hertfordshire and the Home Counties.'},
+  care:{t:'Care Guide · Hertfordshire Hedging',d:'Month-by-month guidance for hedging, lawns, trees and gardens. Pruning, watering, feeding, planting — what to do, when to do it, and when to bring in the experts.'},
   contact:{t:'Contact · Hertfordshire Hedging',d:'Book a free consultation. Call 07815 802 817, email mike@hertshedging.com, or send a message via the contact form.'}
 };
 
