@@ -830,6 +830,59 @@ body.on-contact .float-call{opacity:0!important;transform:translateY(20px)!impor
 .cg-diy-col li{padding-left:24px;position:relative;font-size:.95rem;color:var(--text);line-height:1.55;font-weight:300}
 .cg-diy-col li::before{content:'';position:absolute;left:0;top:.65em;width:12px;height:1px;background:currentColor;opacity:.4}
 
+/* ═══════════════ IRRIGATION DEEP-DIVE ═══════════════ */
+.sec-irrigation{background:linear-gradient(180deg,var(--forest-deep) 0%,var(--forest-night) 100%);color:var(--cream);position:relative;overflow:hidden;padding:120px 0}
+@media(max-width:768px){.sec-irrigation{padding:80px 0}}
+.sec-irrigation .grain{opacity:.08}
+.sec-irrigation .sec-h{text-align:center;max-width:780px;margin:0 auto 0}
+.sec-irrigation .sec-h .tag{justify-content:center;color:var(--gold-light)}
+.sec-irrigation .sec-h h2{color:#fff}
+.sec-irrigation .sec-h h2 em{color:var(--gold-light)}
+.sec-irrigation .sec-h .sd{color:rgba(237,227,200,.78);margin:0 auto}
+
+.irr-intro{max-width:820px;margin:48px auto 88px;display:flex;flex-direction:column;gap:18px;color:rgba(237,227,200,.86);font-weight:300;font-size:1.05rem;line-height:1.85}
+.irr-intro p{margin:0}
+
+.irr-types-h,.irr-process-h{text-align:center;margin-bottom:48px}
+.irr-types-h .tag,.irr-process-h .tag{justify-content:center;color:var(--gold-light)}
+.irr-types-h h3,.irr-process-h h3{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.4rem);color:#fff;font-weight:500;line-height:1.1;margin-bottom:14px;letter-spacing:-.02em}
+.irr-process-h p{color:rgba(237,227,200,.7);max-width:560px;margin:0 auto;font-size:1rem;line-height:1.7;font-weight:300}
+
+.irr-types{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-bottom:96px}
+.irr-type{background:rgba(255,255,255,.035);border:1px solid rgba(196,161,79,.18);border-radius:var(--rxl);padding:32px 28px;display:flex;flex-direction:column;gap:12px;transition:all .4s var(--ease)}
+.irr-type:hover{background:rgba(255,255,255,.06);border-color:rgba(196,161,79,.4);transform:translateY(-4px);box-shadow:0 30px 60px rgba(0,0,0,.32)}
+.irr-type-illus{width:76px;height:76px;color:var(--gold-light);margin-bottom:4px}
+.irr-type-illus svg{width:100%;height:100%}
+.irr-type-tag{font-size:.58rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-light)}
+.irr-type h4{font-family:var(--serif);font-size:1.4rem;color:#fff;font-weight:500;line-height:1.2;letter-spacing:-.012em}
+.irr-type p{font-size:.92rem;color:rgba(237,227,200,.78);font-weight:300;line-height:1.65;flex:1}
+.irr-type-meta{padding-top:14px;border-top:1px solid rgba(196,161,79,.18);font-size:.78rem;color:rgba(237,227,200,.6);font-weight:300;line-height:1.55}
+.irr-type-meta strong{color:var(--gold-light);font-weight:600}
+
+.irr-drainage{display:grid;grid-template-columns:140px 1fr;gap:40px;padding:42px 48px;background:rgba(196,161,79,.06);border:1px solid rgba(196,161,79,.22);border-radius:var(--rxl);margin-bottom:96px;align-items:center}
+@media(max-width:700px){.irr-drainage{grid-template-columns:1fr;gap:20px;padding:28px;text-align:center;justify-items:center}}
+.irr-drainage-illus{width:120px;height:120px;color:var(--gold-light)}
+.irr-drainage-illus svg{width:100%;height:100%}
+.irr-drainage-body h3{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,1.9rem);color:#fff;font-weight:500;margin-bottom:12px;letter-spacing:-.014em;line-height:1.15}
+.irr-drainage-body p{font-size:.98rem;color:rgba(237,227,200,.82);font-weight:300;line-height:1.75}
+.irr-drainage-body .irr-type-tag{margin-bottom:10px;display:block}
+
+.irr-process{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:96px}
+@media(max-width:860px){.irr-process{grid-template-columns:repeat(2,1fr);gap:36px}}
+@media(max-width:500px){.irr-process{grid-template-columns:1fr;gap:32px}}
+.irr-step{position:relative;padding-top:56px}
+.irr-step-n{position:absolute;top:0;left:0;font-family:var(--serif);font-size:2.6rem;font-weight:300;color:var(--gold);line-height:1;letter-spacing:-.04em}
+.irr-step h4{font-family:var(--serif);font-size:1.2rem;color:#fff;font-weight:500;margin-bottom:10px;letter-spacing:-.012em;line-height:1.2}
+.irr-step p{font-size:.92rem;color:rgba(237,227,200,.72);font-weight:300;line-height:1.65}
+
+.irr-cta{text-align:center;padding:56px 32px 0;border-top:1px solid rgba(196,161,79,.2)}
+.irr-cta h3{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.3rem);color:#fff;font-weight:500;margin-bottom:14px;letter-spacing:-.018em;line-height:1.15}
+.irr-cta p{font-size:1.02rem;color:rgba(237,227,200,.78);font-weight:300;line-height:1.7;max-width:560px;margin:0 auto 28px}
+
+.cg-cross-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.85rem;font-weight:500;color:var(--gold-deep);letter-spacing:.2px;border-bottom:1px solid rgba(196,161,79,.4);padding-bottom:2px;transition:color .25s var(--ease),border-color .25s var(--ease)}
+.cg-cross-link:hover{color:var(--forest-deep);border-color:var(--forest-deep)}
+.cg-cross-link svg{width:14px;height:14px}
+
 </style>
 </head>
 <body>
@@ -1084,6 +1137,67 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
     <path d="M50 15C58 18 62 26 60 36C56 50 42 56 28 56"/>
     <path d="M40 28C44 24 48 22 52 22"/>
     <path d="M35 38C39 34 44 32 49 32"/>
+  </symbol>
+  <!-- Irrigation illustrations: 80x80, line-art -->
+  <symbol id="irr-drip" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 26H74"/>
+    <circle cx="20" cy="26" r="1.6" fill="currentColor" stroke="none"/>
+    <circle cx="36" cy="26" r="1.6" fill="currentColor" stroke="none"/>
+    <circle cx="52" cy="26" r="1.6" fill="currentColor" stroke="none"/>
+    <circle cx="68" cy="26" r="1.6" fill="currentColor" stroke="none"/>
+    <path d="M20 32V40"/>
+    <path d="M36 32V40"/>
+    <path d="M52 32V40"/>
+    <path d="M68 32V40"/>
+    <path d="M4 62C14 60 28 60 40 62C52 64 66 64 76 62"/>
+    <path d="M20 62V54M17 56L20 53L23 56"/>
+    <path d="M36 62V54M33 56L36 53L39 56"/>
+    <path d="M52 62V54M49 56L52 53L55 56"/>
+    <path d="M68 62V54M65 56L68 53L71 56"/>
+  </symbol>
+  <symbol id="irr-sprinkler" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 64H76"/>
+    <path d="M40 64V42"/>
+    <circle cx="40" cy="40" r="3"/>
+    <path d="M14 32C22 18 58 18 66 32"/>
+    <path d="M22 32C28 22 52 22 58 32"/>
+    <path d="M30 34C34 28 46 28 50 34"/>
+    <circle cx="14" cy="32" r="1.2" fill="currentColor" stroke="none"/>
+    <circle cx="66" cy="32" r="1.2" fill="currentColor" stroke="none"/>
+    <circle cx="22" cy="32" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="58" cy="32" r="1" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="irr-soaker" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 34C10 26 22 26 22 34C22 42 34 42 34 34C34 26 46 26 46 34C46 42 58 42 58 34C58 26 70 26 70 34"/>
+    <path d="M16 42V46"/>
+    <path d="M28 42V46"/>
+    <path d="M40 42V46"/>
+    <path d="M52 42V46"/>
+    <path d="M64 42V46"/>
+    <path d="M4 62C16 60 30 60 40 62C50 64 64 64 76 62"/>
+  </symbol>
+  <symbol id="irr-timer" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="26" y="16" width="22" height="10" rx="1"/>
+    <path d="M37 16V10"/>
+    <path d="M32 10H42"/>
+    <path d="M37 26V34H44"/>
+    <rect x="42" y="36" width="22" height="22" rx="2.5"/>
+    <circle cx="53" cy="47" r="6.5"/>
+    <path d="M53 42V47L57 50"/>
+    <path d="M53 58V64C53 68 44 70 34 70"/>
+    <path d="M30 70H22"/>
+  </symbol>
+  <symbol id="irr-drainage" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 20H74"/>
+    <path d="M6 30H74"/>
+    <path d="M6 42H74"/>
+    <path d="M6 56C16 54 28 58 40 56C52 54 64 58 74 56"/>
+    <path d="M22 8V32M22 32L18 28M22 32L26 28"/>
+    <path d="M40 8V32M40 32L36 28M40 32L44 28"/>
+    <path d="M58 8V32M58 32L54 28M58 32L62 28"/>
+    <path d="M6 68H74"/>
+    <path d="M70 68L66 66"/>
+    <path d="M70 68L66 70"/>
   </symbol>
 </svg>
 
@@ -1963,6 +2077,7 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
               <li><strong>Established hedging:</strong> only during prolonged drought, more than three weeks without meaningful rain.</li>
               <li><strong>Lawns:</strong> 25mm of water once a week is far better than 5mm every day.</li>
             </ul>
+            <a href="#irrigation" class="cg-cross-link" onclick="document.getElementById('irrigation').scrollIntoView({behavior:'smooth'});return false">Read the full irrigation guide <svg viewBox="0 0 14 14" fill="none"><path d="M7 3v8M3.5 7.5L7 11l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </article>
 
@@ -2026,6 +2141,102 @@ m105 -37 c32 -32 10 -94 -34 -94 -20 0 -50 35 -50 59 0 41 55 64 84 35z"/>
             </ul>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="irrigation" class="sec sec-irrigation">
+    <div class="grain"></div>
+    <div class="container">
+      <div class="sec-h rv">
+        <div class="tag">A closer look</div>
+        <h2 class="st">Irrigation, <em>considered</em></h2>
+        <p class="sd">Take the strain out of watering. Done properly, an irrigation set-up is invisible, automatic, and the difference between a garden that survives summer and one that flourishes.</p>
+      </div>
+
+      <div class="irr-intro rv rv-d1">
+        <p>A reliable irrigation system is the single biggest peace-of-mind investment a garden owner can make. No more dragging hoses across the lawn at dusk. No more wondering whether the new hedge made it through your week away. No more guesswork about how much is enough. It costs less than most people think to do well, and a lot less than replacing dead plants does.</p>
+        <p>From a single tap timer feeding a couple of pots, to a fully zoned drip system across an estate boundary, we plan, install and maintain at any scale and on any budget. The right setup matches the planting, the soil, the water source and how much you want to think about it. We talk all of that through before any work begins.</p>
+      </div>
+
+      <div class="irr-types-h rv rv-d2">
+        <div class="tag">The main types</div>
+        <h3>Pick the right method for the job</h3>
+      </div>
+
+      <div class="irr-types">
+        <article class="irr-type rv">
+          <div class="irr-type-illus"><svg viewBox="0 0 80 80"><use href="#irr-drip"/></svg></div>
+          <div class="irr-type-tag">Sub-surface / drip</div>
+          <h4>Drip irrigation</h4>
+          <p>Slow, targeted, surgical. A pressure-regulated pipe runs alongside the planting and emits water directly into the root zone. Uses 30 to 50 per cent less water than overhead methods, and almost nothing is lost to evaporation. The best long-term answer for hedges.</p>
+          <div class="irr-type-meta"><strong>Best for:</strong> hedges, borders, raised beds, new planting</div>
+        </article>
+        <article class="irr-type rv rv-d1">
+          <div class="irr-type-illus"><svg viewBox="0 0 80 80"><use href="#irr-sprinkler"/></svg></div>
+          <div class="irr-type-tag">Overhead</div>
+          <h4>Sprinklers</h4>
+          <p>The classic. Pop-up or fixed sprinklers spray a wide arc — perfect for lawns and broad open areas where coverage matters more than precision. Much better distribution than a hose, far less effort. Pair with a rain sensor and a smart controller for serious water savings.</p>
+          <div class="irr-type-meta"><strong>Best for:</strong> lawns, open areas, broad planted zones</div>
+        </article>
+        <article class="irr-type rv rv-d2">
+          <div class="irr-type-illus"><svg viewBox="0 0 80 80"><use href="#irr-soaker"/></svg></div>
+          <div class="irr-type-tag">Surface</div>
+          <h4>Soaker hoses</h4>
+          <p>The simplest retrofit. Porous rubber hose that "weeps" water along its full length. Snake it through an existing bed, connect to a tap timer, walk away. Inexpensive, no electricity needed, no major install. A genuinely sensible entry-level option for smaller gardens.</p>
+          <div class="irr-type-meta"><strong>Best for:</strong> existing beds, smaller gardens, modest budgets</div>
+        </article>
+        <article class="irr-type rv rv-d3">
+          <div class="irr-type-illus"><svg viewBox="0 0 80 80"><use href="#irr-timer"/></svg></div>
+          <div class="irr-type-tag">Automation</div>
+          <h4>Tap timers &amp; smart controllers</h4>
+          <p>The brain. A battery tap timer turns any of the above unattended for weeks at a time. Smart controllers with rain sensors and live weather feeds skip a cycle when rain is forecast. We work with Hunter, Rain Bird and Hozelock kit depending on what the job calls for.</p>
+          <div class="irr-type-meta"><strong>Best for:</strong> any of the above — turns manual into automatic</div>
+        </article>
+      </div>
+
+      <div class="irr-drainage rv">
+        <div class="irr-drainage-illus"><svg viewBox="0 0 80 80"><use href="#irr-drainage"/></svg></div>
+        <div class="irr-drainage-body">
+          <div class="irr-type-tag">Often forgotten</div>
+          <h3>Drainage matters as much as watering</h3>
+          <p>Plants drown as easily as they dry out. A garden that puddles after rain, a lawn that stays soggy into spring, or a hedge with yellowing lower leaves — these are usually drainage problems, not watering ones. We assess drainage as part of every irrigation plan, and design French drains, soakaways or simple soil amendments where they're needed. No point watering soil that water can't leave.</p>
+        </div>
+      </div>
+
+      <div class="irr-process-h rv">
+        <div class="tag">How we work</div>
+        <h3>Advise. Plan. Install. Maintain.</h3>
+        <p>Whatever the budget or scale, the four-step process is the same. We take it seriously even on the smallest job.</p>
+      </div>
+
+      <div class="irr-process">
+        <div class="irr-step rv">
+          <div class="irr-step-n">01</div>
+          <h4>Site visit &amp; advice</h4>
+          <p>Walk the garden together. Look at what's struggling, what needs setting up, where the water comes from, what the budget allows. Free, no obligation, honest answers either way.</p>
+        </div>
+        <div class="irr-step rv rv-d1">
+          <div class="irr-step-n">02</div>
+          <h4>Plan &amp; specify</h4>
+          <p>Zone the garden by water need, choose a method per zone, specify pipework, timers and controllers, and write the whole thing into a clear quote you can hold us to.</p>
+        </div>
+        <div class="irr-step rv rv-d2">
+          <div class="irr-step-n">03</div>
+          <h4>Install</h4>
+          <p>Clean, tidy installation by a qualified team. Pipework concealed wherever possible. The system tested, commissioned and walked through with you so you know how to drive it.</p>
+        </div>
+        <div class="irr-step rv rv-d3">
+          <div class="irr-step-n">04</div>
+          <h4>Maintain</h4>
+          <p>Spring start-up, autumn winterisation, the occasional repair callout. We hold spare parts for everything we install so a fix takes hours rather than weeks.</p>
+        </div>
+      </div>
+
+      <div class="irr-cta rv">
+        <h3>Tired of dragging the hose around?</h3>
+        <p>Let's talk through what would work for your garden, your budget and your week-to-week reality. No pressure, no upsell — just a sensible plan you'd actually use.</p>
+        <a href="#" class="btn btn-g" onclick="goTo('contact');return false">Book an irrigation visit <svg viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </section>
