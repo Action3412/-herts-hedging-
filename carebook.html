@@ -774,12 +774,13 @@ function renderQuiz(){
   });
   document.getElementById('cbQuizExplain').classList.remove('show');
   document.getElementById('cbQuizPrev').disabled = quizIdx === 0;
-  document.getElementById('cbQuizNext').disabled = quizIdx === quizData.length - 1;
-  document.getElementById('cbQuizNext').textContent = quizIdx === quizData.length - 1 ? 'Done' : 'Next ›';
+  document.getElementById('cbQuizNext').disabled = false;
+  document.getElementById('cbQuizNext').textContent = quizIdx === quizData.length - 1 ? 'Done ›' : 'Next ›';
 }
 document.getElementById('cbQuizPrev').addEventListener('click', function(){ quizIdx = Math.max(0, quizIdx - 1); renderQuiz(); });
 document.getElementById('cbQuizNext').addEventListener('click', function(){
   if (quizIdx < quizData.length - 1) { quizIdx++; renderQuiz(); }
+  else { cbGo(current + 1); }
 });
 renderQuiz();
 
