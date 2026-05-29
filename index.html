@@ -412,7 +412,7 @@ header:not(.scrolled) .mt:hover{background:rgba(255,255,255,.08)}
 
 /* ═══════════════ SPECIMEN COLLECTION ═══════════════ */
 .specimen-sec{background:var(--bone);position:relative;overflow:hidden}
-.specimen-scroll{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 44px 24px;margin:48px -44px 0;scrollbar-width:none}
+.specimen-scroll{display:flex;gap:24px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding:8px 44px 24px;margin:48px -44px 0;scrollbar-width:none}
 .specimen-scroll::-webkit-scrollbar{display:none}
 @media(max-width:768px){.specimen-scroll{padding:8px 24px 24px;margin:48px -24px 0;gap:16px}}
 .spec{flex:0 0 320px;scroll-snap-align:start;background:var(--white);border-radius:var(--rl);overflow:hidden;border:1px solid rgba(15,36,24,.06);transition:all .55s var(--ease);position:relative}
@@ -3207,6 +3207,20 @@ function toggleMob(){
       history.replaceState(null,'',location.pathname);
     }
   }catch(e){}
+})();
+// Forward predominantly-vertical wheel input over the Specimen Collection
+// back to the page. Without this, scroll-snap on the horizontal carousel
+// captures wheel events and stalls vertical scrolling when the cursor lands
+// on a card.
+(function(){
+  document.querySelectorAll('.specimen-scroll').forEach(function(el){
+    el.addEventListener('wheel',function(e){
+      if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
+        e.preventDefault();
+        window.scrollBy({top:e.deltaY,behavior:'auto'});
+      }
+    },{passive:false});
+  });
 })();
 function goToAnchor(p,anchor){
   goTo(p);
