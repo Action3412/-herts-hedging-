@@ -412,7 +412,7 @@ header:not(.scrolled) .mt:hover{background:rgba(255,255,255,.08)}
 
 /* ═══════════════ SPECIMEN COLLECTION ═══════════════ */
 .specimen-sec{background:var(--bone);position:relative;overflow:hidden}
-.specimen-scroll{display:flex;gap:24px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding:8px 44px 24px;margin:48px -44px 0;scrollbar-width:none}
+.specimen-scroll{display:flex;gap:24px;overflow-x:auto;padding:8px 44px 24px;margin:48px -44px 0;scrollbar-width:none}
 .specimen-scroll::-webkit-scrollbar{display:none}
 @media(max-width:768px){.specimen-scroll{padding:8px 24px 24px;margin:48px -24px 0;gap:16px}}
 .spec{flex:0 0 320px;scroll-snap-align:start;background:var(--white);border-radius:var(--rl);overflow:hidden;border:1px solid rgba(15,36,24,.06);transition:all .55s var(--ease);position:relative}
@@ -3209,18 +3209,27 @@ function toggleMob(){
   }catch(e){}
 })();
 // Forward predominantly-vertical wheel input over the Specimen Collection
-// back to the page. Without this, scroll-snap on the horizontal carousel
-// captures wheel events and stalls vertical scrolling when the cursor lands
-// on a card.
+// back to the page. Without this, the horizontal scroll container captures
+// wheel events and stalls vertical scrolling when the cursor is over it.
+// Attached at the document level in the capture phase so the browser doesn't
+// process the wheel for the carousel before we get a chance to redirect.
 (function(){
-  document.querySelectorAll('.specimen-scroll').forEach(function(el){
-    el.addEventListener('wheel',function(e){
-      if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
-        e.preventDefault();
-        window.scrollBy({top:e.deltaY,behavior:'auto'});
+  document.addEventListener('wheel',function(e){
+    var t=e.target;
+    while(t && t.nodeType===1){
+      if(t.classList && t.classList.contains('specimen-scroll')){
+        if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
+          e.preventDefault();
+          var d=e.deltaY;
+          if(e.deltaMode===1) d*=18;          // line units -> px
+          else if(e.deltaMode===2) d*=window.innerHeight; // page units -> px
+          window.scrollBy(0,d);
+        }
+        return;
       }
-    },{passive:false});
-  });
+      t=t.parentNode;
+    }
+  },{passive:false,capture:true});
 })();
 function goToAnchor(p,anchor){
   goTo(p);
